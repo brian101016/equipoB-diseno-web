@@ -11,7 +11,7 @@ El equipo está conformado por 18 integrantes.
 
 ### FrontEnd
 1. Brian Woolfolk (brian101016)
-2. Orlando López (usuario)
+2. Orlando López (SkkyWolf)
 3. Juan Laprada (usuario)
 
 ### BackEnd
