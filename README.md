@@ -13,10 +13,12 @@ El equipo está conformado por 18 integrantes.
 1. Brian Woolfolk (brian101016)
 2. Orlando López (usuario)
 3. Juan Laprada (usuario)
+4. Miguel Castro (Miguel-CaAr)
 
 ### BackEnd
 1. Brian Woolfolk (brian101016)
 2. (nombre) (usuario)
+3. Miguel Castro (Miguel-CaAr)
 
 ## Tecnologías y lenguajes utilizados
 React + TypeScript
