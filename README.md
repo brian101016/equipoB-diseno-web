@@ -15,12 +15,14 @@ El equipo está conformado por 18 integrantes.
 3. Juan Laprada (usuario)
 4. Miguel Castro (Miguel-CaAr)
 5. Pablo Rivera(CompaPulparindo)
+6. Ruben Vasquez (Ruben870)
 
 ### BackEnd
 1. Brian Woolfolk (brian101016)
 2. (nombre) (usuario)
 3. Miguel Castro (Miguel-CaAr)
 4. Pablo Rivera(CompaPulparindo)
+5. Ruben Vasquez (Ruben870)
 
 ## Tecnologías y lenguajes utilizados
 React + TypeScript
