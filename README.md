@@ -16,6 +16,7 @@ El equipo está conformado por 18 integrantes.
 4. Miguel Castro (Miguel-CaAr)
 5. Pablo Rivera(CompaPulparindo)
 6. Ruben Vasquez (Ruben870)
+7. Fausto Figueroa (FaustoF21)
 
 ### BackEnd
 1. Brian Woolfolk (brian101016)
@@ -23,6 +24,7 @@ El equipo está conformado por 18 integrantes.
 3. Miguel Castro (Miguel-CaAr)
 4. Pablo Rivera(CompaPulparindo)
 5. Ruben Vasquez (Ruben870)
+6. Fausto Figueroa (FaustoF21)
 
 ## Tecnologías y lenguajes utilizados
 React + TypeScript
