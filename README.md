@@ -17,6 +17,7 @@ El equipo está conformado por 18 integrantes.
 5. Pablo Rivera(CompaPulparindo)
 6. Ruben Vasquez (Ruben870)
 7. Fausto Figueroa (FaustoF21)
+8. Sebastian Martinez (Wiserquill1345)
 
 ### BackEnd
 1. Brian Woolfolk (brian101016)
