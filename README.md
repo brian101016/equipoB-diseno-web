@@ -21,11 +21,10 @@ El equipo está conformado por 18 integrantes.
 
 ### BackEnd
 1. Brian Woolfolk (brian101016)
-2. (nombre) (usuario)
-3. Miguel Castro (Miguel-CaAr)
-4. Pablo Rivera(CompaPulparindo)
-5. Ruben Vasquez (Ruben870)
-6. Fausto Figueroa (FaustoF21)
+2. Miguel Castro (Miguel-CaAr)
+3. Pablo Rivera(CompaPulparindo)
+4. Ruben Vasquez (Ruben870)
+5. Fausto Figueroa (FaustoF21)
 
 ## Tecnologías y lenguajes utilizados
 React + TypeScript
