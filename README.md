@@ -26,6 +26,7 @@ El equipo está conformado por 18 integrantes.
 6. Ruben Vasquez (Ruben870)
 7. Fausto Figueroa (FaustoF21)
 8. Sebastian Martinez (Wiserquill1345)
+9. Jesus Paz (JesusPaz171)
 
 ### BackEnd
 
