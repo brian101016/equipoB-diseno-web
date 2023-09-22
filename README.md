@@ -1,6 +1,8 @@
 # Equipo B - Diseño Web
 
 Repositorio para trabajar con el proyecto final de Diseño Web. Utilizando React+TS.
+Para crear el proyecto de React, una vez instalado Node.JS, utilizamos:
+`npx create-react-app my-app --template typescript`
 
 ## Descripción
 
