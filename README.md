@@ -17,6 +17,7 @@ El equipo está conformado por 18 integrantes.
 ### UX/UI
 
 1. Brian Woolfolk (brian101016)
+2. Jesus Ruben (Ruben870)
 
 ### FrontEnd
 
