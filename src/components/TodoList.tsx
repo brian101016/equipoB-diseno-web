@@ -16,7 +16,7 @@ export default function TodoList() {
 
       <button
         onClick={() => {
-          setList([...list, value]);
+          list.push(value);
           setValue("");
         }}
       >
@@ -27,9 +27,26 @@ export default function TodoList() {
       {/* {value ? <h1>El valor ingresado es: "{value}"</h1> : <></>} */}
       {/* {value && <h1>El valor ingresado es: "{value}"</h1>} */}
 
-      {list.map((i) => {
-        return <p>{i}</p>;
-      })}
+      <ol>
+        {list.map((val, index) => {
+          return (
+            <li key={index}>
+              <input type="checkbox" />
+
+              <span>{val}</span>
+
+              <button
+                onClick={() => {
+                  list.splice(index, 1);
+                  setList([...list]);
+                }}
+              >
+                Eliminar
+              </button>
+            </li>
+          );
+        })}
+      </ol>
     </>
   );
 }
