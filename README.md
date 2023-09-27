@@ -1,6 +1,8 @@
 # Equipo B - Diseño Web
 
 Repositorio para trabajar con el proyecto final de Diseño Web. Utilizando React+TS.
+Para crear el proyecto de React, una vez instalado Node.JS, utilizamos:
+`npx create-react-app my-app --template typescript`
 
 ## Descripción
 
@@ -15,6 +17,7 @@ El equipo está conformado por 18 integrantes.
 ### UX/UI
 
 1. Brian Woolfolk (brian101016)
+2. Jesus Ruben (Ruben870)
 
 ### FrontEnd
 
