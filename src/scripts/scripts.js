@@ -1,4 +1,4 @@
-import { getNum, meses, random as asd } from "./func";
+import { getNum, meses, random as asd } from "../../func";
 // como ya nos es Default, lo ponemos con { }
 
 console.log("Texto de prueba");
@@ -19,7 +19,7 @@ const arreglo_de_meses_del_ano = [
 ];
 
 const num = 5 + (4 - 32) * 4;
-const asdasd = bfefr;
+// const asdasd = bfefr;
 
 /**
  * DESCRIPCION Esta funcion regresa valores del 0 al 100 al azar
@@ -35,6 +35,6 @@ function random(ini, fin) {
 random("", 3);
 
 getNum();
-meses;
+// meses;
 random();
 asd();
