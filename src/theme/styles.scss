@@ -1,38 +1,71 @@
+// ################################################################################################ MIXINS
+@mixin flex-type {
+  display: flex;
+  justify-items: start;
+  width: 100%;
+  align-items: center;
+}
+
+// ################################################################################################ RESET
+* {
+  color: black;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+// ################################################################################################ INPUTS
+.input,
+.button {
+  font-size: 1.5rem;
+  padding: 0.3em 0.5em;
+  margin: 1rem 1.25rem;
+  border: black solid 3px;
+  border-radius: 0.75rem;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  &.danger {
+    border-color: red;
+  }
+
+  &.success {
+    border-color: yellow;
+  }
+
+  &:hover {
+    border-color: blue;
+  }
+
+  &:active {
+    border-color: green;
+    opacity: 0.5;
+    transform: scale(0.9);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+// ################################################################################################ LIST
+.list {
+  width: 25%;
+  margin: 1.5rem auto;
+  background-color: #bdffb2;
+  padding: 0.75rem 2rem;
 
-.App-link {
-  color: #61dafb;
-}
+  div {
+    @include flex-type();
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+    input[type="checkbox"] {
+      border: 3px solid red;
+      width: 2rem;
+      height: 2rem;
+    }
+
+    button {
+      margin-left: 3rem;
+    }
   }
 }

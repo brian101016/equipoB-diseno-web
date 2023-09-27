@@ -1,7 +1,9 @@
-import { getNum, meses, random as asd } from "../../func";
-// como ya nos es Default, lo ponemos con { }
+function prueba(num: string, num2?: number) {
+  num.substring(1, 2);
+}
 
-console.log("Texto de prueba");
+prueba("sasasd", 121231);
+prueba("asas");
 
 const arreglo_de_meses_del_ano = [
   "Enero",
@@ -34,7 +36,4 @@ function random(ini, fin) {
 // recomendaciones de TypeScript, pero en JS no son necesarias
 random("", 3);
 
-getNum();
-// meses;
-random();
-asd();
+export {};
