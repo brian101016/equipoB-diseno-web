@@ -1,0 +1,11 @@
+{
+  "nombre-de-app": "Plataforma estudiantil",
+  "version": 5,
+  "profesores": ["Uno", "Dos", "Tres", "Cuatro"],
+  "alumnos": ["Primero", "Segundo", "Tercero"],
+  "grupo": {
+    "salon": "CC8",
+    "edificio": "CC",
+    "piso": 2
+  }
+}
