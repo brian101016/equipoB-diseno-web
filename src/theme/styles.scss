@@ -1,3 +1,6 @@
+// ################################################################################################ FONT FACE
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
 // ################################################################################################ MIXINS
 @mixin flex-type {
   display: flex;
@@ -16,36 +19,91 @@
   text-decoration: none;
 }
 
-.App {
-  text-align: center;
+html,
+body {
+  height: 100%;
 }
 
-// ################################################################################################ INPUTS
-.input,
+#root {
+  height: 100%;
+}
+
+.App {
+  text-align: center;
+  height: 100%;
+}
+
+.screen {
+  height: 100%;
+}
+
+.login-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://picsum.photos/1500");
+  background-size: cover;
+}
+
+// ################################################################################################ FORM
+#login-form {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(243, 243, 244, 0.9);
+  padding: 36px 70px;
+  border-radius: 20px;
+  gap: 18px;
+
+  img {
+    width: 128px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    color: #000;
+    font-family: "Poppins";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .container {
+    display: flex;
+    gap: 10px;
+  }
+
+  .input {
+    border-radius: 2px;
+    background: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 0.8rem 1.6rem;
+    border: 0;
+    font-family: "Poppins";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.32);
+      font-size: inherit;
+      font-weight: inherit;
+    }
+  }
+}
+
+// ################################################################################################ BUTTONS
 .button {
-  font-size: 1.5rem;
-  padding: 0.3em 0.5em;
-  margin: 1rem 1.25rem;
-  border: black solid 3px;
-  border-radius: 0.75rem;
-
-  &.danger {
-    border-color: red;
-  }
-
-  &.success {
-    border-color: yellow;
-  }
-
-  &:hover {
-    border-color: blue;
-  }
-
-  &:active {
-    border-color: green;
-    opacity: 0.5;
-    transform: scale(0.9);
-  }
+  border-radius: 12px;
+  background-color: #2f8da1;
+  color: #fff;
+  font-family: "Poppins";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+  padding: 12px 16px;
 }
 
 // ################################################################################################ LIST
