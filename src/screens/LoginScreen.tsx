@@ -1,5 +1,11 @@
 import bg_login from "@theme/images/bg-login.jpeg";
 import icon_user from "@theme/images/icon-user.png";
+import ojo_on from "@theme/images/ojo-on.png";
+import ojo_off from "@theme/images/ojo-off.png";
+import mini_google from "@theme/images/Mini-google.png";
+
+import { useState } from "react";
+
 
 // ################################ INTERFACES & PROPS ################################
 // LoginScreen => Rename all instances to use
@@ -7,6 +13,18 @@ type LoginScreenProps = {};
 
 // ################################ RENDERING COMPONENT ################################
 const LoginScreen = (props: LoginScreenProps) => {
+
+  const [passInput, setPassInput] = useState(false);
+  const [pass, setPass] = useState('');
+
+  const visiblePass = () => {
+    setPassInput(!passInput);
+  }
+
+  const passChange = (e) => {
+    setPass(e.target.value);
+  };
+
   const styleHorizontal = {
     borderBottom: "black solid 6px",
     flexGrow: 1,
@@ -27,17 +45,30 @@ const LoginScreen = (props: LoginScreenProps) => {
 
         <input className="input" type="text" placeholder="Correo electrónico" />
 
-        <input className="input" type="text" placeholder="Contraseña" />
+        <div className="inputPassContainer">
+          <input
+            className="input inputIcon"
+            type={passInput ? 'text' : 'password'}
+            placeholder="Contraseña"
+            value={pass}
+            onChange={passChange} />
+          <button id="passOjo" type="button" onClick={visiblePass}>
+            <img
+              id="ojoIcon"
+              src={passInput ? ojo_on : ojo_off}
+              alt={passInput ? "Ocultar ontraseña" : "Mostrar contraseña"} />
+          </button>
+        </div>
 
         <div style={{ display: "flex" }}>
           <input type="checkbox" />
-          <label htmlFor="">Recordarme</label>
+          <label htmlFor="" style={{ marginLeft: "10px" }}>Recordarme</label>
           <a href="#" style={{ marginLeft: "auto" }}>
             Olvidaste tu contraseña?
           </a>
         </div>
 
-        <button className="button">Inciar sesión</button>
+        <button className="button">Iniciar sesión</button>
 
         <button className="button">Crear nueva cuenta</button>
 
@@ -59,7 +90,13 @@ const LoginScreen = (props: LoginScreenProps) => {
           <div style={styleHorizontal}></div>
         </div>
 
-        <button className="button">Inciar sesión con Google</button>
+        <button className="button buttonGoogle">
+          <div className="icon-container">
+            <img src={mini_google} alt="Icono de Google" id="iconGoogle" />
+          </div>
+          Iniciar sesión con Google
+        </button>
+
       </form>
     </div>
   );

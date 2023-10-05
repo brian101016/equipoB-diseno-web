@@ -89,8 +89,48 @@ body {
       font-size: inherit;
       font-weight: inherit;
     }
+
+    &:focus {
+      outline: none;
+    }
+
+  }
+
+  .inputPassContainer {
+    border-radius: 2px;
+    background: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: 0;
+    display: flex;
+  }
+
+  a:hover {
+    color: #2f8da1;
+  }
+
+  .inputPassContainer .inputIcon {
+    box-shadow: none;
+    width: 372px;
+
   }
 }
+
+
+img#ojoIcon {
+  width: 35px;
+}
+
+
+#passOjo {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 9px;
+}
+
+
+
+
 
 // ################################################################################################ BUTTONS
 .button {
@@ -104,7 +144,36 @@ body {
   line-height: normal;
   border: none;
   padding: 12px 16px;
+  cursor: pointer;
+
+  &:hover {
+    color: black;
+  }
+
 }
+
+.buttonGoogle {
+  color: black;
+  border: 0.9px solid black;
+  background-color: transparent;
+
+  &:hover {
+    color: #2f8da1;
+  }
+
+}
+
+img#iconGoogle {
+  height: 23px;
+  width: 23px;
+}
+
+.icon-container {
+  display: inline-block;
+  vertical-align: -3px;
+  margin-right: 8px;
+}
+
 
 // ################################################################################################ LIST
 .list {
