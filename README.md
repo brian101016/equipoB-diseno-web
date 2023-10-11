@@ -1,3 +1,5 @@
+Esta es una branch personal del Sebas
+
 # Equipo B - Diseño Web
 
 Repositorio para trabajar con el proyecto final de Diseño Web. Utilizando React+TS.
