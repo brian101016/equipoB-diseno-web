@@ -43,7 +43,7 @@ const LoginScreen = (props: LoginScreenProps) => {
 
         <h2>Iniciar sesión en su cuenta</h2>
 
-        <input className="input" type="text" placeholder="Correo electrónico" />
+        <input className="input inputCorreo" type="text" placeholder="Correo electrónico" />
 
         <div className="inputPassContainer">
           <input
@@ -59,9 +59,9 @@ const LoginScreen = (props: LoginScreenProps) => {
               alt={passInput ? "Ocultar ontraseña" : "Mostrar contraseña"} />
           </button>
         </div>
-
+      
         <div style={{ display: "flex" }}>
-          <input type="checkbox" />
+          <input className="checkbox" type="checkbox" />
           <label htmlFor="" style={{ marginLeft: "10px" }}>Recordarme</label>
           <a href="#" style={{ marginLeft: "auto" }}>
             Olvidaste tu contraseña?
