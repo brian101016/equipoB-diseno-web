@@ -14,7 +14,7 @@ El equipo está conformado por 20 integrantes.
 | Brian Woolfolk      |     X     |     X     |     X    |     X    |    X    |     X    |
 | Oscar Martinez      |     X     |     X     |          |          |    X    |     X    |
 | Miguel Castro       |     X     |     X     |          |          |    X    |     X    |
-| Sebastian Martinez  |           |     X     |          |     X    |         |          |
+| Sebastian Martinez  |     X     |     X     |          |     X    |         |          |
 | Alejandro Ruiz      |     X     |           |     X    |          |         |          |
 | Jesus Paz           |     X     |           |     X    |          |         |          |
 | Kevin Rivera        |     X     |           |     X    |          |         |          |
@@ -23,14 +23,14 @@ El equipo está conformado por 20 integrantes.
 | Pablo Rivera        |     X     |     X     |          |          |         |          |
 | Ruben Vasquez       |     X     |     X     |          |          |         |          |
 | Brayant Rascon      |     X     |     X     |          |          |         |          |
-| Obed Felix          |           |     X     |          |          |         |          |
+| Obed Felix          |     X     |     X     |          |          |         |          |
 | Alan Orozco         |     X     |           |          |          |         |          |
 | Eileen Ley          |     X     |           |          |          |         |          |
 | Emmanuel de la Cruz |     X     |           |          |          |         |          |
 | Luis Munguia        |     X     |           |          |          |         |          |
 | Marco Lauterio      |     X     |           |          |          |         |          |
 | Yadira Castro       |     X     |           |          |          |         |          |
-| Adamari Santos      |           |           |          |          |         |          |
+| Adamari Santos      |     X     |           |          |          |         |          |
 
 ## Palabras clave, dependencias y tecnologías utilizadas
 - [React](https://react.dev/)
