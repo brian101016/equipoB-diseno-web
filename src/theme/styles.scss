@@ -72,8 +72,7 @@ body {
     display: flex;
     gap: 10px;
   }
-
-  .input {
+  .input{
     border-radius: 2px;
     background: #fff;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -93,8 +92,15 @@ body {
     &:focus {
       outline: none;
     }
-    
-    
+
+    &:hover,&:active {
+      box-sizing: border-box;
+      background: #E8F5FE;
+      box-shadow: 0 0 0 2px black !important;
+    }
+  }
+  .inputerror{
+    box-shadow: 0 0 0 1px red !important;
   }
 
   .inputCorreo{
@@ -119,7 +125,34 @@ body {
 
   }
 }
+input[type=radio] {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  outline: none;
+  box-shadow: 0 0 0 1px black;
+}
 
+input[type=radio]:checked {
+  box-shadow: 0 0 0 1px rgba(30,144,255,2);
+}
+
+input[type=radio]:before {
+  content: '';
+  display:block;
+  width: 80%;
+  height: 80%;
+  margin: 10% auto;
+  border-radius: 100%;
+}
+
+input[type=radio]:checked:before {
+  background: rgba(30,144,255,2);
+}
+input[type=number]::placeholder {
+  opacity: 0.4;
+}
 
 img#ojoIcon {
   width: 35px;
@@ -132,7 +165,35 @@ img#ojoIcon {
   cursor: pointer;
   padding: 9px;
 }
+// ################################################################################################ SELECTORS
+select {
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 0.8rem 1.6rem;
+  border: 0;
+  font-family: "Poppins";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
 
+  &:focus {
+    outline: none;
+  }
+}
+select,
+select option {
+  color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+  color: #999999;
+}
+/*Para compatibilidad de navegadores*/
+[hidden] {
+  display: none;
+}
 // ################################################################################################ CHECKBOXES
 .checkbox{
     -moz-appearance:none;
@@ -143,10 +204,8 @@ img#ojoIcon {
   
 }
 .checkbox:before {
-    content: " ✓";
+    content: "";
     font-size: 15px;
-    text-align: center;
-    color: transparent !important;
     display: block;
     width: 1.1rem;
     height: 1rem;
@@ -158,8 +217,10 @@ img#ojoIcon {
 }
 
 .checkbox:checked:before {
-	color: white !important;
-  background-color: blue;
+  background-image: url("images/checkbox-active.png");
+  background-size: 95%;
+  background-repeat: no-repeat;
+  border: 1.5px solid transparent;
 }
 
 // ################################################################################################ BUTTONS
