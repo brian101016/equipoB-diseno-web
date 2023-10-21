@@ -7,8 +7,7 @@ export default function Button_Class(props) {
    * así que cuando este listo puede omitirse esta función
    */
   function redirect() {
-    window.location.href =
-      "https://www.youtube.com/watch?v=S-Xm7s9eGxU&list=RDMM&index=27";
+    window.location.href = "#";
   }
 
   return (
