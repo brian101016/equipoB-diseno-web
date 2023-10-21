@@ -72,7 +72,7 @@ body {
     display: flex;
     gap: 10px;
   }
-  .input{
+  .input {
     border-radius: 2px;
     background: #fff;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -90,23 +90,23 @@ body {
     }
 
     &:focus {
-      outline: none;
     }
 
-    &:hover,&:active {
+    &:hover,
+    &:active {
       box-sizing: border-box;
-      background: #E8F5FE;
+      background: #e8f5fe;
       box-shadow: 0 0 0 2px black !important;
     }
   }
-  .inputerror{
+  .inputerror {
     box-shadow: 0 0 0 1px red !important;
   }
 
-  .inputCorreo{
+  .inputCorreo {
     margin: 1.5rem 0rem 0.9rem 0rem;
   }
- 
+
   .inputPassContainer {
     border-radius: 2px;
     background: #fff;
@@ -122,10 +122,9 @@ body {
   .inputPassContainer .inputIcon {
     box-shadow: none;
     width: 372px;
-
   }
 }
-input[type=radio] {
+input[type="radio"] {
   -webkit-appearance: none;
   width: 10px;
   height: 10px;
@@ -134,30 +133,29 @@ input[type=radio] {
   box-shadow: 0 0 0 1px black;
 }
 
-input[type=radio]:checked {
-  box-shadow: 0 0 0 1px rgba(30,144,255,2);
+input[type="radio"]:checked {
+  box-shadow: 0 0 0 1px rgba(30, 144, 255, 2);
 }
 
-input[type=radio]:before {
-  content: '';
-  display:block;
+input[type="radio"]:before {
+  content: "";
+  display: block;
   width: 80%;
   height: 80%;
   margin: 10% auto;
   border-radius: 100%;
 }
 
-input[type=radio]:checked:before {
-  background: rgba(30,144,255,2);
+input[type="radio"]:checked:before {
+  background: rgba(30, 144, 255, 2);
 }
-input[type=number]::placeholder {
+input[type="number"]::placeholder {
   opacity: 0.4;
 }
 
 img#ojoIcon {
   width: 35px;
 }
-
 
 #passOjo {
   background: none;
@@ -195,25 +193,24 @@ select option[value=""] {
   display: none;
 }
 // ################################################################################################ CHECKBOXES
-.checkbox{
-    -moz-appearance:none;
-    -webkit-appearance:none;
-    -o-appearance:none;
-    outline: none;
-    content:none;
-  
+.checkbox {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -o-appearance: none;
+  outline: none;
+  content: none;
 }
 .checkbox:before {
-    content: "";
-    font-size: 15px;
-    display: block;
-    width: 1.1rem;
-    height: 1rem;
-    border: 1.5px solid black;
-    border-radius: 2px;
-    font-size: 16px;
-    line-height:1rem;
-    font-weight: 600;
+  content: "";
+  font-size: 15px;
+  display: block;
+  width: 1.1rem;
+  height: 1rem;
+  border: 1.5px solid black;
+  border-radius: 2px;
+  font-size: 16px;
+  line-height: 1rem;
+  font-weight: 600;
 }
 
 .checkbox:checked:before {
@@ -226,7 +223,7 @@ select option[value=""] {
 // ################################################################################################ BUTTONS
 .button {
   border-radius: 12px;
-  background-color: #127EC2;
+  background-color: #127ec2;
   color: #fff;
   font-family: "Poppins";
   font-size: 24px;
@@ -240,7 +237,6 @@ select option[value=""] {
   &:hover {
     color: black;
   }
-
 }
 
 .buttonGoogle {
@@ -252,7 +248,6 @@ select option[value=""] {
   &:hover {
     color: #2f8da1;
   }
-
 }
 
 img#iconGoogle {
@@ -265,7 +260,6 @@ img#iconGoogle {
   vertical-align: -3px;
   margin-right: 8px;
 }
-
 
 // ################################################################################################ LIST
 .list {

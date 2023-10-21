@@ -6,20 +6,18 @@ import mini_google from "@theme/images/Mini-google.png";
 
 import { useState } from "react";
 
-
 // ################################ INTERFACES & PROPS ################################
 // LoginScreen => Rename all instances to use
 type LoginScreenProps = {};
 
 // ################################ RENDERING COMPONENT ################################
 const LoginScreen = (props: LoginScreenProps) => {
-
   const [passInput, setPassInput] = useState(false);
-  const [pass, setPass] = useState('');
+  const [pass, setPass] = useState("");
 
   const visiblePass = () => {
     setPassInput(!passInput);
-  }
+  };
 
   const passChange = (e) => {
     setPass(e.target.value);
@@ -43,26 +41,34 @@ const LoginScreen = (props: LoginScreenProps) => {
 
         <h2>Iniciar sesión en su cuenta</h2>
 
-        <input className="input inputCorreo" type="text" placeholder="Correo electrónico" />
+        <input
+          className="input inputCorreo"
+          type="text"
+          placeholder="Correo electrónico"
+        />
 
         <div className="inputPassContainer">
           <input
             className="input inputIcon"
-            type={passInput ? 'text' : 'password'}
+            type={passInput ? "text" : "password"}
             placeholder="Contraseña"
             value={pass}
-            onChange={passChange} />
+            onChange={passChange}
+          />
           <button id="passOjo" type="button" onClick={visiblePass}>
             <img
               id="ojoIcon"
               src={passInput ? ojo_on : ojo_off}
-              alt={passInput ? "Ocultar ontraseña" : "Mostrar contraseña"} />
+              alt={passInput ? "Ocultar ontraseña" : "Mostrar contraseña"}
+            />
           </button>
         </div>
-      
+
         <div style={{ display: "flex" }}>
           <input className="checkbox" type="checkbox" />
-          <label htmlFor="" style={{ marginLeft: "10px" }}>Recordarme</label>
+          <label htmlFor="" style={{ marginLeft: "10px" }}>
+            Recordarme
+          </label>
           <a href="#" style={{ marginLeft: "auto" }}>
             Olvidaste tu contraseña?
           </a>
@@ -96,7 +102,6 @@ const LoginScreen = (props: LoginScreenProps) => {
           </div>
           Iniciar sesión con Google
         </button>
-
       </form>
     </div>
   );
