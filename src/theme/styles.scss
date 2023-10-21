@@ -1,5 +1,6 @@
 // ################################################################################################ FONT FACE
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 // ################################################################################################ MIXINS
 @mixin flex-type {
@@ -93,7 +94,6 @@ body {
     &:focus {
       outline: none;
     }
-
   }
 
   .inputPassContainer {
@@ -111,15 +111,12 @@ body {
   .inputPassContainer .inputIcon {
     box-shadow: none;
     width: 372px;
-
   }
 }
-
 
 img#ojoIcon {
   width: 35px;
 }
-
 
 #passOjo {
   background: none;
@@ -127,10 +124,6 @@ img#ojoIcon {
   cursor: pointer;
   padding: 9px;
 }
-
-
-
-
 
 // ################################################################################################ BUTTONS
 .button {
@@ -149,7 +142,6 @@ img#ojoIcon {
   &:hover {
     color: black;
   }
-
 }
 
 .buttonGoogle {
@@ -160,7 +152,6 @@ img#ojoIcon {
   &:hover {
     color: #2f8da1;
   }
-
 }
 
 img#iconGoogle {
@@ -174,6 +165,102 @@ img#iconGoogle {
   margin-right: 8px;
 }
 
+// ######################################### Button Class
+#border-class-button {
+  height: 400px;
+  width: 400px;
+  border-radius: 8%;
+  border: 1.2px solid #127ec2;
+  margin: 1rem;
+  background-color: #fff;
+  position: relative;
+
+  .title-class-button {
+    width: 40%;
+    color: #fff;
+    font-family: "Bebas Neue";
+    font-size: 3rem;
+    margin: 0.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: left;
+    position: absolute;
+  }
+
+  .central-class-button {
+    height: 50%;
+    border-bottom: 0.9px solid black;
+    border-top: 0.9px solid black;
+  }
+
+  .icon-class-button {
+    border-radius: 50%;
+  }
+
+  .teacherName-class-button {
+    color: #000;
+    font-family: "Bebas Neue";
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: justify;
+    margin-left: 1rem;
+    margin-top: 1rem;
+  }
+  .description-class-button {
+    color: #000;
+    font-family: "Poppins";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: left;
+    margin-left: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .footer-class-button {
+    margin-top: 0.2rem;
+    height: 20%;
+  }
+
+  .text-footer-class-button {
+    color: #127ec2;
+    font-family: "Bebas Neue";
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: justify;
+    margin-left: 1rem;
+  }
+  .icon-image-class-button {
+    position: absolute;
+    top: 5rem;
+    left: 16.5rem;
+    right: 0;
+    margin: 10px;
+  }
+  .image-class-button {
+    height: 36%;
+  }
+  .homework-footer-class-button {
+    color: #000;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 1.5rem;
+    text-align: justify;
+  }
+
+  //&:hover {
+  //  opacity: 80%;
+  //}
+}
 
 // ################################################################################################ LIST
 .list {
