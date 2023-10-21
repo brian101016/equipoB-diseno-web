@@ -5,6 +5,7 @@ import ojo_off from "@theme/images/ojo-off.png";
 import mini_google from "@theme/images/Mini-google.png";
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 // ################################ INTERFACES & PROPS ################################
 // LoginScreen => Rename all instances to use
@@ -69,9 +70,9 @@ const LoginScreen = (props: LoginScreenProps) => {
           <label htmlFor="" style={{ marginLeft: "10px" }}>
             Recordarme
           </label>
-          <a href="#" style={{ marginLeft: "auto" }}>
+          <Link to={"/login/forgot"} style={{ marginLeft: "auto" }}>
             Olvidaste tu contraseña?
-          </a>
+          </Link>
         </div>
 
         <button className="button">Iniciar sesión</button>
