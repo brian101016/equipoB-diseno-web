@@ -1,5 +1,5 @@
 import Button_Class from "@components/Button_Class";
-
+import Progress_Chart from "@components/Progress_Chart";
 function App() {
   return (
     <div className="App">
@@ -9,6 +9,8 @@ function App() {
         homework="Avance EC1"
         teacherName="JESUS ALBERTO OJEDA SAUCEDO"
       />
+
+      <Progress_Chart percentage="70"></Progress_Chart>
     </div>
   );
 }
