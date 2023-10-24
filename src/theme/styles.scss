@@ -1,286 +1,409 @@
 // ################################################################################################ FONT FACE
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 // ################################################################################################ MIXINS
 @mixin flex-type {
-  display: flex;
-  justify-items: start;
-  width: 100%;
-  align-items: center;
+    display: flex;
+    justify-items: start;
+    width: 100%;
+    align-items: center;
 }
 
 // ################################################################################################ RESET
 * {
-  color: black;
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
+    color: black;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
 }
 
 html,
 body {
-  height: 100%;
+    height: 100%;
 }
 
 #root {
-  height: 100%;
+    height: 100%;
 }
 
 .App {
-  text-align: center;
-  height: 100%;
+    text-align: center;
+    height: 100%;
 }
 
 .screen {
-  height: 100%;
+    height: 100%;
 }
 
 .login-screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url("https://picsum.photos/1500");
-  background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://picsum.photos/1500');
+    background-size: cover;
 }
 
 // ################################################################################################ FORM
 #login-form {
-  display: flex;
-  flex-direction: column;
-  background-color: rgba(243, 243, 244, 0.9);
-  padding: 36px 70px;
-  border-radius: 20px;
-  gap: 18px;
-
-  img {
-    width: 128px;
-    margin: 0 auto;
-  }
-
-  h2 {
-    color: #000;
-    font-family: "Poppins";
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-
-  .container {
     display: flex;
-    gap: 10px;
-  }
-  .input {
+    flex-direction: column;
+    background-color: rgba(243, 243, 244, 0.9);
+    padding: 36px 70px;
+    border-radius: 20px;
+    gap: 18px;
+
+    img {
+        width: 128px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        color: #000;
+        font-family: 'Poppins';
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .container {
+        display: flex;
+        gap: 10px;
+    }
+    .input {
+        border-radius: 2px;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        padding: 0.8rem 1.6rem;
+        border: 0;
+        font-family: 'Poppins';
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+
+        &::placeholder {
+            color: rgba(0, 0, 0, 0.32);
+            font-size: inherit;
+            font-weight: inherit;
+        }
+
+        // &:focus {
+        // }
+
+        &:hover,
+        &:active {
+            box-sizing: border-box;
+            background: #e8f5fe;
+            box-shadow: 0 0 0 2px black;
+        }
+    }
+    .inputerror {
+        box-shadow: 0 0 0 1px red !important;
+    }
+
+    .inputCorreo {
+        margin: 1.5rem 0rem 0.9rem 0rem;
+    }
+
+    .inputPassContainer {
+        border-radius: 2px;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        border: 0;
+        display: flex;
+    }
+
+    a:hover {
+        color: #2f8da1;
+    }
+
+    .inputPassContainer .inputIcon {
+        box-shadow: none;
+        width: 372px;
+    }
+}
+input[type='radio'] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    outline: none;
+    box-shadow: 0 0 0 1px black;
+}
+
+input[type='radio']:checked {
+    box-shadow: 0 0 0 1px rgba(30, 144, 255, 2);
+}
+
+input[type='radio']:before {
+    content: '';
+    display: block;
+    width: 80%;
+    height: 80%;
+    margin: 10% auto;
+    border-radius: 100%;
+}
+
+input[type='radio']:checked:before {
+    background: rgba(30, 144, 255, 2);
+}
+input[type='number']::placeholder {
+    opacity: 0.4;
+}
+
+img#ojoIcon {
+    width: 35px;
+}
+
+#passOjo {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 9px;
+}
+// ################################################################################################ SELECTORS
+select {
     border-radius: 2px;
     background: #fff;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     padding: 0.8rem 1.6rem;
     border: 0;
-    font-family: "Poppins";
+    font-family: 'Poppins';
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
 
-    &::placeholder {
-      color: rgba(0, 0, 0, 0.32);
-      font-size: inherit;
-      font-weight: inherit;
+    &:focus {
+        outline: none;
     }
-
-    // &:focus {
-    // }
-
-    &:hover,
-    &:active {
-      box-sizing: border-box;
-      background: #e8f5fe;
-      box-shadow: 0 0 0 2px black !important;
-    }
-  }
-  .inputerror {
-    box-shadow: 0 0 0 1px red !important;
-  }
-
-  .inputCorreo {
-    margin: 1.5rem 0rem 0.9rem 0rem;
-  }
-
-  .inputPassContainer {
-    border-radius: 2px;
-    background: #fff;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    border: 0;
-    display: flex;
-  }
-
-  a:hover {
-    color: #2f8da1;
-  }
-
-  .inputPassContainer .inputIcon {
-    box-shadow: none;
-    width: 372px;
-  }
-}
-input[type="radio"] {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  outline: none;
-  box-shadow: 0 0 0 1px black;
-}
-
-input[type="radio"]:checked {
-  box-shadow: 0 0 0 1px rgba(30, 144, 255, 2);
-}
-
-input[type="radio"]:before {
-  content: "";
-  display: block;
-  width: 80%;
-  height: 80%;
-  margin: 10% auto;
-  border-radius: 100%;
-}
-
-input[type="radio"]:checked:before {
-  background: rgba(30, 144, 255, 2);
-}
-input[type="number"]::placeholder {
-  opacity: 0.4;
-}
-
-img#ojoIcon {
-  width: 35px;
-}
-
-#passOjo {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 9px;
-}
-// ################################################################################################ SELECTORS
-select {
-  border-radius: 2px;
-  background: #fff;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  padding: 0.8rem 1.6rem;
-  border: 0;
-  font-family: "Poppins";
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-
-  &:focus {
-    outline: none;
-  }
 }
 select,
 select option {
-  color: #000000;
+    color: #000000;
 }
 
 select:invalid,
-select option[value=""] {
-  color: #999999;
+select option[value=''] {
+    color: #999999;
 }
 /*Para compatibilidad de navegadores*/
 [hidden] {
-  display: none;
+    display: none;
 }
 // ################################################################################################ CHECKBOXES
 .checkbox {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  -o-appearance: none;
-  outline: none;
-  content: none;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    outline: none;
+    content: none;
 }
 .checkbox:before {
-  content: "";
-  font-size: 15px;
-  display: block;
-  width: 1.1rem;
-  height: 1rem;
-  border: 1.5px solid black;
-  border-radius: 2px;
-  font-size: 16px;
-  line-height: 1rem;
-  font-weight: 600;
+    content: '';
+    font-size: 15px;
+    display: block;
+    width: 1.1rem;
+    height: 1rem;
+    border: 1.5px solid black;
+    border-radius: 2px;
+    font-size: 16px;
+    line-height: 1rem;
+    font-weight: 600;
 }
 
 .checkbox:checked:before {
-  background-image: url("images/checkbox-active.png");
-  background-size: 95%;
-  background-repeat: no-repeat;
-  border: 1.5px solid transparent;
+    background-image: url('images/checkbox-active.png');
+    background-size: 95%;
+    background-repeat: no-repeat;
+    border: 1.5px solid transparent;
 }
 
 // ################################################################################################ BUTTONS
 .button {
-  border-radius: 12px;
-  background-color: #127ec2;
-  color: #fff;
-  font-family: "Poppins";
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  border: none;
-  padding: 12px 16px;
-  cursor: pointer;
+    border-radius: 12px;
+    background-color: #127ec2;
+    color: #fff;
+    font-family: 'Poppins';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border: none;
+    padding: 12px 16px;
+    cursor: pointer;
 
-  &:hover {
-    color: black;
-  }
+    &:hover {
+        color: black;
+    }
 }
 
 .buttonGoogle {
-  font-size: 19px;
-  color: black;
-  border: 0.9px solid black;
-  background-color: transparent;
+    font-size: 19px;
+    color: black;
+    border: 0.9px solid black;
+    background-color: transparent;
 
-  &:hover {
-    color: #2f8da1;
-  }
+    &:hover {
+        color: #2f8da1;
+    }
 }
 
 img#iconGoogle {
-  height: 23px;
-  width: 23px;
+    height: 23px;
+    width: 23px;
 }
 
 .icon-container {
-  display: inline-block;
-  vertical-align: -3px;
-  margin-right: 8px;
+    display: inline-block;
+    vertical-align: -3px;
+    margin-right: 8px;
 }
 
 // ################################################################################################ LIST
 .list {
-  width: 25%;
-  margin: 1.5rem auto;
-  background-color: #bdffb2;
-  padding: 0.75rem 2rem;
+    width: 25%;
+    margin: 1.5rem auto;
+    background-color: #bdffb2;
+    padding: 0.75rem 2rem;
 
-  div {
-    @include flex-type();
+    div {
+        @include flex-type();
 
-    input[type="checkbox"] {
-      border: 3px solid red;
-      width: 2rem;
-      height: 2rem;
+        input[type='checkbox'] {
+            border: 3px solid red;
+            width: 2rem;
+            height: 2rem;
+        }
+
+        button {
+            margin-left: 3rem;
+        }
+    }
+}
+
+// ################################################################################################ SIGNUP ################################################################################################
+
+.signup-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-image: url('images/bg-login.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.signup-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 835px;
+    width: 546px;
+    border-radius: 21px;
+    background: rgba(243, 243, 244, 0.9);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.card-logo {
+    margin-top: 26px;
+    margin-bottom: 26px;
+    img {
+        width: 189px;
+        height: 138px;
+    }
+}
+
+.card-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
+    .card-form-input {
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        margin-bottom: 34px;
+        input {
+            font-weight: 357px;
+        }
+        &:hover {
+            border: black solid 2px;
+        }
     }
 
-    button {
-      margin-left: 3rem;
+    input {
+        color: rgba(0, 0, 0, 0.32);
+        font-family: Poppins;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        width: 402px;
+        height: 60px;
+        flex-shrink: 0;
+        border-style: none;
+        border-radius: 2px;
+        background: #fff;
+        padding: 15px 66px 15px 33px;
     }
-  }
+
+    .form-pass {
+        display: flex;
+        align-items: center;
+        border-style: none;
+        border-radius: 2px;
+        background: #fff;
+        input {
+            width: 335px;
+        }
+        img {
+            margin-right: 22px;
+        }
+    }
+
+    .form-button {
+        margin-bottom: 34px;
+    }
+
+    .form-button-google {
+        margin-top: 34px;
+        color: #000;
+        font-family: Poppins;
+        font-size: 19px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        width: 402px;
+        height: 58px;
+        border-radius: 21px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .icon-google {
+        margin-right: 17px;
+        height: 23px;
+        width: 23px;
+    }
+
+    .form-span {
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        span {
+            color: #000;
+            font-family: Poppins;
+            font-size: 17px;
+            font-weight: 700;
+            margin: 0px 4px;
+        }
+
+        .span-vector {
+            border: black solid 2px;
+            flex-grow: 1;
+        }
+    }
 }

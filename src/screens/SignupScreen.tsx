@@ -1,6 +1,6 @@
 // ################################ IMPORTS ################################
 import bg_login from '@theme/images/bg-login.jpeg';
-import icon_user from '@theme/images/icon-user.png';
+import icon_logo from '@theme/images/logo-azul-vertical.png';
 import ojo_on from '@theme/images/ojo-on.png';
 import ojo_off from '@theme/images/ojo-off.png';
 import mini_google from '@theme/images/Mini-google.png';
@@ -48,25 +48,27 @@ const SignupScreen = (props: SignupScreenProps) => {
 
     // ------------------------------------------------------------------------------------ RETURN
     return (
-        <div className="sign-up">
-            <div className="sign-up-card">
+        <div className="signup-screen">
+            <div className="signup-card">
                 <div className="card-logo">
-                    <img src="#" alt="logo" />
+                    <img src={icon_logo} alt="logo" />
                 </div>
                 <form className="card-form">
                     <input
+                        className="card-form-input"
                         type="text"
                         placeholder="Nombre completo"
                         value={name}
                         onChange={nameChange}
                     />
                     <input
+                        className="card-form-input"
                         type="email"
                         placeholder="Correo electrónico"
                         value={email}
                         onChange={emailChange}
                     />
-                    <div className="form-pass">
+                    <div className="form-pass card-form-input">
                         <input
                             type="password"
                             placeholder="Contraseña"
@@ -78,9 +80,11 @@ const SignupScreen = (props: SignupScreenProps) => {
                             src={visiblePassInput1 ? ojo_on : ojo_off}
                             alt="icono ojo"
                             onClick={visiblePass1}
+                            width={45}
+                            height={45}
                         />
                     </div>
-                    <div className="form-pass">
+                    <div className="form-pass card-form-input">
                         <input
                             type="password"
                             placeholder="Confirmar contraseña"
@@ -92,11 +96,23 @@ const SignupScreen = (props: SignupScreenProps) => {
                             src={visiblePassInput2 ? ojo_on : ojo_off}
                             alt="icono ojo"
                             onClick={visiblePass2}
+                            width={45}
+                            height={45}
                         />
                     </div>
-                    <button className="form-button">Regístrate</button>
-                    <span>o</span>
-                    <button className="form-button-google">
+                    <button className="form-button button">Regístrate</button>
+
+                    <div className="form-span">
+                        <div className="span-vector"></div>
+                        <span>o</span>
+                        <div className="span-vector"></div>
+                    </div>
+                    <button className="form-button-google ">
+                        <img
+                            className="icon-google"
+                            src={mini_google}
+                            alt="logo google"
+                        />
                         Continuar con Google
                     </button>
                 </form>
