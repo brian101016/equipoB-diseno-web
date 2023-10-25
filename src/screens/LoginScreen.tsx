@@ -37,6 +37,9 @@ const LoginScreen = (props: LoginScreenProps) => {
         backgroundImage: `url('${bg_login}')`,
       }}
     >
+      <Link to={"/login/signup"}>Ir hacia Signup</Link>
+      <Link to={"signup"}>Ir hacia Signup</Link>
+
       <form id="login-form">
         <img src={icon_user} alt="logo" />
 
