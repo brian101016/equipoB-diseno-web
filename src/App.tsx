@@ -4,6 +4,13 @@ import HomeScreen from "@screens/HomeScreen";
 import HomeworkScreen from "@screens/HomeworkScreen";
 import LandingScreen from "@screens/LandingScreen";
 import LoginScreen from "@screens/LoginScreen";
+import ModalComments from "@components/ModalComments";
+import ModalCalificar from "@components/ModalCalificar";
+import React, { useState } from "react";
+import "./theme/ModalCalificar.scss";
+
+
+
 
 import { useState } from "react";
 import "./theme/Modal.scss";
@@ -19,6 +26,16 @@ import {
 } from "react-router-dom";
 
 function App() {
+  const [isModalOpen2, setIsModalOpen2] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen2(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen2(false);
+  };
+
   //INSTRUCCIONES:
   /**
    * useState para tener un estado el cual por defecto esta en false
@@ -41,8 +58,9 @@ function App() {
                 PROBAR MODAL
               </button>
               <Modal isOpen={isModalOpen} closeModal={() => setIsModalOpen(false)} />
-
-              <LoginScreen />
+              
+              <button onClick={openModal}>Calificar</button>
+              <ModalCalificar isOpen={isModalOpen2} onClose={closeModal}/>
               <footer>Footer</footer>
             </>
           ),
