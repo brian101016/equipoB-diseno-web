@@ -1,9 +1,10 @@
+import spinner from "@theme/images/Spinner.png";
 
 function Spinner() {
   return (
     <>
       <div className="spinnerContainer">
-        <div className="spinner"></div>
+        <img className="imgSpinner" src={spinner} alt="Spinner" />
         <strong>Cargando</strong>
       </div>
     </>
