@@ -1,50 +1,56 @@
-# Equipo B - Diseño Web
+Esta es una branch personal del Sebas
 
+# Equipo B - Diseño Web
 Repositorio para trabajar con el proyecto final de Diseño Web. Utilizando React+TS.
 Para crear el proyecto de React, una vez instalado Node.JS, utilizamos:
 `npx create-react-app my-app --template typescript`
 
 ## Descripción
-
-Este proyecto final consiste en un sistema web similar al de una plataforma escolar, donde se puedan administrar tareas, actividades, realizar correos y gestionar alumnos. lorem
-
-El sistema estará basado en la plataforma estudiantil Edues.
+Este proyecto final consiste en un sistema web similar al de una plataforma escolar, donde se puedan administrar tareas, actividades, subir comentarios y gestionar alumnos. El sistema estará basado en la plataforma estudiantil Edues con elementos de Google Classroom.
 
 ## Integrantes del equipo
+El equipo está conformado por 20 integrantes.
 
-El equipo está conformado por 18 integrantes.
+| **Nombre**          | **Figma** | **React** | **Docu** | **Test** | **Git** | **Otro** |
+|---------------------|:---------:|:---------:|:--------:|:--------:|:-------:|:--------:|
+| Brian Woolfolk      |     X     |     X     |     X    |     X    |    X    |     X    |
+| Oscar Martinez      |     X     |     X     |          |          |    X    |     X    |
+| Miguel Castro       |     X     |     X     |          |          |    X    |     X    |
+| Sebastian Martinez  |     X     |     X     |          |     X    |         |          |
+| Alejandro Ruiz      |     X     |           |     X    |          |         |          |
+| Jesus Paz           |     X     |           |     X    |          |         |          |
+| Kevin Rivera        |     X     |           |     X    |          |         |          |
+| Orlando Lopez       |     X     |     X     |          |          |         |          |
+| Fausto Figueroa     |     X     |     X     |          |          |         |          |
+| Pablo Rivera        |     X     |     X     |          |          |         |          |
+| Ruben Vasquez       |     X     |     X     |          |          |         |          |
+| Brayant Rascon      |     X     |     X     |          |          |         |          |
+| Obed Felix          |     X     |     X     |          |          |         |          |
+| Alan Orozco         |     X     |           |          |          |         |          |
+| Eileen Ley          |     X     |           |          |          |         |          |
+| Emmanuel de la Cruz |     X     |           |          |          |         |          |
+| Luis Munguia        |     X     |           |          |          |         |          |
+| Marco Lauterio      |     X     |           |          |          |         |          |
+| Yadira Castro       |     X     |           |          |          |         |          |
+| Adamari Santos      |     X     |           |          |          |         |          |
 
-### UX/UI
+## Palabras clave, dependencias y tecnologías utilizadas
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [SASS/SCSS](https://sass-lang.com/)
+- [GIT](https://git-scm.com/doc)
+- [GitHub](https://docs.github.com/en)
+- [Figma](https://help.figma.com/hc/en-us)
+- [ClickUp](https://help.clickup.com/hc/en-us)
+- [React Router](https://reactrouter.com/en/main)
+- [CRACO](https://craco.js.org/)
 
-1. Brian Woolfolk (brian101016)
-2. Ruben Vasquez (Ruben870)
-3. Pablo Rivera(Compa-Pulparindo)
+## Enlaces externos
+- [**Documentación del proyecto**](https://docs.google.com/document/d/1gHKUGuNCO_haa5oD8pjlm1nHK45DR5sbnpUwQ0AeS6s/edit?usp=sharing)
+- [**FIGMA**](https://www.figma.com/file/qWfPJFdUzzC0gcXGkih15u/Layout-Proyecto?type=design&t=cshkZ8ztNODoNzIV-6)
+- [**CLICK UP**](https://app.clickup.com/9011054143/v/s/90110161979)
 
-### FrontEnd
-
-1. Brian Woolfolk (brian101016)
-2. Orlando López (SkkyWolf)
-3. Juan Laprada (usuario)
-4. Miguel Castro (Miguel-CaAr)
-5. Pablo Rivera(Compa-Pulparindo)
-6. Ruben Vasquez (Ruben870)
-7. Fausto Figueroa (FaustoF21)
-8. Sebastian Martinez (Wiserquill1345)
-9. Jesus Paz (JesusPaz171)
-
-### BackEnd
-
-1. Brian Woolfolk (brian101016)
-2. Miguel Castro (Miguel-CaAr)
-3. Pablo Rivera(Compa-Pulparindo)
-4. Ruben Vasquez (Ruben870)
-5. Fausto Figueroa (FaustoF21)
-
-## Tecnologías y lenguajes utilizados
-
-- React + TypeScript
-- SCSS
-- GIT
+-----------------------------------------------------------------------------------------------------
 
 # Getting Started with Create React App
 
