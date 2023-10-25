@@ -4,6 +4,10 @@ import HomeScreen from "@screens/HomeScreen";
 import HomeworkScreen from "@screens/HomeworkScreen";
 import LandingScreen from "@screens/LandingScreen";
 import LoginScreen from "@screens/LoginScreen";
+
+import { useState } from "react";
+import "./theme/Modal.scss";
+import Modal from "@components/Modal";
 import NotFoundScreen from "@screens/NotFoundScreen";
 import SignupScreen from "@screens/SignupScreen";
 import StudentScreen from "@screens/StudentScreen";
@@ -15,6 +19,14 @@ import {
 } from "react-router-dom";
 
 function App() {
+  //INSTRUCCIONES:
+  /**
+   * useState para tener un estado el cual por defecto esta en false
+   * nos permitira tener desactivado el modal y la funcion setIsModalOpen
+   * nos permite cambiar el estado a true para activar el modal mediante un boton.
+   */
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <RouterProvider
       router={createBrowserRouter([
@@ -24,6 +36,13 @@ function App() {
               <h1>TITULO DE LA APLICACION</h1>
               <Outlet />
               <hr />
+              {/* BOTON DE PRUEBA PARA MODAL*/}
+              <button className="botonPrueba" onClick={() => setIsModalOpen(true)}>
+                PROBAR MODAL
+              </button>
+              <Modal isOpen={isModalOpen} closeModal={() => setIsModalOpen(false)} />
+
+              <LoginScreen />
               <footer>Footer</footer>
             </>
           ),
@@ -54,7 +73,6 @@ function App() {
                   loader: ({ params }) => {
                     if (params.studentid === "3") {
                       console.log("No se puede");
-
                       // return redirect("/login");
                       throw new Response("No encontrado", {
                         status: 404,

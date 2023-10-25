@@ -1,0 +1,48 @@
+$modal-background: rgba(0, 0, 0, 0.5);
+$modal-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+.background{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+}
+
+.modal {
+  background-color: white;
+  border-radius: 0.5em;
+  box-shadow: $modal-shadow;
+  left: 50%;
+  max-width: 90%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 30em;
+  max-height: 90vh;
+  flex-direction: column;
+  align-items: center;
+  padding: 2%;
+  z-index: 10;
+}
+
+.btnCerrar {
+  position: absolute;
+  top: 2%;
+  right: 1%;
+  cursor: pointer;
+  //Cuando se importe un icono quitar la siguientes dos lineas:
+  border: 0;
+  background-color: transparent;
+}
+
+//Borrar clase
+.botonPrueba{
+  position: fixed;
+  font-size: 1.5rem;
+  text-align: center;
+  top: 0;
+  cursor: pointer;
+}
