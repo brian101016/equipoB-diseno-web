@@ -407,3 +407,63 @@ img#iconGoogle {
         }
     }
 }
+
+// ########################### FORGOT PASSWORD ################################################################################################
+
+.forgotpass-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-image: url('images/bg-login.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.forgotpass-card {
+    width: 546px;
+    height: 529px;
+    border-radius: 14px;
+    background: rgba(243, 243, 244, 0.9);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-logo-forgopass {
+    margin-top: 24px;
+}
+
+.forgotpass-title {
+    color: #000;
+    font-family: Poppins;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 17px;
+}
+.forgotpass-message {
+    color: #000;
+    font-family: Poppins;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 37px;
+}
+
+.forgotpass-form-button {
+    width: 402px;
+    height: 71px;
+    flex-shrink: 0;
+    color: #fff;
+    border-radius: 11px;
+    background: #080809;
+    font-family: Poppins;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
