@@ -101,10 +101,11 @@ body {
     }
   }
 
+
   .inputerror {
     box-shadow: 0 0 0 1px red !important;
   }
-
+  
   .inputCorreo {
     margin: 1.5rem 0rem 0.9rem 0rem;
   }
@@ -512,6 +513,44 @@ img#iconGoogle {
       flex-grow: 1;
     }
   }
+}
+
+// ################################################################################################ SPINNER
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border-left-color: #148edb;
+  animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.spinnerContainer {
+  display: flex;
+  margin-top: 20%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  strong {
+    color: #148edb;
+    font-size: 20px;
+  }
+}
+
+.imgSpinner {
+  animation: spin 1s linear infinite;
+  width: 80px;
+  height: 80px;
 }
 
 // ################################################################################################ PROGRESS CHART

@@ -1,3 +1,5 @@
+import Spinner from "@components/Spinner";
+import Navbar from "@components/NavBar";
 import ClassScreen from "@screens/CourseScreen";
 import ForgotPassScreen from "@screens/ForgotPassScreen";
 import HomeScreen from "@screens/HomeScreen";
