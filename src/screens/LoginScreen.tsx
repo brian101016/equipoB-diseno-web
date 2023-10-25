@@ -5,7 +5,7 @@ import ojo_off from "@theme/images/ojo-off.png";
 import mini_google from "@theme/images/Mini-google.png";
 
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 
 // ################################ INTERFACES & PROPS ################################
 // LoginScreen => Rename all instances to use
@@ -13,13 +13,12 @@ type LoginScreenProps = {};
 
 // ################################ RENDERING COMPONENT ################################
 const LoginScreen = (props: LoginScreenProps) => {
-
   const [passInput, setPassInput] = useState(false);
-  const [pass, setPass] = useState('');
+  const [pass, setPass] = useState("");
 
   const visiblePass = () => {
     setPassInput(!passInput);
-  }
+  };
 
   const passChange = (e) => {
     setPass(e.target.value);
@@ -38,34 +37,45 @@ const LoginScreen = (props: LoginScreenProps) => {
         backgroundImage: `url('${bg_login}')`,
       }}
     >
+      <Link to={"/login/signup"}>Ir hacia Signup</Link>
+      <Link to={"signup"}>Ir hacia Signup</Link>
+
       <form id="login-form">
         <img src={icon_user} alt="logo" />
 
         <h2>Iniciar sesión en su cuenta</h2>
 
-        <input className="input" type="text" placeholder="Correo electrónico" />
+        <input
+          className="input inputCorreo"
+          type="text"
+          placeholder="Correo electrónico"
+        />
 
         <div className="inputPassContainer">
           <input
             className="input inputIcon"
-            type={passInput ? 'text' : 'password'}
+            type={passInput ? "text" : "password"}
             placeholder="Contraseña"
             value={pass}
-            onChange={passChange} />
+            onChange={passChange}
+          />
           <button id="passOjo" type="button" onClick={visiblePass}>
             <img
               id="ojoIcon"
               src={passInput ? ojo_on : ojo_off}
-              alt={passInput ? "Ocultar ontraseña" : "Mostrar contraseña"} />
+              alt={passInput ? "Ocultar ontraseña" : "Mostrar contraseña"}
+            />
           </button>
         </div>
 
         <div style={{ display: "flex" }}>
-          <input type="checkbox" />
-          <label htmlFor="" style={{ marginLeft: "10px" }}>Recordarme</label>
-          <a href="#" style={{ marginLeft: "auto" }}>
+          <input className="checkbox" type="checkbox" />
+          <label htmlFor="" style={{ marginLeft: "10px" }}>
+            Recordarme
+          </label>
+          <Link to={"/login/forgot"} style={{ marginLeft: "auto" }}>
             Olvidaste tu contraseña?
-          </a>
+          </Link>
         </div>
 
         <button className="button">Iniciar sesión</button>
@@ -96,7 +106,6 @@ const LoginScreen = (props: LoginScreenProps) => {
           </div>
           Iniciar sesión con Google
         </button>
-
       </form>
     </div>
   );
