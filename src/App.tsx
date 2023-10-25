@@ -1,8 +1,10 @@
 import TodoList from "@components/TodoList";
 import LoginScreen from "@screens/LoginScreen";
 import ModalComments from "@components/ModalComments";
+import ModalCalificar from "@components/ModalCalificar";
 import React, { useState } from "react";
-import "./theme/ModalComments.scss";
+import "./theme/ModalCalificar.scss";
+
 
 
 
@@ -19,8 +21,8 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={openModal}>Comentario</button>
-      <ModalComments isOpen={isModalOpen} onClose={closeModal}/>
+      <button onClick={openModal}>Calificar</button>
+      <ModalCalificar isOpen={isModalOpen} onClose={closeModal}/>
 
     </div>
   );
