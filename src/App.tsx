@@ -6,18 +6,13 @@ import LandingScreen from "@screens/LandingScreen";
 import LoginScreen from "@screens/LoginScreen";
 import ModalComments from "@components/ModalComments";
 import ModalCalificar from "@components/ModalCalificar";
-import React, { useState } from "react";
 import "./theme/ModalCalificar.scss";
-
-
-
-
-import { useState } from "react";
-import "./theme/Modal.scss";
+//import "./theme/Modal.scss";
 import Modal from "@components/Modal";
 import NotFoundScreen from "@screens/NotFoundScreen";
 import SignupScreen from "@screens/SignupScreen";
 import StudentScreen from "@screens/StudentScreen";
+import { useState } from "react";
 import {
   Outlet,
   RouterProvider,

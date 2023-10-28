@@ -1,5 +1,6 @@
 import icon_user_blue from "@theme/images/icon-user-blue.png";
 import { useState } from "react";
+import { Button_Blue } from './Buttons_Components';
 
 
 export default function ModalCalificar({ isOpen, onClose, /*props*/ }) {
@@ -91,13 +92,13 @@ export default function ModalCalificar({ isOpen, onClose, /*props*/ }) {
                                     <p className="textGrey">a las</p>
                                     <p className="textBlue">00:02am</p>
                                 </div>
-                                <div className="styledDiv" style={selectColorStyles()}>
-                                    <select name="selectEnt" className="selectRad" value={selectOption} onChange={selectChange}>
-                                        <option value="A_Tiempo">A tiempo</option>
-                                        <option value="Con_retardo">Con retardo</option>
-                                        <option value="Sin_entregar">Sin entregar</option>
-                                    </select>
-                                </div>
+                            </div>
+                            <div className="styledDiv" style={selectColorStyles()}>
+                                <select name="selectEnt" className="selectRad" value={selectOption} onChange={selectChange}>
+                                    <option value="A_Tiempo">A tiempo</option>
+                                    <option value="Con_retardo">Con retardo</option>
+                                    <option value="Sin_entregar">Sin entregar</option>
+                                </select>
                             </div>
                             <div className="comentarioEstilo">
                                 <h3>Comentario del alumno:</h3>
@@ -113,7 +114,9 @@ export default function ModalCalificar({ isOpen, onClose, /*props*/ }) {
                                 <h3>Retroalimentacion para el alumno:</h3>
                                 <textarea className="commentArea">Ej: En terminos generales tu trabajo cumple con lo pedido en la indicación, aunque debo mencionar que te faltó comentar tu código. Con gusto lo vemos en asesorías.</textarea>
                             </div>
-                            <button className="btnGuardar" onClick={saveQualify}>Guardar</button>
+                            <div className="buttonGuardar">
+                                <Button_Blue className="btnGuardar" onClick={saveQualify}><p>Guardar</p></Button_Blue>
+                            </div>
                         </div>
                     </div>
                 </div>

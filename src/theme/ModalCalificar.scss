@@ -85,14 +85,14 @@ $color-gris-oscuro: #6C6B6B;
 
         .maxLinea {
             border-top: 2px solid #8D8D8D;
-            width: 900px;
+            width: auto;
             margin: auto;
         }
 
         .textNF {
             display: flex;
             align-items: center;
-
+            margin-top: 10px;
 
             h3 {
                 text-align: left;
@@ -121,29 +121,35 @@ $color-gris-oscuro: #6C6B6B;
                 margin-left: auto;
             }
 
-            .selectRad {
-                border-radius: 20px;
-                border: none;
+        }
+
+        .styledDiv {
+            display: flex;
+            justify-content: flex-end;
+            margin-left: 749px;
+            border-radius: 20px;
+        }
+
+        .selectRad {
+            border-radius: 20px;
+            border: none;
+            color: black;
+            font-family: 'Poppins', sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            text-align: center;
+            padding: 0px;
+
+
+            &:focus {
+                outline: none;
+            }
+
+            option {
                 color: black;
                 font-family: 'Poppins', sans-serif;
                 font-style: normal;
-                font-weight: 700;
-                text-align: center;
-
-                &:focus {
-                    outline: none;
-                }
-
-                option {
-                    color: black;
-                    font-family: 'Poppins', sans-serif;
-                    font-style: normal;
-                    font-weight: 700;
-                }
-            }
-
-            .styledDiv {
-                border-radius: 20px;
+                font-weight: 500;
 
             }
         }
@@ -155,6 +161,7 @@ $color-gris-oscuro: #6C6B6B;
             h3 {
                 color: $color-gris-oscuro;
                 margin-top: 20px;
+                text-align: center;
             }
 
             .commentArea {
@@ -187,6 +194,7 @@ $color-gris-oscuro: #6C6B6B;
             }
 
             .star-rating {
+                text-align: center;
 
                 .star {
                     font-size: 54px;
@@ -204,6 +212,7 @@ $color-gris-oscuro: #6C6B6B;
 
                     &.selected {
                         color: #fadb14;
+                        color: #7a5216;
                     }
                 }
             }
@@ -211,29 +220,11 @@ $color-gris-oscuro: #6C6B6B;
 
         .btnGuardar {
             margin-top: 20px;
-            border-radius: 12px;
-            border: none;
-            background-color: $color-azul-claro;
-            color: white;
-            width: 130px;
-            height: 50px;
-            font-size: 20px;
-            font-family: 'Poppins', sans-serif;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            cursor: pointer;
-
-            &:hover {
-                background-color: #0E5D9E;
-                box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3);
-            }
-
-            &:active {
-                background-color: #0A487C;
-                transform: translateY(2px);
-            }
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
+
     }
 
 }
