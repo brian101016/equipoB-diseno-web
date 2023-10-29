@@ -407,3 +407,56 @@ img#iconGoogle {
         }
     }
 }
+
+// ################################################################################################ SIGNUP ################################################################################################
+.landing-page {
+    height: 100%;
+}
+// HEADER
+.landing-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 63px;
+    border-bottom: black solid 1px;
+    img {
+        width: 247px;
+        height: 105px;
+    }
+}
+
+.landing-header-components {
+    a {
+        color: #000;
+        font-family: Poppins;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-right: 32px;
+        padding: 0;
+    }
+    a:hover {
+        color: #1c7fc0;
+    }
+
+    button {
+        width: 204px;
+        height: 63px;
+        border-style: none;
+        border-radius: 31.5px;
+        background: #127ec2;
+        color: #fff;
+        font-family: Poppins;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+
+// SECTION WELCOME
+
+// SECTION INFO
+
+// FOOTER
