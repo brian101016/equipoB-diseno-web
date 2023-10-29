@@ -1,20 +1,45 @@
+import Spinner from "@components/Spinner";
+import Navbar from "@components/NavBar";
 import ClassScreen from "@screens/CourseScreen";
 import ForgotPassScreen from "@screens/ForgotPassScreen";
 import HomeScreen from "@screens/HomeScreen";
 import HomeworkScreen from "@screens/HomeworkScreen";
 import LandingScreen from "@screens/LandingScreen";
 import LoginScreen from "@screens/LoginScreen";
+import ModalComments from "@components/ModalComments";
+import ModalCalificar from "@components/ModalCalificar";
+import React, { useState } from "react";
+import "./theme/ModalCalificar.scss";
+import "./theme/Modal.scss";
+import "./theme/ModalComments.scss";
+import Modal from "@components/Modal";
 import NotFoundScreen from "@screens/NotFoundScreen";
 import SignupScreen from "@screens/SignupScreen";
 import StudentScreen from "@screens/StudentScreen";
-import {
-  Outlet,
-  RouterProvider,
-  createBrowserRouter,
-  redirect,
-} from "react-router-dom";
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import Button_Class from "@components/Button_Class";
+import Progress_Chart from "@components/Progress_Chart";
 
 function App() {
+  const [isModalOpen2, setIsModalOpen2] = useState(false);
+  const [isCommentOpen, setIsCommentOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen2(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen2(false);
+  };
+
+  //INSTRUCCIONES:
+  /**
+   * useState para tener un estado el cual por defecto esta en false
+   * nos permitira tener desactivado el modal y la funcion setIsModalOpen
+   * nos permite cambiar el estado a true para activar el modal mediante un boton.
+   */
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <RouterProvider
       router={createBrowserRouter([
@@ -24,7 +49,37 @@ function App() {
               <h1>TITULO DE LA APLICACION</h1>
               <Outlet />
               <hr />
-              <footer>Footer</footer>
+              {/* BOTON DE PRUEBA PARA MODAL*/}
+              <button
+                className="botonPrueba"
+                onClick={() => setIsModalOpen(true)}
+              >
+                PROBAR MODAL
+              </button>
+
+              {/* MIGUEL */}
+              <Modal
+                isOpen={isModalOpen}
+                closeModal={() => setIsModalOpen(false)}
+              />
+
+              {/* MODAL ORLANDO */}
+              <button onClick={openModal}>Calificar</button>
+              <ModalCalificar isOpen={isModalOpen2} onClose={closeModal} />
+
+              <button
+                onClick={() => {
+                  setIsCommentOpen(true);
+                }}
+              >
+                Calificar
+              </button>
+              <ModalComments
+                isOpen={isCommentOpen}
+                onClose={() => {
+                  setIsCommentOpen(false);
+                }}
+              ></ModalComments>
             </>
           ),
           errorElement: <NotFoundScreen />,
@@ -54,7 +109,6 @@ function App() {
                   loader: ({ params }) => {
                     if (params.studentid === "3") {
                       console.log("No se puede");
-
                       // return redirect("/login");
                       throw new Response("No encontrado", {
                         status: 404,
