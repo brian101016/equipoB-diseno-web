@@ -5,13 +5,19 @@ import iconoHouse from '@theme/images/img-landing/icon-house.png';
 import logo from '@theme/images/img-landing/logotipo-header.png';
 import imagen from '@theme/images/img-landing/landing-img.png';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // LandingScreen => Rename all instances to use
 type LandingScreenProps = {};
 
 // ################################ RENDERING COMPONENT ################################
 const LandingScreen = (props: LandingScreenProps) => {
+    const navigater = useNavigate();
+
+    const irRegistrate = () => {
+        navigater('login/signup');
+    };
+
     // ------------------------------------------------------------------------------------ RETURN
     return (
         <div className="landing-page">
@@ -19,15 +25,16 @@ const LandingScreen = (props: LandingScreenProps) => {
             <Link to={'/login'}>Ir hacia Login</Link>
             <header className="landing-header">
                 <img src={logo} alt="logotipo empresa" />
-                <div className="landing-header-content">
+
+                <div className="landing-header-components">
                     <a>
                         <Link to={'/login'}>Iniciar sesión</Link>
                     </a>
-                    <button>Regístrate</button>
+                    <button onClick={irRegistrate}>Regístrate</button>
                 </div>
             </header>
             <section className="landing-welcome">
-                <div className="landing-welcome-content">
+                <div className="landing-welcome-components">
                     <h1>BIENVENIDOS A STUDYSYNC</h1>
                     <p>
                         En STUDYSYNC, aprendizaje cómodo y exitoso. Estudiantes
@@ -37,6 +44,7 @@ const LandingScreen = (props: LandingScreenProps) => {
                     </p>
                     <button>Explorar Más</button>
                 </div>
+
                 <img src={imagen} alt="persona trabajando con una laptop" />
             </section>
             <section className="landing-info">
