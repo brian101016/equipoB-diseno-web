@@ -25,6 +25,7 @@ const LandingScreen = (props: LandingScreenProps) => {
             <Link to={'/login'}>Ir hacia Login</Link>
             <header className="landing-header">
                 <img src={logo} alt="logotipo empresa" />
+
                 <div className="landing-header-components">
                     <a>
                         <Link to={'/login'}>Iniciar sesión</Link>
@@ -43,7 +44,8 @@ const LandingScreen = (props: LandingScreenProps) => {
                     </p>
                     <button>Explorar Más</button>
                 </div>
-                <img src={imagen} alt="persona usando una laptop" />
+
+                <img src={imagen} alt="persona trabajando con una laptop" />
             </section>
             <section className="landing-info">
                 <div className="landing-info-content">
