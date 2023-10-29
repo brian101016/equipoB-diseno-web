@@ -749,9 +749,12 @@ $--percentaje: 70;
     line-height: normal;
 }
 
+
 // ################################################################################################ LANDING ################################################################################################
 .landing-page {
     height: 100%;
+    width: 80%;
+    margin: 0 auto;
 }
 // HEADER
 .landing-header {
@@ -796,8 +799,52 @@ $--percentaje: 70;
     }
 }
 
-// LANDING SECTION WELCOME
+// SECTION WELCOME
+.landing-welcome {
+    margin-top: 45px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    img {
+        width: 440px;
+        height: 458px;
+    }
+}
+
+.landing-welcome-components {
+    font-family: Poppins;
+    font-weight: 400;
+    font-style: normal;
+    line-height: normal;
+    h1 {
+        font-family: Bebas Neue;
+        color: #127ec2;
+        text-align: justify;
+        font-size: 70px;
+    }
+    p {
+        width: 659px;
+        margin-top: 25px;
+        margin-right: 80px;
+        color: #000;
+        text-align: justify;
+        font-size: 22px;
+    }
+    button {
+        margin-top: 29px;
+        color: #080809;
+        font-size: 24px;
+        width: 204px;
+        height: 63px;
+        flex-shrink: 0;
+        border-radius: 31.5px;
+        border: 3px solid #080809;
+        background: rgba(255, 255, 255, 0.87);
+    }
+}
+
 
 // LANDING SECTION INFO
+
 
 // LANDING FOOTER
