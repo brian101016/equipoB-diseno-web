@@ -9,11 +9,7 @@ import ojo_off from '@theme/images/ojo-off.png';
 import mini_google from '@theme/images/Mini-google.png';
 
 import { useState } from 'react';
-
-import { Link } from 'react-router-dom';
-
 import { Link, useNavigate } from 'react-router-dom';
-
 
 // ################################ INTERFACES & PROPS ################################
 // LoginScreen => Rename all instances to use
@@ -32,13 +28,11 @@ const LoginScreen = (props: LoginScreenProps) => {
         setPass(e.target.value);
     };
 
-
     // funcion que lleva de la Login a Signup usando un boton
     const newAccount = useNavigate();
     const createNewAccount = () => {
         newAccount('signup');
     };
-
 
     const styleHorizontal = {
         borderBottom: 'black solid 6px',
@@ -53,16 +47,11 @@ const LoginScreen = (props: LoginScreenProps) => {
                 backgroundImage: `url('${bg_login}')`,
             }}
         >
-
             {/* <Link to={"/login/signup"}>Ir hacia Signup</Link> */}
             {/* <Link to={"signup"}>Ir hacia Signup</Link> */}
 
             <form id="login-form">
-                <img src={icon_user} alt="logo" />
-
-            <form id="login-form">
                 <img src={icon_logo} alt="logo" />
-
 
                 <h2>Iniciar sesión en su cuenta</h2>
 
@@ -105,13 +94,9 @@ const LoginScreen = (props: LoginScreenProps) => {
 
                 <button className="button">Iniciar sesión</button>
 
-
-                <button className="button">Crear nueva cuenta</button>
-
                 <button className="button" onClick={createNewAccount}>
                     Crear nueva cuenta
                 </button>
-
 
                 <div
                     style={{
