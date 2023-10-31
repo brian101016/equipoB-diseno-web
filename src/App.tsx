@@ -1,3 +1,5 @@
+import Spinner from "@components/Spinner";
+import Navbar from "@components/NavBar";
 import ClassScreen from "@screens/CourseScreen";
 import ForgotPassScreen from "@screens/ForgotPassScreen";
 import HomeScreen from "@screens/HomeScreen";
@@ -7,21 +9,20 @@ import LoginScreen from "@screens/LoginScreen";
 import ModalComments from "@components/ModalComments";
 import ModalCalificar from "@components/ModalCalificar";
 import "./theme/ModalCalificar.scss";
-//import "./theme/Modal.scss";
+import "./theme/Modal.scss";
+import "./theme/ModalComments.scss";
 import Modal from "@components/Modal";
 import NotFoundScreen from "@screens/NotFoundScreen";
 import SignupScreen from "@screens/SignupScreen";
 import StudentScreen from "@screens/StudentScreen";
 import { useState } from "react";
-import {
-  Outlet,
-  RouterProvider,
-  createBrowserRouter,
-  redirect,
-} from "react-router-dom";
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import Button_Class from "@components/Button_Class";
+import Progress_Chart from "@components/Progress_Chart";
 
 function App() {
   const [isModalOpen2, setIsModalOpen2] = useState(false);
+  const [isCommentOpen, setIsCommentOpen] = useState(false);
 
   const openModal = () => {
     setIsModalOpen2(true);
@@ -49,14 +50,36 @@ function App() {
               <Outlet />
               <hr />
               {/* BOTON DE PRUEBA PARA MODAL*/}
-              <button className="botonPrueba" onClick={() => setIsModalOpen(true)}>
+              <button
+                className="botonPrueba"
+                onClick={() => setIsModalOpen(true)}
+              >
                 PROBAR MODAL
               </button>
-              <Modal isOpen={isModalOpen} closeModal={() => setIsModalOpen(false)} />
-              
+
+              {/* MIGUEL */}
+              <Modal
+                isOpen={isModalOpen}
+                closeModal={() => setIsModalOpen(false)}
+              />
+
+              {/* MODAL ORLANDO */}
               <button onClick={openModal}>Calificar</button>
-              <ModalCalificar isOpen={isModalOpen2} onClose={closeModal}/>
-              <footer>Footer</footer>
+              <ModalCalificar isOpen={isModalOpen2} onClose={closeModal} />
+
+              <button
+                onClick={() => {
+                  setIsCommentOpen(true);
+                }}
+              >
+                Calificar
+              </button>
+              <ModalComments
+                isOpen={isCommentOpen}
+                onClose={() => {
+                  setIsCommentOpen(false);
+                }}
+              ></ModalComments>
             </>
           ),
           errorElement: <NotFoundScreen />,
