@@ -359,9 +359,10 @@ img#iconGoogle {
     text-align: justify;
   }
 
-  //&:hover {
-  //  opacity: 80%;
-  //}
+  &:hover {
+    opacity: 80%;
+    cursor: pointer;
+  }
 }
 
 // ################################################################################################ LIST
@@ -506,69 +507,6 @@ img#iconGoogle {
       border: black solid 2px;
       flex-grow: 1;
     }
-  }
-}
-
-// ################################################################################################ PROGRESS CHART
-// No esta con SCSS, falta optimización
-$--clr: #2f8da1;
-$--percentaje: 88;
-.container-chart {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 40px;
-}
-.container-chart .progress-chart {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  color: #ffffff;
-  background: #b4b0b0 linear-gradient(to right, transparent 50%, $--clr 0);
-}
-.container-chart h3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2.5rem;
-  z-index: 1;
-  font-weight: 500;
-}
-.container-chart .progress-chart h3 span {
-  font-size: 1.4rem;
-  font-weight: 400;
-}
-
-.container-chart .progress-chart::before {
-  content: "";
-  display: block;
-  height: 100%;
-  margin-left: 50%;
-  transform-origin: left;
-  border-radius: 0 100% 100% 0/50%;
-}
-
-.container-chart .progress-chart::after {
-  content: "";
-  position: absolute;
-  inset: 10px;
-  border-radius: 50%;
-  background: #ffffff;
-}
-
-@if $--percentaje>50 {
-  .container-chart .progress-chart::before {
-    background: $--clr;
-    transform: rotate(calc((($--percentaje - 50) * 0.01turn)));
-  }
-} @else {
-  .container-chart .progress-chart.less::before {
-    background-color: #b4b0b0;
-    transform: rotate(calc((($--percentaje - 0) * 0.01turn)));
   }
 }
 

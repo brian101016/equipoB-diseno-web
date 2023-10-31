@@ -7,7 +7,11 @@ import LoginScreen from "@screens/LoginScreen";
 import NotFoundScreen from "@screens/NotFoundScreen";
 import SignupScreen from "@screens/SignupScreen";
 import StudentScreen from "@screens/StudentScreen";
+import ButtonClass from "@components/ButtonClass";
+import ProgressChart from "@components/ProgressChart";
+
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import { title } from "process";
 
 function App() {
   return (
@@ -24,7 +28,7 @@ function App() {
                 teacherName="JESUS ALBERTO OJEDA SAUCEDO"
               />
 
-              <ProgressChart percentage="70"></ProgressChart>
+              <ProgressChart percentage={98.9}></ProgressChart>
             </>
           ),
           errorElement: <NotFoundScreen />,
@@ -55,7 +59,7 @@ function App() {
                     // ##################### STUDENT */
                     {
                       path: "student/",
-                      element: <StudentScreen />,
+                      element: <StudentScreen title={"Diseño web"} />,
                     },
                     // ##################### HOMEWORK */
                     {
