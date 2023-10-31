@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+
+
+//==========================================================Button==========================================================
 export const Button_Blue = styled.button`
     border-radius: 15px;    
     border: none;
@@ -60,4 +63,48 @@ export const Button_Editar = styled.button`
         margin-left: 30px;
         margin-right: 30px;
     }
+`;
+
+//==========================================================Modal==========================================================
+
+export const BackgroundModal = styled.div`
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Modal = styled.div`
+  background: white;
+  border-radius: 4px;
+  padding: 20px;
+  width: 60%;
+  text-align: center;
+  position: relative;
+
+  @media screen and (max-width: 1089px) {
+    width: 90%;
+  }
+
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 2%;
+  right: 1%;
+  z-index: 11;
+  background-color: white;
+  color: #FF0000;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 50px;
+  width: 25px;
+  border: none;
+  font-size: 23px;
+  cursor: pointer;
 `;

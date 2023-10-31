@@ -1,6 +1,6 @@
 import icon_user_blue from "@theme/images/icon-user-blue.png";
 import { useState } from "react";
-import { Button_Blue } from './Buttons_Components';
+import { Button_Blue, BackgroundModal, Modal, CloseButton } from './StyledComponents';
 
 
 export default function ModalCalificar({ isOpen, onClose, /*props*/ }) {
@@ -13,6 +13,8 @@ export default function ModalCalificar({ isOpen, onClose, /*props*/ }) {
         const selectV = event.target.value;
         setSelectOption(selectV);
     }
+
+
 
     const selectColorStyles = () => {
         switch (selectOption) {
@@ -70,11 +72,9 @@ export default function ModalCalificar({ isOpen, onClose, /*props*/ }) {
     return (
         <>
             {isOpen && (
-                <div className="background_modal">
-                    <div className="modal">
-                        <div className="modal_content">
-                            <button className="close" onClick={onClose}>x</button>
-                        </div>
+                <BackgroundModal>
+                    <Modal >
+                        <CloseButton onClick={onClose}>x</CloseButton>
                         <div className="modalEstilo">
                             <div className="modalActity">
                                 <h2 className="textBlue">Actividad 12</h2>
@@ -93,13 +93,11 @@ export default function ModalCalificar({ isOpen, onClose, /*props*/ }) {
                                     <p className="textBlue">00:02am</p>
                                 </div>
                             </div>
-                            <div className="styledDiv" style={selectColorStyles()}>
-                                <select name="selectEnt" className="selectRad" value={selectOption} onChange={selectChange}>
-                                    <option value="A_Tiempo">A tiempo</option>
-                                    <option value="Con_retardo">Con retardo</option>
-                                    <option value="Sin_entregar">Sin entregar</option>
-                                </select>
-                            </div>
+                            <select name="selectEnt" className="selectRad" value={selectOption} onChange={selectChange} style={selectColorStyles()}>
+                                <option value="A_Tiempo">A tiempo</option>
+                                <option value="Con_retardo">Con retardo</option>
+                                <option value="Sin_entregar">Sin entregar</option>
+                            </select>
                             <div className="comentarioEstilo">
                                 <h3>Comentario del alumno:</h3>
                                 <textarea name="comt" className="commentArea">Ej: Adjunto la actividad 12 correspondiente a la practica de algoritmo. Tuve algunas dudas que me gustaría resolver en la siguiente sesión de asesoría.</textarea>
@@ -118,8 +116,8 @@ export default function ModalCalificar({ isOpen, onClose, /*props*/ }) {
                                 <Button_Blue className="btnGuardar" onClick={saveQualify}><p>Guardar</p></Button_Blue>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </Modal>
+                </BackgroundModal>
             )}
         </>
     )
