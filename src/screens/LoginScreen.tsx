@@ -1,5 +1,9 @@
 import bg_login from '@theme/images/bg-login.jpeg';
+
+import icon_user from '@theme/images/icon-user.png';
+
 import icon_logo from '@theme/images/logo-azul-vertical.png';
+
 import ojo_on from '@theme/images/ojo-on.png';
 import ojo_off from '@theme/images/ojo-off.png';
 import mini_google from '@theme/images/Mini-google.png';
@@ -43,6 +47,9 @@ const LoginScreen = (props: LoginScreenProps) => {
                 backgroundImage: `url('${bg_login}')`,
             }}
         >
+            {/* <Link to={"/login/signup"}>Ir hacia Signup</Link> */}
+            {/* <Link to={"signup"}>Ir hacia Signup</Link> */}
+
             <form id="login-form">
                 <img src={icon_logo} alt="logo" />
 

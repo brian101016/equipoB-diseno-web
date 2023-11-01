@@ -55,6 +55,7 @@ export class User extends _setup {
  * 1. {@link title} - `string` -> `""`.
  * 1. {@link desc} - `string` -> `""`.
  * 1. {@link subject} - `string` -> `""`.
+ * 1. {@link color} - `string` -> `"#000000"`.
  * 1. {@link students} - `string[]` -> `[]`.
  * 1. {@link homeworks} - `Homework[]` -> `[]`.
  */
@@ -67,6 +68,8 @@ export class Course extends _setup {
   desc = "";
   /** Materia o tema del curso, para establecer cursos similares. */
   subject = "";
+  /** Color del curso, será en formato #RRGGBB. */
+  color = "#000000";
   /** Lista de estudiantes que se inscribieron al curso, solo guarda los {@link User.id}. */
   students: string[] = [];
   /** Lista de tareas creadas dentro del curso. */
