@@ -37,3 +37,22 @@ function random(ini, fin) {
 random("", 3);
 
 export {};
+
+function generateId(long){
+  let character = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+  let id = '';
+  for (let i = 0; i < long; i++){
+    const charRandom = character.charAt(Math.floor(Math.random() * character.length));
+    id += charRandom;
+  }
+  return id;
+
+}
+
+//Id Random de 16 Caracteres
+const id16 = generateId(16);
+console.log(id16, ' id 16 caracteres')
+
+//Id Random de 16 Caracteres
+const id6 = generateId(6);
+console.log(id6, ' id 6 caracteres')
