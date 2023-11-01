@@ -6,9 +6,11 @@ import HomeScreen from "@screens/HomeScreen";
 import HomeworkScreen from "@screens/HomeworkScreen";
 import LandingScreen from "@screens/LandingScreen";
 import LoginScreen from "@screens/LoginScreen";
+import ButtonClass from "@components/ButtonClass";
+import ProgressChart from "@components/ProgressChart";
+import { title } from "process";
 import ModalComments from "@components/ModalComments";
 import ModalCalificar from "@components/ModalCalificar";
-import React, { useState } from "react";
 import "./theme/ModalCalificar.scss";
 import "./theme/Modal.scss";
 import "./theme/ModalComments.scss";
@@ -16,9 +18,8 @@ import Modal from "@components/Modal";
 import NotFoundScreen from "@screens/NotFoundScreen";
 import SignupScreen from "@screens/SignupScreen";
 import StudentScreen from "@screens/StudentScreen";
+import { useState } from "react";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
-import Button_Class from "@components/Button_Class";
-import Progress_Chart from "@components/Progress_Chart";
 
 function App() {
   const [isModalOpen2, setIsModalOpen2] = useState(false);
@@ -27,11 +28,9 @@ function App() {
   const openModal = () => {
     setIsModalOpen2(true);
   };
-
   const closeModal = () => {
     setIsModalOpen2(false);
   };
-
   //INSTRUCCIONES:
   /**
    * useState para tener un estado el cual por defecto esta en false
@@ -39,7 +38,6 @@ function App() {
    * nos permite cambiar el estado a true para activar el modal mediante un boton.
    */
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <RouterProvider
       router={createBrowserRouter([
@@ -49,11 +47,21 @@ function App() {
               <h1>TITULO DE LA APLICACION</h1>
               <Outlet />
               <hr />
+              <ButtonClass
+                title="Diseño Web"
+                description="Diseño web es una disciplina que se enfoca en la creación y diseño de sitios web, abarcando aspectos como la estructura, la apariencia visual, la usabilidad y la interacción."
+                homework="Avance EC1"
+                teacherName="JESUS ALBERTO OJEDA SAUCEDO"
+              />
+
+              <ProgressChart percentage={98.9}></ProgressChart>
+
+              <Outlet />
+              <hr />
               {/* BOTON DE PRUEBA PARA MODAL*/}
               <button
                 className="botonPrueba"
-                onClick={() => setIsModalOpen(true)}
-              >
+                onClick={() => setIsModalOpen(true)}>
                 PROBAR MODAL
               </button>
 
@@ -70,16 +78,14 @@ function App() {
               <button
                 onClick={() => {
                   setIsCommentOpen(true);
-                }}
-              >
+                }}>
                 Calificar
               </button>
               <ModalComments
                 isOpen={isCommentOpen}
                 onClose={() => {
                   setIsCommentOpen(false);
-                }}
-              ></ModalComments>
+                }}></ModalComments>
             </>
           ),
           errorElement: <NotFoundScreen />,
@@ -118,7 +124,7 @@ function App() {
 
                     return null;
                   },
-                  element: <StudentScreen />,
+                  element: <StudentScreen title={"Hola"} />,
                 },
                 // ##################### HOMEWORK */
                 {

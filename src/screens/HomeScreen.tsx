@@ -1,6 +1,7 @@
 // ################################ INTERFACES & PROPS ################################
 
 import Button_Class from "@components/Button_Class";
+import Navbar from "@components/NavBar";
 import Progress_Chart from "@components/Progress_Chart";
 
 // HomeScreen => Rename all instances to use
@@ -11,14 +12,37 @@ const HomeScreen = (props: HomeScreenProps) => {
   // ------------------------------------------------------------------------------------ RETURN
   return (
     <div>
-      Pagina principal
-      <Button_Class
-        title="Diseño Web"
-        description="Diseño web es una disciplina que se enfoca en la creación y diseño de sitios web, abarcando aspectos como la estructura, la apariencia visual, la usabilidad y la interacción."
-        homework="Avance EC1"
-        teacherName="JESUS ALBERTO OJEDA SAUCEDO"
-      />
-      <Progress_Chart percentage="70"></Progress_Chart>
+      <Navbar />
+      <div className="home-contenido">
+        <div className="contenido-clases">
+          <Button_Class
+            title="Diseño Web"
+            homework="Actividad 7 - Investigacion sobre Diseño Web"
+            teacherName="Profr. Jesus Saucedo"
+          />
+        </div>
+        <div className="contenido-clases">
+        <Button_Class className="dis"
+          title="Inteligencia Artificial"
+          homework="Actividad 12 - Grafos"
+          teacherName="Profra. Patricia Carrillo"
+        />
+        </div>
+        <div className="contenido-clases">
+        <Button_Class className="dis"
+          title="Programacion de dispositivos moviles"
+          homework="Actividad 10 - Practica de algoritmo"
+          teacherName="Profr. Julian Flores"
+        />
+        </div>
+        <div className="contenido-clases">
+        <Button_Class
+          title="Programacion de dispositivos moviles"
+          homework="Actividad 10 - Practica de algoritmo"
+          teacherName="Profr. Julian Flores"
+        />
+        </div>
+      </div>
     </div>
   );
 };

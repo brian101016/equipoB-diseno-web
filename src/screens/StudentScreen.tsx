@@ -1,21 +1,16 @@
 // ################################ INTERFACES & PROPS ################################
-
-import { useParams } from "react-router-dom";
-
-// StudentScreen => Rename all instances to use
-type StudentScreenProps = {};
+// Template => Rename all instances to use
+type StudentScreen = { title };
 
 // ################################ RENDERING COMPONENT ################################
-const StudentScreen = (props: StudentScreenProps) => {
-  const { classid, studentid } = useParams();
-
+const StudentScreen = (props: StudentScreen) => {
   // ------------------------------------------------------------------------------------ RETURN
   return (
-    <div>
-      <h3>Clase: {classid}</h3>
-      <h4> Student: {studentid || "Todos"}</h4>
-      Student screen
-    </div>
+    <>
+      <div>
+        <h1>{props.title}</h1>
+      </div>
+    </>
   );
 };
 

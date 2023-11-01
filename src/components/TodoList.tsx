@@ -32,8 +32,7 @@ export default function TodoList(props: TodoListProps) {
         onClick={() => {
           list.push(value);
           setValue("");
-        }}
-      >
+        }}>
         Guardar
       </button>
 
@@ -59,8 +58,7 @@ export default function TodoList(props: TodoListProps) {
                 onClick={() => {
                   list.splice(index, 1);
                   setList([...list]);
-                }}
-              >
+                }}>
                 Eliminar
               </button>
             </div>
