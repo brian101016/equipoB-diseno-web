@@ -1,8 +1,8 @@
 // ################################ INTERFACES & PROPS ################################
 
-import Button_Class from "@components/Button_Class";
+import ButtonClass from "@components/ButtonClass";
 import Navbar from "@components/NavBar";
-import Progress_Chart from "@components/Progress_Chart";
+import ProgressChart from "@components/ProgressChart";
 
 // HomeScreen => Rename all instances to use
 type HomeScreenProps = {};
@@ -15,32 +15,34 @@ const HomeScreen = (props: HomeScreenProps) => {
       <Navbar />
       <div className="home-contenido">
         <div className="contenido-clases">
-          <Button_Class
+          <ButtonClass
             title="Diseño Web"
             homework="Actividad 7 - Investigacion sobre Diseño Web"
             teacherName="Profr. Jesus Saucedo"
           />
         </div>
         <div className="contenido-clases">
-        <Button_Class className="dis"
-          title="Inteligencia Artificial"
-          homework="Actividad 12 - Grafos"
-          teacherName="Profra. Patricia Carrillo"
-        />
+          <ButtonClass
+            className="dis"
+            title="Inteligencia Artificial"
+            homework="Actividad 12 - Grafos"
+            teacherName="Profra. Patricia Carrillo"
+          />
         </div>
         <div className="contenido-clases">
-        <Button_Class className="dis"
-          title="Programacion de dispositivos moviles"
-          homework="Actividad 10 - Practica de algoritmo"
-          teacherName="Profr. Julian Flores"
-        />
+          <ButtonClass
+            className="dis"
+            title="Programacion de dispositivos moviles"
+            homework="Actividad 10 - Practica de algoritmo"
+            teacherName="Profr. Julian Flores"
+          />
         </div>
         <div className="contenido-clases">
-        <Button_Class
-          title="Programacion de dispositivos moviles"
-          homework="Actividad 10 - Practica de algoritmo"
-          teacherName="Profr. Julian Flores"
-        />
+          <ButtonClass
+            title="Programacion de dispositivos moviles"
+            homework="Actividad 10 - Practica de algoritmo"
+            teacherName="Profr. Julian Flores"
+          />
         </div>
       </div>
     </div>

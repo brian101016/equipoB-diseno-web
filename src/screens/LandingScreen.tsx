@@ -27,9 +27,7 @@ const LandingScreen = (props: LandingScreenProps) => {
         <img src={logo} alt="logotipo empresa" />
 
         <div className="landing-header-components">
-          <a>
-            <Link to={"/login"}>Iniciar sesión</Link>
-          </a>
+          <Link to={"/login"}>Iniciar sesión</Link>
           <button onClick={irRegistrate}>Regístrate</button>
         </div>
       </header>
@@ -83,7 +81,7 @@ const LandingScreen = (props: LandingScreenProps) => {
           <img src={logo}></img>
           <p>Acerca de StudySync</p>
         </div>
-        
+
         <p>Copyright ©2023 StudySync</p>
       </footer>
     </div>
