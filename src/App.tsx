@@ -1,5 +1,3 @@
-import Spinner from "@components/Spinner";
-import Navbar from "@components/NavBar";
 import ClassScreen from "@screens/CourseScreen";
 import ForgotPassScreen from "@screens/ForgotPassScreen";
 import HomeScreen from "@screens/HomeScreen";
@@ -8,7 +6,6 @@ import LandingScreen from "@screens/LandingScreen";
 import LoginScreen from "@screens/LoginScreen";
 import ButtonClass from "@components/ButtonClass";
 import ProgressChart from "@components/ProgressChart";
-import { title } from "process";
 import ModalComments from "@components/ModalComments";
 import ModalCalificar from "@components/ModalCalificar";
 import "./theme/ModalCalificar.scss";
@@ -61,7 +58,8 @@ function App() {
               {/* BOTON DE PRUEBA PARA MODAL*/}
               <button
                 className="botonPrueba"
-                onClick={() => setIsModalOpen(true)}>
+                onClick={() => setIsModalOpen(true)}
+              >
                 PROBAR MODAL
               </button>
 
@@ -78,14 +76,16 @@ function App() {
               <button
                 onClick={() => {
                   setIsCommentOpen(true);
-                }}>
+                }}
+              >
                 Calificar
               </button>
               <ModalComments
                 isOpen={isCommentOpen}
                 onClose={() => {
                   setIsCommentOpen(false);
-                }}></ModalComments>
+                }}
+              ></ModalComments>
             </>
           ),
           errorElement: <NotFoundScreen />,
