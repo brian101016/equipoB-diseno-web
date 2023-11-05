@@ -1,8 +1,6 @@
-
-/*
-*/function parseNumber(stringtext){
-const regexpSize = /([.0-9]+)×([.0-9]+)/;
+function parseNumber(stringtext : string, isBoolean : boolean){
+const regexpSize = /([.0-9]+)/;
 const match = stringtext.match(regexpSize);
 }
 
-export {}
+export default parseNumber;

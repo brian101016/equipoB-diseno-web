@@ -394,95 +394,82 @@ img#iconGoogle {
 }
 
 // ######################################### Button Class
-#border-class-button {
-  height: 400px;
-  width: 405px;
+.border-class-button {
+  height: 21rem;
+  width: 21rem;
   border-radius: 8%;
-  border: 3px solid #000000;
-  margin: 1rem;
+  border: none;
   background-color: #fff;
-  position: relative;
+  margin: 2rem;
+  box-shadow: 11px 11px 5px -6px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 11px 11px 5px -6px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 11px 11px 5px -6px rgba(0, 0, 0, 0.5);
 
   .title-class-button {
-    width: 40%;
-    color: #fff;
+    color: #3e3d3d;
+    text-align: center;
     font-family: "Bebas Neue";
     font-size: 3rem;
-    margin: 0.5rem;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
     line-height: normal;
-    text-align: left;
-    position: absolute;
+    position: relative;
+    top: 1.5rem;
+  }
+
+  .image-class-button {
+    height: 35%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 16px 16px 0 0;
   }
 
   .central-class-button {
-    height: 50%;
+    height: 20%;
+    width: 90%;
+    margin: 0 0 5% 5%;
     border-bottom: 0.9px solid black;
-    border-top: 0.9px solid black;
   }
 
-  .icon-class-button {
-    border-radius: 50%;
+  .icon-image-class-button {
+    position: relative;
+    top: 30%;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   .teacherName-class-button {
-    color: #000;
-    font-family: "Bebas Neue";
-    font-size: 1.4rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-align: justify;
-    margin-left: 1rem;
-    margin-top: 1rem;
-  }
-  .description-class-button {
-    color: #000;
+    color: #3e3d3d;
+    text-align: center;
     font-family: "Poppins";
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    text-align: left;
-    margin-left: 1rem;
-    margin-top: 1.5rem;
+    padding: 1.4rem;
   }
 
   .footer-class-button {
     margin-top: 0.2rem;
-    height: 20%;
+    height: 40%;
   }
 
   .text-footer-class-button {
-    color: #127ec2;
-    font-family: "Bebas Neue";
-    font-size: 1.2rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-align: justify;
-    margin-left: 1rem;
-  }
-  .icon-image-class-button {
-    position: absolute;
-    top: 5rem;
-    left: 16.5rem;
-    right: 0;
-    margin: 10px;
-  }
-  .image-class-button {
-    height: 36%;
-  }
-  .homework-footer-class-button {
     color: #000;
-    font-family: Poppins;
-    font-size: 1rem;
+    font-family: "Poppins";
+    font-size: 0.8rem;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     line-height: normal;
-    margin-left: 1.5rem;
-    text-align: justify;
+    margin-bottom: 0.2rem;
+  }
+
+  .progress-bar-footer-class-button {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   &:hover {
@@ -1141,4 +1128,22 @@ $--percentaje: 70;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+// ################################################################################################ ActivitiesExpire ################################################################################################
+.ActivitieTitle {
+  color: #a0a0a0;
+  font-family: "Poppins";
+  font-size: 0.6rem;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+}
+
+.ActivitieText {
+  color: #080809;
+  font-family: "Poppins";
+  font-size: 0.6rem;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
 }

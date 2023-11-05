@@ -1,5 +1,6 @@
 import Spinner from "@components/Spinner";
 import Navbar from "@components/NavBar";
+import ActivitiesExpire from "@components/ActivitiesExpire";
 import ClassScreen from "@screens/CourseScreen";
 import ForgotPassScreen from "@screens/ForgotPassScreen";
 import HomeScreen from "@screens/HomeScreen";
@@ -7,7 +8,7 @@ import HomeworkScreen from "@screens/HomeworkScreen";
 import LandingScreen from "@screens/LandingScreen";
 import LoginScreen from "@screens/LoginScreen";
 import ButtonClass from "@components/ButtonClass";
-import ProgressChart from "@components/ProgressChart";
+import ProgressBar from "@components/ProgressBar";
 import { title } from "process";
 import ModalComments from "@components/ModalComments";
 import ModalCalificar from "@components/ModalCalificar";
@@ -49,12 +50,22 @@ function App() {
               <hr />
               <ButtonClass
                 title="Diseño Web"
-                description="Diseño web es una disciplina que se enfoca en la creación y diseño de sitios web, abarcando aspectos como la estructura, la apariencia visual, la usabilidad y la interacción."
-                homework="Avance EC1"
+                bgColor="#df7a7a"
+                homework={
+                  <ActivitiesExpire
+                    actividad={4}
+                    titulo="Algoritmo"
+                    fecha="Hoy mero cabron apurale"></ActivitiesExpire>
+                }
                 teacherName="JESUS ALBERTO OJEDA SAUCEDO"
+                progressBar={
+                  <ProgressBar percentage={50} isChart={false}></ProgressBar>
+                }
               />
 
-              <ProgressChart percentage={98.9}></ProgressChart>
+              <ProgressBar percentage={5} isChart={true}></ProgressBar>
+
+              <ProgressBar percentage={5} isChart={false}></ProgressBar>
 
               <Outlet />
               <hr />

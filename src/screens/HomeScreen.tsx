@@ -1,7 +1,8 @@
 // ################################ INTERFACES & PROPS ################################
 
-import Button_Class from "@components/Button_Class";
-import Progress_Chart from "@components/Progress_Chart";
+import ButtonClass from "@components/ButtonClass";
+import ActivitiesExpire from "@components/ActivitiesExpire";
+import ProgressBar from "@components/ProgressBar";
 
 // HomeScreen => Rename all instances to use
 type HomeScreenProps = {};
@@ -12,13 +13,20 @@ const HomeScreen = (props: HomeScreenProps) => {
   return (
     <div>
       Pagina principal
-      <Button_Class
+      <ButtonClass
+        bgColor="#d6d442"
         title="Diseño Web"
-        description="Diseño web es una disciplina que se enfoca en la creación y diseño de sitios web, abarcando aspectos como la estructura, la apariencia visual, la usabilidad y la interacción."
-        homework="Avance EC1"
+        homework={
+          <ActivitiesExpire
+            actividad={4}
+            titulo="Algoritmo"
+            fecha="Hoy mero cabron apurale"></ActivitiesExpire>
+        }
         teacherName="JESUS ALBERTO OJEDA SAUCEDO"
+        progressBar={
+          <ProgressBar percentage={50} isChart={false}></ProgressBar>
+        }
       />
-      <Progress_Chart percentage="70"></Progress_Chart>
     </div>
   );
 };
