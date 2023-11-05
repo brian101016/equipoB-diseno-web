@@ -65,7 +65,7 @@ function App() {
 
               <ProgressBar percentage={5} isChart={true}></ProgressBar>
 
-              <ProgressBar percentage={5} isChart={false}></ProgressBar>
+              <ProgressBar percentage={100} isChart={false}></ProgressBar>
 
               <Outlet />
               <hr />

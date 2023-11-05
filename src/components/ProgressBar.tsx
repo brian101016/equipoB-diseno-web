@@ -134,7 +134,7 @@ const ProgressBar = styled(_ProgressBar)<ProgressBarProps>`
             ? css`
                 .progress-bar {
                   background: #eb1010;
-                  min-width: 16%;
+                  max-width: 16%;
                 }
               `
             : props.percentage < 26
