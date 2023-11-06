@@ -79,3 +79,16 @@ console.log('Nombre masculino aleatorio:', maleName);
 // Generar un nombre femenino aleatorio
 const femaleName = randomName("femenino");
 console.log('Nombre femenino aleatorio:', femaleName);
+
+function numRandom(min, max){
+  if (min > max){
+    const temp = min;
+    min = max;
+    max = temp;
+  }
+
+  const numeroAleatorio = Math.floor(Math.random() * (max - min + 1)) + min;
+
+  return numeroAleatorio;
+}
+
