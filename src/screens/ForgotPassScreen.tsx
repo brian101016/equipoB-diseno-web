@@ -1,13 +1,17 @@
 // ################################ IMPORTS ################################
 import icon_logo from '@theme/images/logo-azul-vertical.png';
+import bg_login from '@theme/images/bg-login.jpeg';
 import { useState } from 'react';
+import styled from 'styled-components';
 
 // ################################ INTERFACES & PROPS ################################
 // ForgotPassScreen => Rename all instances to use
-type ForgotPassScreenProps = {};
+type ForgotPassScreenProps = {
+    className?: string;
+};
 
 // ################################ RENDERING COMPONENT ################################
-const ForgotPassScreen = (props: ForgotPassScreenProps) => {
+const _ForgotPassScreen = (props: ForgotPassScreenProps) => {
     const [email, setEmail] = useState('');
 
     const emailChange = (e) => {
@@ -18,7 +22,7 @@ const ForgotPassScreen = (props: ForgotPassScreenProps) => {
     const setNewPassword = () => {};
     // ------------------------------------------------------------------------------------ RETURN
     return (
-        <div className="forgotpass-screen">
+        <div className={props.className}>
             <div className="forgotpass-card">
                 <div className="card-logo-forgopass">
                     <img src={icon_logo} alt="logo" />
@@ -48,6 +52,87 @@ const ForgotPassScreen = (props: ForgotPassScreenProps) => {
         </div>
     );
 };
+// ############################### STYLED ###############################
+
+const ForgotPassScreen = styled(_ForgotPassScreen)`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-image: url(${bg_login});
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .forgotpass-card {
+        width: 546px;
+        height: 529px;
+        border-radius: 14px;
+        background: rgba(243, 243, 244, 0.9);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .card-logo-forgopass {
+            margin-top: 24px;
+        }
+
+        .forgotpass-title {
+            color: #000;
+            font-family: Poppins;
+            font-size: 26px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-bottom: 17px;
+        }
+        .forgotpass-message {
+            color: #000;
+            font-family: Poppins;
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            margin-bottom: 37px;
+        }
+
+        .card-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-form-input {
+            color: rgba(0, 0, 0, 0.32);
+            font-family: Poppins;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            width: 402px;
+            height: 60px;
+            flex-shrink: 0;
+            border-style: none;
+            border-radius: 2px;
+            background: #fff;
+            padding: 15px 66px 15px 33px;
+            margin-bottom: 26px;
+        }
+
+        .forgotpass-form-button {
+            width: 402px;
+            height: 71px;
+            flex-shrink: 0;
+            color: #fff;
+            border-radius: 11px;
+            background: #080809;
+            font-family: Poppins;
+            font-size: 26px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+    }
+`;
 
 // ################################ EXPORTS ################################
 export default ForgotPassScreen;
