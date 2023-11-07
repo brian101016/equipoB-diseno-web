@@ -185,12 +185,10 @@ export class Submission extends Comment_ {
  * 1. {@link courses}
  */
 export type _DB = {
-  /**
-   * Todos los usuarios de la DB
-   */
+  /** Todos los usuarios de la DB. */
   users: User[];
-  /**
-   * Todos los cursos de la DB
-   */
+  /** Todos los cursos de la DB. */
   courses: Course[];
+  /** Usuario actual iniciado sesión. Si es `null` no hay nadie. */
+  currentUser: null | User;
 };

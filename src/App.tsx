@@ -33,6 +33,7 @@ async function loadDB() {
 export let DB: _DB = {
   users: [],
   courses: [],
+  currentUser: null,
 };
 
 function App() {
