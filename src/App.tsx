@@ -17,6 +17,23 @@ import SignupScreen from "@screens/SignupScreen";
 import StudentScreen from "@screens/StudentScreen";
 import { useState } from "react";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import { _DB } from "@utils/classes";
+
+async function loadDB() {
+  const URL =
+    "https://raw.githubusercontent.com/brian101016/equipoB-diseno-web/main/src/utils/database.json";
+  const request = await fetch(URL);
+  const response = await request.json();
+  // const str = JSON.stringify(response);
+  // localStorage.setItem("projectDBTest", str);
+  DB = response;
+  return null;
+}
+
+export let DB: _DB = {
+  users: [],
+  courses: [],
+};
 
 function App() {
   const [isModalOpen2, setIsModalOpen2] = useState(false);
@@ -39,6 +56,7 @@ function App() {
     <RouterProvider
       router={createBrowserRouter([
         {
+          loader: loadDB,
           element: (
             <>
               <h1>TITULO DE LA APLICACION</h1>
@@ -159,6 +177,7 @@ function App() {
         // ########################################## NOT FOUND SCREEN */
         {
           path: "*",
+          loader: loadDB,
           element: <NotFoundScreen />,
         },
       ])}

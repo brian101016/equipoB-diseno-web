@@ -178,3 +178,19 @@ export class Submission extends Comment_ {
     this.setup(ini);
   }
 }
+
+/**
+ * Tipo de dato para modelar la base de datos completa.
+ * 1. {@link users}
+ * 1. {@link courses}
+ */
+export type _DB = {
+  /**
+   * Todos los usuarios de la DB
+   */
+  users: User[];
+  /**
+   * Todos los cursos de la DB
+   */
+  courses: Course[];
+};
