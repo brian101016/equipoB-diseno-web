@@ -1,6 +1,17 @@
-import styled from 'styled-components';
-
-
+import styled, { css } from 'styled-components';
+import Inicio from "@theme/images/btn-flota/Inicio.png";
+import Buscar from "@theme/images/btn-flota/Buscar.png";
+import Calificar from "@theme/images/btn-flota/Calificar.png";
+import Comentar from "@theme/images/btn-flota/Comentar.png";
+import Mas from "@theme/images/btn-flota/Mas.png";
+import Menos from "@theme/images/btn-flota/Menos.png";
+import Editar from "@theme/images/btn-flota/Editar.png";
+import Eliminar from "@theme/images/btn-flota/Eliminar.png";
+import Enviar from "@theme/images/btn-flota/Enviar.png";
+import Guardar from "@theme/images/btn-flota/Guardar.png";
+import Mensaje from "@theme/images/btn-flota/Mensaje.jpg";
+import Notificacion from "@theme/images/btn-flota/Notificacion.png";
+import Nuevo from "@theme/images/btn-flota/Nuevo.png";
 
 //==========================================================Button==========================================================
 export const Button_Blue = styled.button`
@@ -64,6 +75,76 @@ export const Button_Editar = styled.button`
         margin-right: 30px;
     }
 `;
+
+//====================================================Botones Flotantes====================================================
+const flotante_gen = css`
+import inicio from "@theme/images/btn-flota/Inicio.png";
+width: 65px;
+height: 65px;
+justify-content: center;
+align-items: center;
+border:none;
+border-radius:100%;
+background-color: #11669B;
+background-image: url(${Inicio});
+background-size: cover; 
+background-position: center; 
+&:hover {
+    background-color: #499BCF;
+}
+
+&:active {
+    background-color: #99D5FC;
+}
+`;
+export const Button_Iniciof = styled.button`
+  ${flotante_gen}
+`;
+
+export const Button_Eliminarf = styled.button`
+  ${flotante_gen}
+  background-image: url(${Eliminar});
+`;
+export const Button_Menosf = styled.button`
+  ${flotante_gen}
+  background-image: url(${Menos});
+`;
+export const Button_Editarf = styled.button`
+  ${flotante_gen}
+  background-image: url(${Editar});
+`;
+export const Button_Enviarf = styled.button`
+  ${flotante_gen}
+  background-image: url(${Enviar});
+`;
+export const Button_Alumnosf = styled.button`
+  ${flotante_gen}
+`;
+export const Button_Buscarf = styled.button`
+  ${flotante_gen}
+  background-image: url(${Buscar});
+`;
+export const Button_Guardarf = styled.button`
+  ${flotante_gen}
+  background-image: url(${Guardar});
+`;
+export const Button_Comentariof = styled.button`
+  ${flotante_gen}
+  background-image: url(${Comentar});
+`;
+export const Button_Agregarf = styled.button`
+  ${flotante_gen}
+  background-image: url(${Nuevo});
+`;
+export const Button_Masf = styled.button`
+  ${flotante_gen}
+  background-image: url(${Mas});
+`;
+export const Button_Calificarf = styled.button`
+  ${flotante_gen}
+  background-image: url(${Calificar});
+`;
+
 
 //==========================================================Modal==========================================================
 
