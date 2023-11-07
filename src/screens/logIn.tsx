@@ -4,10 +4,15 @@ import ojo_on from '@theme/images/ojo-on.png';
 import ojo_off from '@theme/images/ojo-off.png';
 import mini_google from '@theme/images/Mini-google.png';
 
+import styled from 'styled-components';
 import { useState } from 'react';
 import { setSourceMapRange } from 'typescript';
 
-const Login = (props) => {
+type loginProps = {
+    className?: string;
+};
+
+const _Login = (props: loginProps) => {
     //const [emailInput, setEmailInput] = useState();
     const [email, setEmail] = useState('');
     const [passVisible, setPassVisible] = useState(false);
@@ -27,9 +32,9 @@ const Login = (props) => {
         setPassVisible(!passVisible);
         // funcion para mostrar la contraseña del input
     };
-
+    // ######################################################## RETURN #############################################
     return (
-        <>
+        <div className={props.className}>
             <div className="center login-screen">
                 <form id="form" className="login-form">
                     <img src={logo} alt="logotipo" />
@@ -47,7 +52,7 @@ const Login = (props) => {
                     <div className="input-password">
                         <input
                             className="input"
-                            type="password"
+                            type={passVisible ? 'text' : 'password'}
                             placeholder="Contraseña"
                             value={pass}
                             onChange={passChange}
@@ -60,7 +65,11 @@ const Login = (props) => {
                             <img
                                 id="btnIconEye"
                                 src={passVisible ? ojo_on : ojo_off}
-                                alt="icono ojo"
+                                alt={
+                                    passVisible
+                                        ? 'Ocultar ontraseña'
+                                        : 'Mostrar contraseña'
+                                }
                             />
                         </button>
                     </div>
@@ -82,8 +91,173 @@ const Login = (props) => {
                     </button>
                 </form>
             </div>
-        </>
+        </div>
     );
 };
+
+// ######################################################## STYLED #############################################
+const Login = styled(_Login)`
+    .screen {
+        height: 100%;
+    }
+
+    .login-screen {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url('https://picsum.photos/1500');
+        background-size: cover;
+    }
+    #login-form {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(243, 243, 244, 0.9);
+        padding: 36px 70px;
+        border-radius: 20px;
+        gap: 18px;
+
+        img {
+            width: 128px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #000;
+            font-family: 'Poppins';
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+
+        .container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .input {
+            flex-direction: column;
+            background-color: rgba(243, 243, 244, 0.9);
+            padding: 36px 70px;
+            border-radius: 20px;
+            gap: 18px;
+
+            img {
+                width: 128px;
+                margin: 0 auto;
+            }
+
+            h2 {
+                color: #000;
+                font-family: 'Poppins';
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+
+            .container {
+                display: flex;
+                gap: 10px;
+            }
+
+            .input {
+                border-radius: 2px;
+                background: #fff;
+                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+                padding: 0.8rem 1.6rem;
+                border: 0;
+                font-family: 'Poppins';
+                ont-size: 20px;
+                font-style: normal;
+                font-weight: 400;
+
+                &::placeholder {
+                    color: rgba(0, 0, 0, 0.32);
+                    font-size: inherit;
+                    font-weight: inherit;
+                }
+
+                &:hover,
+                &:active {
+                    box-sizing: border-box;
+                    background: #e8f5fe;
+                    box-shadow: 0 0 0 2px black;
+                }
+            }
+
+            .inputerror {
+                box-shadow: 0 0 0 1px red !important;
+            }
+
+            .inputCorreo {
+                margin: 1.5rem 0rem 0.9rem 0rem;
+            }
+
+            .inputPassContainer {
+                border-radius: 2px;
+                background: #fff;
+                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+                border: 0;
+                display: flex;
+            }
+
+            a:hover {
+                color: #2f8da1;
+            }
+
+            .inputPassContainer .inputIcon {
+                box-shadow: none;
+                width: 372px;
+            }
+        }
+    }
+    input[type='radio'] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        outline: none;
+        box-shadow: 0 0 0 1px black;
+    }
+
+    .inputPassContainer .inputIcon {
+        box-shadow: none;
+        width: 372px;
+    }
+
+    input[type='radio']:checked {
+        box-shadow: 0 0 0 1px rgba(30, 144, 255, 2);
+    }
+
+    input[type='radio']:before {
+        content: '';
+        display: block;
+        width: 80%;
+        height: 80%;
+        margin: 10% auto;
+        border-radius: 100%;
+    }
+
+    input[type='radio']:checked:before {
+        background: rgba(30, 144, 255, 2);
+    }
+
+    input[type='number']::placeholder {
+        opacity: 0.4;
+    }
+
+    img#ojoIcon {
+        width: 35px;
+    }
+
+    #passOjo {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 9px;
+    }
+`;
 
 export default Login;
