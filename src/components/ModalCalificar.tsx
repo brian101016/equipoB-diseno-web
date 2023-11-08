@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button_Blue, BackgroundModal, Modal, CloseButton } from './StyledComponents';
 
 
-export default function ModalCalificar({ isOpen, onClose, /*props*/ }) {
+export default function ModalCalificar({ isOpen, onClose}) {
     const [tituloActity, setTituloActity] = useState("");
     const [selectOption, setSelectOption] = useState("A_Tiempo");
     const [rating, setRating] = useState(0);
