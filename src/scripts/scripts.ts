@@ -37,3 +37,58 @@ function random(ini, fin) {
 random("", 3);
 
 export {};
+
+function generateId(long){
+  let character = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+  let id = '';
+  for (let i = 0; i < long; i++){
+    const charRandom = character.charAt(Math.floor(Math.random() * character.length));
+    id += charRandom;
+  }
+  return id;
+
+}
+
+//Id Random de 16 Caracteres
+const id16 = generateId(16);
+console.log(id16, ' id 16 caracteres')
+
+//Id Random de 16 Caracteres
+const id6 = generateId(6);
+console.log(id6, ' id 6 caracteres')
+
+function randomName(gender){
+  const maleName = ["Juan", "Pedro", "Luis", "Carlos", "Manuel"];
+  const femaleName = ["María", "Ana", "Luisa", "Isabel", "Laura"]
+
+  if (gender === "Masculino") {
+    const randomName = maleName[Math.floor(Math.random() * maleName.length)];
+    return randomName;
+  } else if(gender === "Femenino") {
+    const randomName = femaleName[Math.floor(Math.random() * femaleName.length)];
+    return randomName;
+  } else {
+    return "Genere no valide";
+  }
+}
+
+// Generar un nombre masculino aleatorio
+const maleName = randomName("masculino");
+console.log('Nombre masculino aleatorio:', maleName);
+
+// Generar un nombre femenino aleatorio
+const femaleName = randomName("femenino");
+console.log('Nombre femenino aleatorio:', femaleName);
+
+function numRandom(min, max){
+  if (min > max){
+    const temp = min;
+    min = max;
+    max = temp;
+  }
+
+  const numeroAleatorio = Math.floor(Math.random() * (max - min + 1)) + min;
+
+  return numeroAleatorio;
+}
+
