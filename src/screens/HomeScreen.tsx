@@ -3,7 +3,7 @@
 import ButtonClass from "@components/ButtonClass";
 import Navbar from "@components/NavBar";
 import ProgressChart from "@components/ProgressChart";
-
+import ButtonDropDown from "components/ButtonDropDown";
 // HomeScreen => Rename all instances to use
 type HomeScreenProps = {};
 
@@ -21,6 +21,7 @@ const HomeScreen = (props: HomeScreenProps) => {
             teacherName="Profr. Jesus Saucedo"
           />
         </div>
+
         <div className="contenido-clases">
           <ButtonClass
             className="dis"

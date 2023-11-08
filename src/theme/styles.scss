@@ -852,3 +852,18 @@ $--percentaje: 70;
     justify-content: center;
     align-items: center;
 }
+
+// ################################################################################################ DROPDOWN ################################################################################################}
+.dropdown{
+  position:fixed;
+  width: 20%;
+  float: right;
+  top:87%;
+  left:78%;
+  direction: rtl;
+}
+.dropdown-items-show{
+  display: flex;
+  flex-direction: row;
+  gap:2px;
+}
