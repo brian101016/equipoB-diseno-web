@@ -24,8 +24,7 @@ const _ProgressBar = (props: ProgressBarProps) => {
 // ################################ Styles ################################
 const ProgressBar = styled(_ProgressBar)<ProgressBarProps>`
   ${(props) => css`
-  ${
-    props.isChart === true
+    ${props.isChart === true
       ? css`
           position: relative;
           display: flex;
@@ -164,10 +163,8 @@ const ProgressBar = styled(_ProgressBar)<ProgressBarProps>`
                   width: ${props.percentage + "%"};
                 }
               `}
-        `
-  }
-        }
-    `}//Si se borra deja de funcionar, porque lo hace, no tengo idea
+        `}
+  `}
 `;
 
 // ################################ EXPORTS ################################
