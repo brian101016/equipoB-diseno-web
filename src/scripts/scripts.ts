@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function prueba(num: string, num2?: number) {
   num.substring(1, 2);
 }
@@ -35,5 +37,22 @@ function random(ini, fin) {
 
 // recomendaciones de TypeScript, pero en JS no son necesarias
 random("", 3);
+
+
+// ############################# Resfresh() #############################
+/**
+ * Hooks personalizados para el refresco manual de componente 
+ * @returns {{refresh: Function, refreshCont: number}} 'refresh' es un objeto con una funcion y 'refreshCont' es un contador
+ */
+function useRefresh() {
+  const [refreshCont, setRefreshCont] = useState(0);
+
+  const refresh = () => {
+    setRefreshCont(refreshCont + 1);
+  };
+
+  return { refresh, refreshCont };
+}
+
 
 export {};
