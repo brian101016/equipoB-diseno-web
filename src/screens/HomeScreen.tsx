@@ -4,6 +4,9 @@ import ButtonClass from "@components/ButtonClass";
 import Navbar from "@components/NavBar";
 import ProgressChart from "@components/ProgressChart";
 import ButtonDropDown from "components/ButtonDropDown";
+import ActivitiesExpire from "@components/ActivitiesExpire";
+import ProgressBar from "@components/ProgressBar";
+
 // HomeScreen => Rename all instances to use
 type HomeScreenProps = {};
 
@@ -16,33 +19,71 @@ const HomeScreen = (props: HomeScreenProps) => {
       <div className="home-contenido">
         <div className="contenido-clases">
           <ButtonClass
+            bgColor="#d6d442"
             title="Diseño Web"
-            homework="Actividad 7 - Investigacion sobre Diseño Web"
-            teacherName="Profr. Jesus Saucedo"
+            homework={
+              <ActivitiesExpire
+                actividad={4}
+                titulo="Algoritmo"
+                fecha="Hoy mero cabron apurale"
+              ></ActivitiesExpire>
+            }
+            teacherName="JESUS ALBERTO OJEDA SAUCEDO"
+            progressBar={
+              <ProgressBar percentage={50} isChart={false}></ProgressBar>
+            }
           />
         </div>
 
         <div className="contenido-clases">
           <ButtonClass
-            className="dis"
-            title="Inteligencia Artificial"
-            homework="Actividad 12 - Grafos"
-            teacherName="Profra. Patricia Carrillo"
+            bgColor="#d6d442"
+            title="Diseño Web"
+            homework={
+              <ActivitiesExpire
+                actividad={4}
+                titulo="Algoritmo"
+                fecha="Hoy mero cabron apurale"
+              ></ActivitiesExpire>
+            }
+            teacherName="JESUS ALBERTO OJEDA SAUCEDO"
+            progressBar={
+              <ProgressBar percentage={50} isChart={false}></ProgressBar>
+            }
           />
         </div>
         <div className="contenido-clases">
           <ButtonClass
-            className="dis"
-            title="Programacion de dispositivos moviles"
-            homework="Actividad 10 - Practica de algoritmo"
-            teacherName="Profr. Julian Flores"
+            bgColor="#d6d442"
+            title="Diseño Web"
+            homework={
+              <ActivitiesExpire
+                actividad={4}
+                titulo="Algoritmo"
+                fecha="Hoy mero cabron apurale"
+              ></ActivitiesExpire>
+            }
+            teacherName="JESUS ALBERTO OJEDA SAUCEDO"
+            progressBar={
+              <ProgressBar percentage={50} isChart={false}></ProgressBar>
+            }
           />
         </div>
         <div className="contenido-clases">
           <ButtonClass
+            bgColor="#d6d442"
             title="Programacion de dispositivos moviles"
-            homework="Actividad 10 - Practica de algoritmo"
+            homework={
+              <ActivitiesExpire
+                actividad={4}
+                titulo="Actividad 10 - Practica de algoritmo"
+                fecha="Hoy mero cabron apurale"
+              ></ActivitiesExpire>
+            }
             teacherName="Profr. Julian Flores"
+            progressBar={
+              <ProgressBar percentage={50} isChart={false}></ProgressBar>
+            }
           />
         </div>
       </div>

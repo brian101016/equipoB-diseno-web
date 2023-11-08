@@ -23,8 +23,6 @@ const _ProgressChart = (props: ProgressChartProps) => {
 // ################################ Styles ################################
 const ProgressChart = styled(_ProgressChart)<ProgressChartProps>`
   ${(props) => css`
-    //$--clr: ;
-
     position: relative;
     display: flex;
     justify-content: center;
