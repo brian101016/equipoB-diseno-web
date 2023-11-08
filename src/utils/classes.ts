@@ -179,6 +179,7 @@ export class Submission extends Comment_ {
   }
 }
 
+// ################################################################ DB MODEL
 /**
  * Tipo de dato para modelar la base de datos completa.
  * 1. {@link users}
@@ -191,4 +192,13 @@ export type _DB = {
   courses: Course[];
   /** Usuario actual iniciado sesión. Si es `null` no hay nadie. */
   currentUser: null | User;
+};
+
+// ################################################################ MISCELLANEOUS
+/** Provides basic prop structure for functional components */
+export type Base = {
+  /** Overrides any other `className` passed */
+  className?: string;
+  /** Overrides any other `style` passed */
+  _style?: import("react").CSSProperties;
 };

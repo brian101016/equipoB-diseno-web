@@ -13,7 +13,7 @@ const ActivitiesExpire = (props: ActivitiesExpireProps) => {
         Actividad #{props.actividad || "Actividad"}
       </strong>
       <strong className="ActivitieTitle">
-         - {props.titulo || "Nombre de actividad"} - 
+        - {props.titulo || "Nombre de actividad"} -
       </strong>
       <strong className="ActivitieText">
         {props.fecha || "04-02-2002 - 23:59"}

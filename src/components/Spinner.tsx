@@ -1,13 +1,15 @@
-import spinner from "@theme/images/Spinner.png";
+import ImageProvider from "@utils/ImageProvider";
 
 function Spinner() {
   return (
-    <>
-      <div className="spinnerContainer">
-        <img className="imgSpinner" src={spinner} alt="Spinner" />
-        <strong>Cargando</strong>
-      </div>
-    </>
+    <div className="spinnerContainer">
+      <img
+        className="imgSpinner"
+        src={ImageProvider.misc.spinner}
+        alt="Spinner"
+      />
+      <strong>Cargando</strong>
+    </div>
   );
 }
 

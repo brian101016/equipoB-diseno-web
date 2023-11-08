@@ -1,21 +1,19 @@
-// ################################ INTERFACES & PROPS ################################
-
+// ################################ IMPORTS ################################
 import ButtonClass from "@components/ButtonClass";
-import Navbar from "@components/NavBar";
-import ProgressChart from "@components/ProgressChart";
-import ButtonDropDown from "components/ButtonDropDown";
 import ActivitiesExpire from "@components/ActivitiesExpire";
 import ProgressBar from "@components/ProgressBar";
+import styled, { css } from "styled-components";
 
+// ################################ INTERFACES & PROPS ################################
+type _Base = import("utils/classes").Base;
 // HomeScreen => Rename all instances to use
-type HomeScreenProps = {};
+type HomeScreenProps = {} & _Base;
 
 // ################################ RENDERING COMPONENT ################################
-const HomeScreen = (props: HomeScreenProps) => {
+const _HomeScreen = (props: HomeScreenProps) => {
   // ------------------------------------------------------------------------------------ RETURN
   return (
-    <div>
-      <Navbar />
+    <div className={props.className}>
       <div className="home-contenido">
         <div className="contenido-clases">
           <ButtonClass
@@ -90,6 +88,11 @@ const HomeScreen = (props: HomeScreenProps) => {
     </div>
   );
 };
+
+// ################################ STYLES ################################
+const HomeScreen = styled(_HomeScreen)<HomeScreenProps>`
+  ${(props) => css``}
+`;
 
 // ################################ EXPORTS ################################
 export default HomeScreen;

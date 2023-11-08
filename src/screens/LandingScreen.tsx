@@ -1,70 +1,49 @@
+// ################################ IMPORTS ################################
+import ImageProvider from "@utils/ImageProvider";
+import { Link } from "react-router-dom";
+import styled, { css } from "styled-components";
+
 // ################################ INTERFACES & PROPS ################################
-import iconoCalendario from "@theme/images/img-landing/icon-calendar.png";
-import iconoTask from "@theme/images/img-landing/icon-task.png";
-import iconoHouse from "@theme/images/img-landing/icon-house.png";
-import logo from "@theme/images/img-landing/logotipo-header.png";
-import imagen from "@theme/images/img-landing/landing-img.png";
-
-import { Link, useNavigate } from "react-router-dom";
-
-// Ejemplo de ejecución de FUNC STALL (ELIMINAR)
-import { stall } from "../scripts/stall";
-stall(1000) // Espera 1000 milisegundos o 1 segundo
-  .then(() => {
-    console.log("Hola");
-    return stall(2500); // Espera 2500 milisegundos o 2.5 segundos
-  })
-  .then(() => {
-    console.log("Mundo");
-    return stall(5000); // Espera 5000 milisegundos o 5 segundos
-  })
-  .then(() => {
-    console.log("Fin");
-  });
-
+type _Base = import("utils/classes").Base;
 // LandingScreen => Rename all instances to use
-type LandingScreenProps = {};
+type LandingScreenProps = {} & _Base;
 
 // ################################ RENDERING COMPONENT ################################
-const LandingScreen = (props: LandingScreenProps) => {
-  const navigater = useNavigate();
-
-  const irRegistrate = () => {
-    navigater("login/signup");
-  };
-
+const _LandingScreen = (props: LandingScreenProps) => {
   // ------------------------------------------------------------------------------------ RETURN
   return (
-    <div className="landing-page">
-      Landing page
-      <Link to={"/login"}>Ir hacia Login</Link>
-      <header className="landing-header">
-        <img src={logo} alt="logotipo empresa" />
-
-        <div className="landing-header-components">
-          <Link to={"/login"}>Iniciar sesión</Link>
-          <button onClick={irRegistrate}>Regístrate</button>
-        </div>
-      </header>
+    <div className={props.className + " landing-page"}>
       <section className="landing-welcome">
         <div className="landing-welcome-components">
           <h1>BIENVENIDOS A STUDYSYNC</h1>
+
           <p>
             En STUDYSYNC, aprendizaje cómodo y exitoso. Estudiantes y profesores
             conectan desde casa o escuela. Acceso sencillo a calificaciones,
             tareas, recursos. Simplifica tu educación, alcanza nuevas alturas.
             ¡Comienza hoy!
           </p>
-          <button>Explorar Más</button>
+
+          <button>
+            <Link to={"/login"}>Explorar Más</Link>
+          </button>
         </div>
 
-        <img src={imagen} alt="persona trabajando con una laptop" />
+        <img
+          src={ImageProvider.landing.landing}
+          alt="persona trabajando con una laptop"
+        />
       </section>
+
       <section className="landing-info">
         <div className="landing-info-content">
           <div className="landing-info-card">
             <div className="circle">
-              <img src={iconoTask} className="info-img"></img>
+              <img
+                src={ImageProvider.landing.icon_task}
+                alt=""
+                className="info-img"
+              ></img>
             </div>
             <p>
               Usada para calificar contenido, más estrellas indican mejor
@@ -73,7 +52,11 @@ const LandingScreen = (props: LandingScreenProps) => {
           </div>
           <div className="landing-info-card">
             <div className="circle">
-              <img src={iconoCalendario} className="info-img"></img>
+              <img
+                src={ImageProvider.landing.icon_calendar}
+                alt=""
+                className="info-img"
+              ></img>
             </div>
             <p>
               Muestra una hora específica para una fecha límite, indicando el
@@ -82,7 +65,11 @@ const LandingScreen = (props: LandingScreenProps) => {
           </div>
           <div className="landing-info-card">
             <div className="circle">
-              <img src={iconoHouse} className="info-img"></img>
+              <img
+                src={ImageProvider.landing.icon_house}
+                alt=""
+                className="info-img"
+              ></img>
             </div>
             <p>
               Representa la opción de realizar tareas escolares desde casa,
@@ -91,9 +78,10 @@ const LandingScreen = (props: LandingScreenProps) => {
           </div>
         </div>
       </section>
+
       <footer className="landing-footer">
         <div className="footer-left">
-          <img src={logo}></img>
+          <img src={ImageProvider.logo.horizontal} alt="logo" />
           <p>Acerca de StudySync</p>
         </div>
 
@@ -102,6 +90,11 @@ const LandingScreen = (props: LandingScreenProps) => {
     </div>
   );
 };
+
+// ################################ STYLES ################################
+const LandingScreen = styled(_LandingScreen)<LandingScreenProps>`
+  ${(props) => css``}
+`;
 
 // ################################ EXPORTS ################################
 export default LandingScreen;

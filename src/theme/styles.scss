@@ -347,7 +347,7 @@ select option[value=""] {
 }
 
 .checkbox:checked:before {
-  background-image: url("images/checkbox-active.png");
+  background-image: url("images/misc/checkbox-active.png");
   background-size: 95%;
   background-repeat: no-repeat;
   border: 1.5px solid transparent;
@@ -605,7 +605,7 @@ $--percentaje: 70;
 // ################################################################################################ NAVBAR
 .navbarContainer {
   top: 0%;
-  z-index: 100;
+  z-index: 2;
   position: sticky;
   padding: 0.4rem;
   background-color: #ffffff;

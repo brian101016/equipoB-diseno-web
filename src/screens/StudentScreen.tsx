@@ -1,26 +1,22 @@
-import Navbar from "@components/NavBar";
-import mini_icono_calender from "@theme/images/mini-icono-calender.png";
-import mini_icono_calificar from "@theme/images/mini-icono-calificar.png";
-
-// ################################ INTERFACES & PROPS ################################
-
-import { useParams } from "react-router-dom";
+// ################################ IMPORTS ################################
 import { useState } from "react";
 import styled from "styled-components";
+import ImageProvider from "@utils/ImageProvider";
+import { Link } from "react-router-dom";
+import ModalCalificar from "@components/ModalCalificar";
 
-type StudentScreenProps = {
-  className: string;
-};
+// ################################ INTERFACES & PROPS ################################
+type _Base = import("utils/classes").Base;
+// StudentScreen => Rename all instances to use
+type StudentScreenProps = {} & _Base;
 
 // ################################ RENDERING COMPONENT ################################
 const _StudentScreen = (props: StudentScreenProps) => {
-  const { classid, studentid } = useParams();
-
   // ################################ SELECT NAME #####################################
   // -------------Controla menú desplegable y  cambia nombre seleccionada. -------------
   const [openName, setOpenName] = useState(false);
   const [selectName, setSelectName] = useState("Nombre");
-  const [closeName, setCloseName] = useState(false);
+  const [, setCloseName] = useState(false);
 
   const NameDropDown = () => {
     setOpenName(!openName);
@@ -36,11 +32,10 @@ const _StudentScreen = (props: StudentScreenProps) => {
   };
 
   // ################################ SELECT ACTIVITY #####################################
-
   // ------------- Controla menú desplegable y  cambia actividad seleccionada. -------------
   const [openActivity, setOpenActivity] = useState(false);
   const [selectActivity, setSelectActivity] = useState("Actividad");
-  const [closeActivity, setCloseActivity] = useState(false);
+  const [, setCloseActivity] = useState(false);
 
   const ActivityDropDown = () => {
     setOpenActivity(!openActivity);
@@ -140,7 +135,7 @@ const _StudentScreen = (props: StudentScreenProps) => {
   };
 
   // -------------------------------- boton de todas las listas ------------------------------------
-  const [AllList, setAllList] = useState(true);
+  const [, setAllList] = useState(true);
 
   const resetSelect = () => {
     setSelectName("Nombre");
@@ -159,7 +154,7 @@ const _StudentScreen = (props: StudentScreenProps) => {
   // ----------------------------- selección de elementos en la lista. ------------------------------------
   const [selectNameId, setSelectNameId] = useState(null);
   const [selectedActivityId, setSelectedActivityId] = useState(null);
-  const [disableClick, setDisableClick] = useState(false);
+  const [, setDisableClick] = useState(false);
 
   const menuDesplz = (studentId, activityId) => {
     if (studentId === selectNameId && activityId === selectedActivityId) {
@@ -191,114 +186,126 @@ const _StudentScreen = (props: StudentScreenProps) => {
 
   // ------------------------------------------------------------------------------------ RETURN
   return (
-    <div className={props.className}>
-      <Navbar />
-      <h1>Diseño web</h1>
-      <div className="justifySelect">
-        <div id="selectsOption" className="customSelect">
-          <div className="selectHeader" onClick={NameDropDown}>
-            <div className="selectedOption">{selectName}</div>
-            <div className={!openName ? "arrowIcon" : "arrowIcon active"}></div>
-          </div>
-          {openName && (
-            <div className="optionList">
-              {nameOptions.map((option, index) => (
-                <div
-                  className="optionItem"
-                  key={index}
-                  onClick={() => selectOptionName(option)}
-                >
-                  {option}
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-        <button className="limpiarLaslistas" onClick={resetSelect}>
-          Todas las listas
-        </button>
-        <div className="customSelect">
-          <div className="selectHeader" onClick={ActivityDropDown}>
-            <div className="selectedOption">{selectActivity}</div>
-            <div
-              className={!openActivity ? "arrowIcon" : "arrowIcon active"}
-            ></div>
-          </div>
-          {openActivity && (
-            <div className="optionList">
-              {activityOptions.map((option, index) => (
-                <div
-                  className="optionItem"
-                  key={index}
-                  onClick={() => selectOptionActivity(option)}
-                >
-                  {option}
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-      <div className="listBox">
-        {filitro.map((student) =>
-          student.activities.map((activity) => (
-            <div className={`textoStyle`} key={activity.id}>
+    <>
+      <ModalCalificar />
+
+      <div className={props.className}>
+        <h1>Diseño web</h1>
+        <div className="justifySelect">
+          <div id="selectsOption" className="customSelect">
+            <div className="selectHeader" onClick={NameDropDown}>
+              <div className="selectedOption">{selectName}</div>
               <div
-                className="listNameAct"
-                onClick={() => menuDesplz(student.id, activity.id)}
-              >
-                <div className="arrowText">
-                  <div
-                    className={`arrowIconIzq ${
-                      student.id === selectNameId &&
-                      activity.id === selectedActivityId
-                        ? "active"
-                        : ""
-                    }`}
-                  ></div>
-                  <p className="textB">{student.name}</p>
-                  <div className="minLinea"></div>
-                  <p className="textG">{activity.nameActivity}</p>
-                </div>
-                <div className="conditionStyle">
-                  <p>Entregado</p>
-                </div>
-              </div>
-              <div className="Date">
-                <img className="iconCalender" src={mini_icono_calender} />
-                <p>01-11-2023: 23:59</p>
-                <a className="iconCalificar">
-                  <img src={mini_icono_calificar} />
-                </a>
-              </div>
-              <p
-                className={`activityDescription ${
-                  student.id === selectNameId &&
-                  activity.id === selectedActivityId
-                    ? "active"
-                    : ""
-                }`}
-              >
-                <div className="positionDesc">{activity.description}</div>
-              </p>
-              <div
-                className={`allListLinea ${
-                  student.id === selectNameId &&
-                  activity.id === selectedActivityId
-                    ? "despzList"
-                    : ""
-                }`}
+                className={!openName ? "arrowIcon" : "arrowIcon active"}
               ></div>
             </div>
-          ))
-        )}
+            {openName && (
+              <div className="optionList">
+                {nameOptions.map((option, index) => (
+                  <div
+                    className="optionItem"
+                    key={index}
+                    onClick={() => selectOptionName(option)}
+                  >
+                    {option}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+          <button className="limpiarLaslistas" onClick={resetSelect}>
+            Todas las listas
+          </button>
+          <div className="customSelect">
+            <div className="selectHeader" onClick={ActivityDropDown}>
+              <div className="selectedOption">{selectActivity}</div>
+              <div
+                className={!openActivity ? "arrowIcon" : "arrowIcon active"}
+              ></div>
+            </div>
+            {openActivity && (
+              <div className="optionList">
+                {activityOptions.map((option, index) => (
+                  <div
+                    className="optionItem"
+                    key={index}
+                    onClick={() => selectOptionActivity(option)}
+                  >
+                    {option}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="listBox">
+          {filitro.map((student) =>
+            student.activities.map((activity) => (
+              <div className={`textoStyle`} key={activity.id}>
+                <div
+                  className="listNameAct"
+                  onClick={() => menuDesplz(student.id, activity.id)}
+                >
+                  <div className="arrowText">
+                    <div
+                      className={`arrowIconIzq ${
+                        student.id === selectNameId &&
+                        activity.id === selectedActivityId
+                          ? "active"
+                          : ""
+                      }`}
+                    ></div>
+                    <p className="textB">{student.name}</p>
+                    <div className="minLinea"></div>
+                    <p className="textG">{activity.nameActivity}</p>
+                  </div>
+                  <div className="conditionStyle">
+                    <p>Entregado</p>
+                  </div>
+                </div>
+                <div className="Date">
+                  <img
+                    className="iconCalender"
+                    src={ImageProvider.icon.calendar_mini}
+                    alt="calendario"
+                  />
+                  <p>01-11-2023: 23:59</p>
+                  <Link className="iconCalificar" to={""}>
+                    <img
+                      src={ImageProvider.icon.calificar_mini}
+                      alt="calificar"
+                    />
+                  </Link>
+                </div>
+                <p
+                  className={`activityDescription ${
+                    student.id === selectNameId &&
+                    activity.id === selectedActivityId
+                      ? "active"
+                      : ""
+                  }`}
+                >
+                  <div className="positionDesc">{activity.description}</div>
+                </p>
+                <div
+                  className={`allListLinea ${
+                    student.id === selectNameId &&
+                    activity.id === selectedActivityId
+                      ? "despzList"
+                      : ""
+                  }`}
+                ></div>
+              </div>
+            ))
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
-// ################################ STYLE ################################
-const StudentScreen = styled(_StudentScreen)`
+// ################################ STYLES ################################
+const StudentScreen = styled(_StudentScreen)<StudentScreenProps>`
   * {
     margin: 0;
     padding: 0;

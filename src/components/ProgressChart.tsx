@@ -1,9 +1,13 @@
+// ################################ IMPORTS ################################
 import styled, { css } from "styled-components";
 
+// ################################ INTERFACES & PROPS ################################
+type _Base = import("utils/classes").Base;
+// ProgressChart => Rename all instances to use
 type ProgressChartProps = {
   percentage: number;
   className?: string;
-};
+} & _Base;
 
 // ################################ RENDERING COMPONENT ################################
 const _ProgressChart = (props: ProgressChartProps) => {
@@ -20,7 +24,7 @@ const _ProgressChart = (props: ProgressChartProps) => {
   );
 };
 
-// ################################ Styles ################################
+// ################################ STYLES ################################
 const ProgressChart = styled(_ProgressChart)<ProgressChartProps>`
   ${(props) => css`
     position: relative;
