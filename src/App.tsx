@@ -6,12 +6,12 @@ import HomeScreen from "@screens/HomeScreen";
 import HomeworkScreen from "@screens/HomeworkScreen";
 import LandingScreen from "@screens/LandingScreen";
 import LoginScreen from "@screens/LoginScreen";
-import ModalComments from "@components/ModalComments";
+//import ModalComments from "@components/ModalComments";
 import ModalCalificar from "@components/ModalCalificar";
 import "./theme/ModalCalificar.scss";
-import "./theme/Modal.scss";
-import "./theme/ModalComments.scss";
-import Modal from "@components/Modal";
+//import "./theme/Modal.scss";
+//import "./theme/ModalComments.scss";
+//import Modal from "@components/Modal";
 import NotFoundScreen from "@screens/NotFoundScreen";
 import SignupScreen from "@screens/SignupScreen";
 import StudentScreen from "@screens/StudentScreen";
@@ -58,28 +58,22 @@ function App() {
               </button>
 
               {/* MIGUEL */}
-              <Modal
+              {/* <Modal
                 isOpen={isModalOpen}
                 closeModal={() => setIsModalOpen(false)}
-              />
+              /> */}
 
               {/* MODAL ORLANDO */}
               <button onClick={openModal}>Calificar</button>
               <ModalCalificar isOpen={isModalOpen2} onClose={closeModal} />
 
-              <button
-                onClick={() => {
-                  setIsCommentOpen(true);
-                }}
-              >
-                Calificar
-              </button>
-              <ModalComments
+              
+              {/* <ModalComments
                 isOpen={isCommentOpen}
                 onClose={() => {
                   setIsCommentOpen(false);
                 }}
-              ></ModalComments>
+              ></ModalComments> */}
             </>
           ),
           errorElement: <NotFoundScreen />,
@@ -118,7 +112,7 @@ function App() {
 
                     return null;
                   },
-                  element: <StudentScreen />,
+                  element: <StudentScreen className=""/>,
                 },
                 // ##################### HOMEWORK */
                 {

@@ -68,25 +68,29 @@ export const Button_Editar = styled.button`
 //==========================================================Modal==========================================================
 
 export const BackgroundModal = styled.div`
-  display: none;
-  position: fixed;
+  position: absolute;
   top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+  overflow: auto;
 `;
 
 export const Modal = styled.div`
-  background: white;
-  border-radius: 4px;
-  padding: 20px;
-  width: 60%;
-  text-align: center;
-  position: relative;
+  background-color: white;
+  border-radius: 0.5em;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  left: 50%;
+  width: auto;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 90vh;
+  padding: 2%;
+  overflow: auto;
+  z-index: 10;
 
   @media screen and (max-width: 1089px) {
     width: 90%;
@@ -98,6 +102,7 @@ export const CloseButton = styled.button`
   position: absolute;
   top: 2%;
   right: 1%;
+  cursor: pointer;
   z-index: 11;
   background-color: white;
   color: #FF0000;
@@ -105,6 +110,4 @@ export const CloseButton = styled.button`
   border-radius: 50px;
   width: 25px;
   border: none;
-  font-size: 23px;
-  cursor: pointer;
 `;

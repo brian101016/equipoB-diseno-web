@@ -76,48 +76,57 @@ $color-gris-oscuro: #6C6B6B;
         }
 
         p {
-            margin-right: 5px;
+            text-align: justify;
+            margin-right: 0.5rem;
+
+        }
+
+
+        .txtCenter {
+            display: inline;
+            margin: 0 0.2rem;
         }
 
         .textP {
-            display: flex;
+            display: inline-block;
             margin-left: auto;
-        }
 
+            .selectRad {
+                display: inline-flex;
+                margin-left: auto;
+                border-radius: 20px;
+                border: none;
+                color: black;
+                font-family: 'Poppins', sans-serif;
+                font-style: normal;
+                font-weight: 500;
+                text-align: center;
+                padding: 0;
+
+                &:focus {
+                    outline: none;
+                }
+
+                option {
+                    color: black;
+                    font-family: 'Poppins', sans-serif;
+                    font-style: normal;
+                    font-weight: 500;
+
+                }
+
+                @media screen and (max-width: 605px) {
+                    margin-left: 5rem;
+                    position: relative;
+                }
+            }
+        }
     }
 
-
-
-    .selectRad {
-        display: flex;
-        margin-left: auto;
-        border-radius: 20px;
-        border: none;
-        color: black;
-        font-family: 'Poppins', sans-serif;
-        font-style: normal;
-        font-weight: 500;
-        text-align: center;
-        padding: 0px;
-
-
-
-        &:focus {
-            outline: none;
-        }
-
-        option {
-            color: black;
-            font-family: 'Poppins', sans-serif;
-            font-style: normal;
-            font-weight: 500;
-
-        }
-    }
 
     .comentarioEstilo {
-
         margin-top: 30px;
+
 
         h3 {
             color: $color-gris-oscuro;
@@ -127,22 +136,35 @@ $color-gris-oscuro: #6C6B6B;
 
         .commentArea {
             max-width: 600px;
-            width: 600px;
-            height: 150px;
-            border-radius: 20px;
-            padding: 20px;
+            width: 38rem;
+            height: 10rem;
+            border-radius: 1rem;
+            padding: 1.2rem;
             text-align: justify;
-            font-size: 20px;
-            margin-top: 8px;
+            font-size: 1.3rem;
+            margin-top: 0.5rem;
             background-color: #EFEDED;
             color: #928F8F;
             border: none;
             box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            overflow-block: auto;
+
+
+            &:read-only {
+                cursor: pointer;
+            }
+
+            &:focus {
+                outline: none;
+            }
 
             @media screen and (max-width: 767px) {
                 width: 90%;
             }
+
         }
+
+
 
         .maxLinea2 {
             border-top: 2px solid #D9D4D4;
@@ -191,6 +213,10 @@ $color-gris-oscuro: #6C6B6B;
         margin-right: auto;
     }
 
+    @media screen and (max-width: 767px) {
+        min-width: 200px;
+        
+        min-height: 200px;
+    }
+
 }
-
-
