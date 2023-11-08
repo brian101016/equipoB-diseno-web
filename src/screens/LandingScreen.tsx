@@ -7,6 +7,21 @@ import imagen from "@theme/images/img-landing/landing-img.png";
 
 import { Link, useNavigate } from "react-router-dom";
 
+// Ejemplo de ejecución de FUNC STALL (ELIMINAR)
+import { stall } from "../scripts/stall";
+stall(1000) // Espera 1000 milisegundos o 1 segundo
+  .then(() => {
+    console.log("Hola");
+    return stall(2500); // Espera 2500 milisegundos o 2.5 segundos
+  })
+  .then(() => {
+    console.log("Mundo");
+    return stall(5000); // Espera 5000 milisegundos o 5 segundos
+  })
+  .then(() => {
+    console.log("Fin");
+  });
+
 // LandingScreen => Rename all instances to use
 type LandingScreenProps = {};
 
