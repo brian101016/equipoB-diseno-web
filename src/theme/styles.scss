@@ -294,6 +294,7 @@ img#ojoIcon {
   cursor: pointer;
   padding: 9px;
 }
+
 // ################################################################################################ SELECTORS
 select {
   border-radius: 2px;
@@ -346,7 +347,7 @@ select option[value=""] {
 }
 
 .checkbox:checked:before {
-  background-image: url("images/checkbox-active.png");
+  background-image: url("images/misc/checkbox-active.png");
   background-size: 95%;
   background-repeat: no-repeat;
   border: 1.5px solid transparent;
@@ -500,247 +501,6 @@ img#iconGoogle {
   }
 }
 
-// ################################################################################################ SIGNUP ################################################################################################ SIGN UP
-
-.signup-screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  background-image: url("images/bg-login.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.signup-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 835px;
-  width: 546px;
-  border-radius: 21px;
-  background: rgba(243, 243, 244, 0.9);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-.card-logo {
-  margin-top: 26px;
-  margin-bottom: 26px;
-  img {
-    width: 189px;
-    height: 138px;
-  }
-}
-
-.card-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-
-  .card-form-input {
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    margin-bottom: 34px;
-    input {
-      font-weight: 357px;
-    }
-    &:hover {
-      border: black solid 2px;
-    }
-  }
-
-  input {
-    color: rgba(0, 0, 0, 0.32);
-    font-family: Poppins;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    width: 402px;
-    height: 60px;
-    flex-shrink: 0;
-    border-style: none;
-    border-radius: 2px;
-    background: #fff;
-    padding: 15px 66px 15px 33px;
-  }
-
-  .form-pass {
-    display: flex;
-    align-items: center;
-    border-style: none;
-    border-radius: 2px;
-    background: #fff;
-    input {
-      width: 335px;
-    }
-    img {
-      margin-right: 22px;
-    }
-  }
-
-  .form-button {
-    margin-bottom: 34px;
-  }
-
-  .form-button-google {
-    margin-top: 34px;
-    color: #000;
-    font-family: Poppins;
-    font-size: 19px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    width: 402px;
-    height: 58px;
-    border-radius: 21px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .icon-google {
-    margin-right: 17px;
-    height: 23px;
-    width: 23px;
-  }
-
-  .form-span {
-    width: 100%;
-    display: flex;
-    align-items: center;
-
-    span {
-      color: #000;
-      font-family: Poppins;
-      font-size: 17px;
-      font-weight: 700;
-      margin: 0px 4px;
-    }
-
-    .span-vector {
-      border: black solid 2px;
-      flex-grow: 1;
-    }
-  }
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  background-image: url("images/bg-login.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.signup-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 835px;
-  width: 546px;
-  border-radius: 21px;
-  background: rgba(243, 243, 244, 0.9);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-.card-logo {
-  margin-top: 26px;
-  margin-bottom: 26px;
-  img {
-    width: 189px;
-    height: 138px;
-  }
-}
-
-.card-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-
-  .card-form-input {
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    margin-bottom: 34px;
-    input {
-      font-weight: 357px;
-    }
-    &:hover {
-      border: black solid 2px;
-    }
-  }
-
-  input {
-    color: rgba(0, 0, 0, 0.32);
-    font-family: Poppins;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    width: 402px;
-    height: 60px;
-    flex-shrink: 0;
-    border-style: none;
-    border-radius: 2px;
-    background: #fff;
-    padding: 15px 66px 15px 33px;
-  }
-
-  .form-pass {
-    display: flex;
-    align-items: center;
-    border-style: none;
-    border-radius: 2px;
-    background: #fff;
-    input {
-      width: 335px;
-    }
-    img {
-      margin-right: 22px;
-    }
-  }
-
-  .form-button {
-    margin-bottom: 34px;
-  }
-
-  .form-button-google {
-    margin-top: 34px;
-    color: #000;
-    font-family: Poppins;
-    font-size: 19px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    width: 402px;
-    height: 58px;
-    border-radius: 21px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .icon-google {
-    margin-right: 17px;
-    height: 23px;
-    width: 23px;
-  }
-
-  .form-span {
-    width: 100%;
-    display: flex;
-    align-items: center;
-
-    span {
-      color: #000;
-      font-family: Poppins;
-      font-size: 17px;
-      font-weight: 700;
-      margin: 0px 4px;
-    }
-
-    .span-vector {
-      border: black solid 2px;
-      flex-grow: 1;
-    }
-  }
-}
-
 // ################################################################################################ SPINNER
 
 .spinner {
@@ -845,7 +605,7 @@ $--percentaje: 70;
 // ################################################################################################ NAVBAR
 .navbarContainer {
   top: 0%;
-  z-index: 100;
+  z-index: 2;
   position: sticky;
   padding: 0.4rem;
   background-color: #ffffff;
@@ -916,66 +676,16 @@ $--percentaje: 70;
   }
 }
 
-// ########################### FORGOT PASSWORD ################################################################################################
-
-.forgotpass-screen {
+// ################################################################################################ HOME ################################################################################################
+.home-contenido {
+  display: grid;
+  grid-auto-rows: 28rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 27rem), 1fr));
+}
+.contenido-clases {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100%;
-  background-image: url("images/bg-login.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
-
-.forgotpass-card {
-  width: 546px;
-  height: 529px;
-  border-radius: 14px;
-  background: rgba(243, 243, 244, 0.9);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.card-logo-forgopass {
-  margin-top: 24px;
-}
-
-.forgotpass-title {
-  color: #000;
-  font-family: Poppins;
-  font-size: 26px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin-bottom: 17px;
-}
-.forgotpass-message {
-  color: #000;
-  font-family: Poppins;
-  font-size: 17px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-bottom: 37px;
-}
-
-.forgotpass-form-button {
-  width: 402px;
-  height: 71px;
-  flex-shrink: 0;
-  color: #fff;
-  border-radius: 11px;
-  background: #080809;
-  font-family: Poppins;
-  font-size: 26px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-
 // ################################################################################################ LANDING ################################################################################################
 .landing-page {
   height: 100%;
@@ -1128,6 +838,21 @@ $--percentaje: 70;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+// ################################################################################################ DROPDOWN ################################################################################################}
+.dropdown {
+  position: fixed;
+  width: 20%;
+  float: right;
+  top: 87%;
+  left: 78%;
+  direction: rtl;
+}
+.dropdown-items-show {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
 }
 // ################################################################################################ ActivitiesExpire ################################################################################################
 .ActivitieTitle {

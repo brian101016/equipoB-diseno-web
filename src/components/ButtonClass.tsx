@@ -1,5 +1,4 @@
-import bg_buttonClass from "@theme/images/bg-buttonClass.svg";
-import icon_user from "@theme/images/icon-user-gray.png";
+import ImageProvider from "@utils/ImageProvider";
 
 type Button_ClassProps = {
   title: string;
@@ -17,16 +16,17 @@ const Button_Class = (props: Button_ClassProps) => {
       <div
         className="image-class-button"
         style={{
-          backgroundImage: `url('${bg_buttonClass}')`,
+          backgroundImage: `url('${ImageProvider.background.buttonClassSVG}')`,
           backgroundColor: `${props.bgColor}`,
-        }}>
+        }}
+      >
         <h1 className="title-class-button">
           {props.title || "Titulo de materia"}
         </h1>
         <img
-          src={icon_user}
+          src={ImageProvider.icon.user_gray}
           className="icon-image-class-button"
-          alt={icon_user}
+          alt="usuario"
         />
       </div>
       <div className="central-class-button">

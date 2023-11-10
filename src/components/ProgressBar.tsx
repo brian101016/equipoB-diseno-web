@@ -1,10 +1,13 @@
+// ################################ IMPORTS ################################
 import styled, { css } from "styled-components";
 
+// ################################ INTERFACES & PROPS ################################
+type _Base = import("utils/classes").Base;
+// ProgressBar => Rename all instances to use
 type ProgressBarProps = {
   percentage: number;
-  className?: string;
   isChart?: boolean;
-};
+} & _Base;
 
 // ################################ RENDERING COMPONENT ################################
 const _ProgressBar = (props: ProgressBarProps) => {

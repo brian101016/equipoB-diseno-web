@@ -1,135 +1,285 @@
-import bg_login from '@theme/images/bg-login.jpeg';
-
-import icon_user from '@theme/images/icon-user.png';
-
-import icon_logo from '@theme/images/logo-azul-vertical.png';
-
-import ojo_on from '@theme/images/ojo-on.png';
-import ojo_off from '@theme/images/ojo-off.png';
-import mini_google from '@theme/images/Mini-google.png';
-
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+// ################################ IMPORTS ################################
+import styled from "styled-components";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import ImageProvider from "@utils/ImageProvider";
 
 // ################################ INTERFACES & PROPS ################################
+type _Base = import("utils/classes").Base;
 // LoginScreen => Rename all instances to use
-type LoginScreenProps = {};
+type LoginScreenProps = {} & _Base;
 
 // ################################ RENDERING COMPONENT ################################
-const LoginScreen = (props: LoginScreenProps) => {
-    const [passInput, setPassInput] = useState(false);
-    const [pass, setPass] = useState('');
+const _LoginScreen = (props: LoginScreenProps) => {
+  const [passInput, setPassInput] = useState(false);
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+  const [sesion, setSesion] = useState(false);
 
-    const visiblePass = () => {
-        setPassInput(!passInput);
-    };
+  //
+  const visiblePass = () => {
+    setPassInput(!passInput);
+  };
 
-    const passChange = (e) => {
-        setPass(e.target.value);
-    };
+  const passChange = (e) => {
+    setPass(e.target.value);
+  };
 
-    // funcion que lleva de la Login a Signup usando un boton
-    const newAccount = useNavigate();
-    const createNewAccount = () => {
-        newAccount('signup');
-    };
+  const emailChange = (e) => {
+    setEmail(e.target.value);
+  };
 
-    const styleHorizontal = {
-        borderBottom: 'black solid 6px',
-        flexGrow: 1,
-    };
+  // funcion que lleva de la Login a Signup usando un boton
+  const newAccount = useNavigate();
+  const createNewAccount = () => {
+    newAccount("signup");
+  };
 
-    // ------------------------------------------------------------------------------------ RETURN
-    return (
-        <div
-            className="screen login-screen"
-            style={{
-                backgroundImage: `url('${bg_login}')`,
-            }}
-        >
-            {/* <Link to={"/login/signup"}>Ir hacia Signup</Link> */}
-            {/* <Link to={"signup"}>Ir hacia Signup</Link> */}
+  // Funsion para evitar que se recarge la pagina al precionar un boton
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
-            <form id="login-form">
-                <img src={icon_logo} alt="logo" />
-
-                <h2>Iniciar sesión en su cuenta</h2>
-
-                <input
-                    className="input inputCorreo"
-                    type="text"
-                    placeholder="Correo electrónico"
-                />
-
-                <div className="inputPassContainer">
-                    <input
-                        className="input inputIcon"
-                        type={passInput ? 'text' : 'password'}
-                        placeholder="Contraseña"
-                        value={pass}
-                        onChange={passChange}
-                    />
-                    <button id="passOjo" type="button" onClick={visiblePass}>
-                        <img
-                            id="ojoIcon"
-                            src={passInput ? ojo_on : ojo_off}
-                            alt={
-                                passInput
-                                    ? 'Ocultar ontraseña'
-                                    : 'Mostrar contraseña'
-                            }
-                        />
-                    </button>
-                </div>
-
-                <div style={{ display: 'flex' }}>
-                    <input className="checkbox" type="checkbox" />
-                    <label htmlFor="" style={{ marginLeft: '10px' }}>
-                        Recordarme
-                    </label>
-                    <Link to={'/login/forgot'} style={{ marginLeft: 'auto' }}>
-                        Olvidaste tu contraseña?
-                    </Link>
-                </div>
-
-                <button className="button">Iniciar sesión</button>
-
-                <button className="button" onClick={createNewAccount}>
-                    Crear nueva cuenta
-                </button>
-
-                <div
-                    style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                    }}
-                >
-                    <div style={styleHorizontal}></div>
-                    <span
-                        style={{
-                            margin: '0 4px',
-                            fontWeight: 700,
-                        }}
-                    >
-                        o
-                    </span>
-                    <div style={styleHorizontal}></div>
-                </div>
-
-                <button className="button buttonGoogle">
-                    <div className="icon-container">
-                        <img
-                            src={mini_google}
-                            alt="Icono de Google"
-                            id="iconGoogle"
-                        />
-                    </div>
-                    Iniciar sesión con Google
-                </button>
-            </form>
-        </div>
+  // funcion para validar inicio de sesión
+  const home = useNavigate();
+  async function gatData() {
+    const request = await fetch(
+      "https://raw.githubusercontent.com/brian101016/equipoB-diseno-web/main/src/utils/database.json"
     );
-};
+
+    const result = await request.json();
+    result.users?.forEach((u) => {
+      if (u.email === email && u.password === pass) {
+        home("/home");
+      } else {
+        if (!sesion) {
+          setSesion(true);
+          //window.alert('Datos incorrectos');
+        }
+      }
+    });
+  }
+
+  // ################################ RETURN ################################
+  return (
+    <div className={props.className}>
+      <div className="log-screen">
+        <form className="log-form" onSubmit={handleSubmit}>
+          <img src={ImageProvider.logo.vertical} alt="logo" />
+
+          <h2>
+            {sesion ? "Datos incorrectos" : "Iniciar sesión en su cuenta"}
+          </h2>
+
+          <input
+            className="log-input-correo letra"
+            type="text"
+            placeholder="Correo electrónico"
+            value={email}
+            onChange={emailChange}
+          />
+
+          <div className="log-pass-container">
+            <input
+              className="letra"
+              type={passInput ? "text" : "password"}
+              placeholder="Contraseña"
+              value={pass}
+              onChange={passChange}
+            />
+            <button id="passOjo" type="button" onClick={visiblePass}>
+              <img
+                id="ojoIcon"
+                src={
+                  passInput
+                    ? ImageProvider.misc.ojo_on
+                    : ImageProvider.misc.ojo_off
+                }
+                alt={passInput ? "Ocultar ontraseña" : "Mostrar contraseña"}
+              />
+            </button>
+          </div>
+
+          <div className="form-container-varios">
+            <div className="form-container-check">
+              <input className="checkbox" type="checkbox" id="recordarme" />
+              <label htmlFor="recordarme">Recordarme</label>
+            </div>
+            <Link
+              className="form-container-link"
+              to={"/login/forgot"}
+              style={{ marginLeft: "auto" }}
+            >
+              Olvidaste tu contraseña?
+            </Link>
+          </div>
+
+          <button className="boton" onClick={gatData}>
+            Iniciar sesión
+          </button>
+
+          <button className="boton" onClick={createNewAccount}>
+            Crear nueva cuenta
+          </button>
+
+          <div className="form-span">
+            <div className="span-vector"></div>
+            <span>o</span>
+            <div className="span-vector"></div>
+          </div>
+
+          <button className="button buttonGoogle">
+            <div className="icon-container">
+              <img
+                src={ImageProvider.logo.google_mini}
+                alt="Icono de Google"
+                id="iconGoogle"
+              />
+            </div>
+            Iniciar sesión con Google
+          </button>
+        </form>
+      </div>
+    </div>
+  ); // End return
+}; // End fuction
+
+// ################################ STYLES ################################
+const LoginScreen = styled(_LoginScreen)<LoginScreenProps>`
+  .letra {
+    color: rgba(0, 0, 0, 0.32);
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  height: 100%;
+  background-image: url(${ImageProvider.background.login});
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .log-screen {
+    width: 546px;
+    height: 680px;
+    background-color: rgba(243, 243, 244, 0.9);
+    border-radius: 20px;
+    padding: 36px 70px;
+  }
+
+  .log-form {
+    font-family: Poppins;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    img {
+      width: 128px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: #000;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .log-input-correo {
+      font-family: Poppins;
+      border-radius: 2px;
+      background: #fff;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      width: 402px;
+      height: 60px;
+      flex-shrink: 0;
+      padding-left: 20px;
+      border-style: none;
+
+      &:hover {
+        border: black solid 2px;
+      }
+    }
+
+    .boton {
+      width: 402px;
+      height: 71px;
+      flex-shrink: 0;
+      border-radius: 11px;
+      background: #127ec2;
+      color: #fff;
+      font-family: Poppins;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      border-style: none;
+    }
+  }
+
+  .log-pass-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-style: none;
+    border-radius: 2px;
+    background: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    height: 60px;
+    width: 402px;
+    input {
+      padding-left: 20px;
+      border-style: none;
+      width: 100%;
+      height: 100%;
+      border-style: none;
+    }
+
+    img {
+    }
+  }
+
+  .form-container-varios {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    .form-container-check {
+      display: flex;
+    }
+    label {
+      margin-left: 5px;
+    }
+    a {
+      justify-content: end;
+    }
+  }
+
+  .form-span {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    span {
+      color: #000;
+      font-family: Poppins;
+      font-size: 17px;
+      font-weight: 700;
+      margin: 0px 4px;
+    }
+
+    .span-vector {
+      border: black solid 2px;
+      flex-grow: 1;
+    }
+  }
+`;
 
 // ################################ EXPORTS ################################
 export default LoginScreen;

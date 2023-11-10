@@ -1,12 +1,15 @@
-// ################################ INTERFACES & PROPS ################################
-
+// ################################ IMPORTS ################################
+import Spinner from "@components/Spinner";
 import { useRouteError } from "react-router-dom";
+import styled, { css } from "styled-components";
 
+// ################################ INTERFACES & PROPS ################################
+type _Base = import("utils/classes").Base;
 // NotFoundScreen => Rename all instances to use
-type NotFoundScreenProps = {};
+type NotFoundScreenProps = {} & _Base;
 
 // ################################ RENDERING COMPONENT ################################
-const NotFoundScreen = (props: NotFoundScreenProps) => {
+const _NotFoundScreen = (props: NotFoundScreenProps) => {
   const err = useRouteError() as any;
 
   const info = err
@@ -28,11 +31,18 @@ const NotFoundScreen = (props: NotFoundScreenProps) => {
           <h4>{info.message}</h4>
         </>
       ) : (
-        <>Página no encontrada</>
+        "Página no encontrada"
       )}
+
+      <Spinner />
     </div>
   );
 };
+
+// ################################ STYLES ################################
+const NotFoundScreen = styled(_NotFoundScreen)<NotFoundScreenProps>`
+  ${(props) => css``}
+`;
 
 // ################################ EXPORTS ################################
 export default NotFoundScreen;
