@@ -24,8 +24,13 @@ const _LandingScreen = (props: LandingScreenProps) => {
             ¡Comienza hoy!
           </p>
 
-          <button>
-            <Link to={"/login"}>Explorar Más</Link>
+          <button className="btnExplora">
+            <Link to={"/login"} className="button-link">
+              <span className="circle" aria-hidden="true">
+                <span className="icon arrow"></span>
+              </span>
+              <span className="button-text">Explorar Más</span>
+            </Link>
           </button>
         </div>
 
@@ -92,7 +97,7 @@ const _LandingScreen = (props: LandingScreenProps) => {
 };
 
 // ################################ STYLES ################################
-const LandingScreen = styled(_LandingScreen)<LandingScreenProps>`
+const LandingScreen = styled(_LandingScreen) <LandingScreenProps>`
   ${(props) => css``}
 `;
 

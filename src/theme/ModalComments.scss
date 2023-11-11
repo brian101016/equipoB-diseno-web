@@ -4,82 +4,45 @@
   box-sizing: border-box;
 }
 
-.background_modal {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 9;
-  overflow: auto;
-}
-
-.modal {
-  background-color: white;
-  border-radius: 0.5em;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  left: 50%;
-  width: auto;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  max-height: 90vh;
-  padding: 2%;
-  overflow: auto;
-  z-index: 10;
-}
-
-.close {
-  position: absolute;
-  top: 2%;
-  right: 1%;
-  cursor: pointer;
-  z-index: 11;
-  background-color: white;
-  color: #ff0000;
-  font-family: "Poppins", sans-serif;
-  border-radius: 50px;
-  width: 25px;
-  border: none;
-}
-
 .modalEstilo {
-  h2 {
-    color: #127ec2;
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-
-  .inputComentario {
+  
+  .userStyle {
     display: flex;
     align-items: center;
-    margin: 10px;
-    padding: 10px;
-
-    h3 {
-      color: #000;
-      font-size: 22px;
+    flex-direction: column;
+    gap: 4px;
+    
+    h2 {
+      color: #127ec2;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 40px;
       font-style: normal;
       font-weight: 400;
+      line-height: normal;
+    }
+
+    h4 {
+      color: #494949;
+      font-style: normal;
+      font-weight: 700;
       line-height: normal;
       font-family: "Poppins", sans-serif;
     }
 
-    input {
-      margin-left: 20px;
-      border: none;
-      background-color: #ebebeb;
-      border-radius: 5px;
-      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-      width: auto;
-      height: 19px;
+    h5 {
+      color: #A0A0A0;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      font-family: "Poppins", sans-serif;
+    }
 
-      &:focus {
-        outline: none;
+    @media screen and (max-width: 320px){
+      h2{
+        font-size: 30px;
+      }
+      img{
+        width: 50px;
       }
     }
   }
@@ -94,6 +57,7 @@
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     border: none;
     font-family: "Poppins", sans-serif;
+    margin-top: 14px;
 
     &::placeholder {
       margin-left: 20px;
@@ -111,7 +75,6 @@
     gap: 10px;
 
     button {
-      margin-left: 20px;
       border-radius: 28px;
       color: white;
       width: 80px;
@@ -123,6 +86,10 @@
       font-weight: 400;
       line-height: normal;
       cursor: pointer;
+
+      @media screen and (max-width:580px) {
+        width: 5rem;
+      }
 
       &.btnColorBlue {
         background-color: #127ec2;
@@ -151,6 +118,10 @@
           transform: translateY(2px);
         }
       }
+    }
+
+    @media screen and (max-width: 425px) {
+      justify-content: space-around;
     }
   }
 }
