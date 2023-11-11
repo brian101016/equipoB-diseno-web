@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "@theme/styles.scss";
+import "@theme/ModalCalificar.scss";
+import "@theme/ModalComments.scss";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

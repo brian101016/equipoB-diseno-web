@@ -1,27 +1,98 @@
+// ################################ IMPORTS ################################
+import ButtonClass from "@components/ButtonClass";
+import ActivitiesExpire from "@components/ActivitiesExpire";
+import ProgressBar from "@components/ProgressBar";
+import styled, { css } from "styled-components";
+
 // ################################ INTERFACES & PROPS ################################
-
-import Button_Class from "@components/Button_Class";
-import Progress_Chart from "@components/Progress_Chart";
-
+type _Base = import("utils/classes").Base;
 // HomeScreen => Rename all instances to use
-type HomeScreenProps = {};
+type HomeScreenProps = {} & _Base;
 
 // ################################ RENDERING COMPONENT ################################
-const HomeScreen = (props: HomeScreenProps) => {
+const _HomeScreen = (props: HomeScreenProps) => {
   // ------------------------------------------------------------------------------------ RETURN
   return (
-    <div>
-      Pagina principal
-      <Button_Class
-        title="Diseño Web"
-        description="Diseño web es una disciplina que se enfoca en la creación y diseño de sitios web, abarcando aspectos como la estructura, la apariencia visual, la usabilidad y la interacción."
-        homework="Avance EC1"
-        teacherName="JESUS ALBERTO OJEDA SAUCEDO"
-      />
-      <Progress_Chart percentage="70"></Progress_Chart>
+    <div className={props.className}>
+      <div className="home-contenido">
+        <div className="contenido-clases">
+          <ButtonClass
+            bgColor="#d6d442"
+            title="Diseño Web"
+            homework={
+              <ActivitiesExpire
+                actividad={4}
+                titulo="Algoritmo"
+                fecha="Hoy mero cabron apurale"
+              ></ActivitiesExpire>
+            }
+            teacherName="JESUS ALBERTO OJEDA SAUCEDO"
+            progressBar={
+              <ProgressBar percentage={50} isChart={false}></ProgressBar>
+            }
+          />
+        </div>
+
+        <div className="contenido-clases">
+          <ButtonClass
+            bgColor="#d6d442"
+            title="Diseño Web"
+            homework={
+              <ActivitiesExpire
+                actividad={4}
+                titulo="Algoritmo"
+                fecha="Hoy mero cabron apurale"
+              ></ActivitiesExpire>
+            }
+            teacherName="JESUS ALBERTO OJEDA SAUCEDO"
+            progressBar={
+              <ProgressBar percentage={50} isChart={false}></ProgressBar>
+            }
+          />
+        </div>
+        <div className="contenido-clases">
+          <ButtonClass
+            bgColor="#d6d442"
+            title="Diseño Web"
+            homework={
+              <ActivitiesExpire
+                actividad={4}
+                titulo="Algoritmo"
+                fecha="Hoy mero cabron apurale"
+              ></ActivitiesExpire>
+            }
+            teacherName="JESUS ALBERTO OJEDA SAUCEDO"
+            progressBar={
+              <ProgressBar percentage={50} isChart={false}></ProgressBar>
+            }
+          />
+        </div>
+        <div className="contenido-clases">
+          <ButtonClass
+            bgColor="#d6d442"
+            title="Programacion de dispositivos moviles"
+            homework={
+              <ActivitiesExpire
+                actividad={4}
+                titulo="Actividad 10 - Practica de algoritmo"
+                fecha="Hoy mero cabron apurale"
+              ></ActivitiesExpire>
+            }
+            teacherName="Profr. Julian Flores"
+            progressBar={
+              <ProgressBar percentage={50} isChart={false}></ProgressBar>
+            }
+          />
+        </div>
+      </div>
     </div>
   );
 };
+
+// ################################ STYLES ################################
+const HomeScreen = styled(_HomeScreen)<HomeScreenProps>`
+  ${(props) => css``}
+`;
 
 // ################################ EXPORTS ################################
 export default HomeScreen;

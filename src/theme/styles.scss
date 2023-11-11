@@ -1,54 +1,79 @@
 // ################################################################################################ FONT FACE
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 // ################################################################################################ MIXINS
 @mixin flex-type {
-    display: flex;
-    justify-items: start;
-    width: 100%;
-    align-items: center;
+  display: flex;
+  justify-items: start;
+  width: 100%;
+  align-items: center;
 }
 
 // ################################################################################################ RESET
 * {
-    color: black;
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
+  color: black;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
 #root {
-    height: 100%;
+  height: 100%;
 }
 
 .App {
-    text-align: center;
-    height: 100%;
+  text-align: center;
+  height: 100%;
 }
 
 .screen {
-    height: 100%;
+  height: 100%;
 }
 
 .login-screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url('https://picsum.photos/1500');
-    background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://picsum.photos/1500");
+  background-size: cover;
 }
 
 // ################################################################################################ FORM
 #login-form {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(243, 243, 244, 0.9);
+  padding: 36px 70px;
+  border-radius: 20px;
+  gap: 18px;
+
+  img {
+    width: 128px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    color: #000;
+    font-family: "Poppins";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .container {
     display: flex;
+    gap: 10px;
+  }
+  .input {
     flex-direction: column;
     background-color: rgba(243, 243, 244, 0.9);
     padding: 36px 70px;
@@ -56,78 +81,78 @@ body {
     gap: 18px;
 
     img {
-        width: 128px;
-        margin: 0 auto;
+      width: 128px;
+      margin: 0 auto;
     }
 
     h2 {
-        color: #000;
-        font-family: 'Poppins';
-        font-size: 32px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
+      color: #000;
+      font-family: "Poppins";
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
     }
 
     .container {
-        display: flex;
-        gap: 10px;
+      display: flex;
+      gap: 10px;
     }
     .input {
-        border-radius: 2px;
-        background: #fff;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        padding: 0.8rem 1.6rem;
-        border: 0;
-        font-family: 'Poppins';
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
+      border-radius: 2px;
+      background: #fff;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      padding: 0.8rem 1.6rem;
+      border: 0;
+      font-family: "Poppins";
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
 
-        &::placeholder {
-            color: rgba(0, 0, 0, 0.32);
-            font-size: inherit;
-            font-weight: inherit;
-        }
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.32);
+        font-size: inherit;
+        font-weight: inherit;
+      }
 
-        // &:focus {
-        // }
+      // &:focus {
+      // }
 
-        &:hover,
-        &:active {
-            box-sizing: border-box;
-            background: #e8f5fe;
-            box-shadow: 0 0 0 2px black;
-        }
+      &:hover,
+      &:active {
+        box-sizing: border-box;
+        background: #e8f5fe;
+        box-shadow: 0 0 0 2px black;
+      }
     }
 
     .inputerror {
-        box-shadow: 0 0 0 1px red !important;
+      box-shadow: 0 0 0 1px red !important;
     }
 
     .inputCorreo {
-        margin: 1.5rem 0rem 0.9rem 0rem;
+      margin: 1.5rem 0rem 0.9rem 0rem;
     }
 
     .inputPassContainer {
-        border-radius: 2px;
-        background: #fff;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        border: 0;
-        display: flex;
+      border-radius: 2px;
+      background: #fff;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      border: 0;
+      display: flex;
     }
 
     a:hover {
-        color: #2f8da1;
+      color: #2f8da1;
     }
 
     .inputPassContainer .inputIcon {
-        box-shadow: none;
-        width: 372px;
+      box-shadow: none;
+      width: 372px;
     }
-}
+  }
 
-input[type='radio'] {
+  input[type="radio"] {
     appearance: none;
     -webkit-appearance: none;
     width: 10px;
@@ -135,421 +160,383 @@ input[type='radio'] {
     border-radius: 50%;
     outline: none;
     box-shadow: 0 0 0 1px black;
-}
+  }
 
-.inputPassContainer .inputIcon {
+  .inputPassContainer .inputIcon {
     box-shadow: none;
     width: 372px;
-}
+  }
 
-input[type='radio']:checked {
+  input[type="radio"]:checked {
     box-shadow: 0 0 0 1px rgba(30, 144, 255, 2);
-}
+  }
 
-input[type='radio']:before {
-    content: '';
+  input[type="radio"]:before {
+    content: "";
     display: block;
     width: 80%;
     height: 80%;
     margin: 10% auto;
     border-radius: 100%;
-}
+  }
 
-input[type='radio']:checked:before {
+  input[type="radio"]:checked:before {
     background: rgba(30, 144, 255, 2);
-}
-input[type='number']::placeholder {
+  }
+  input[type="number"]::placeholder {
     opacity: 0.4;
-}
+  }
 
-img#ojoIcon {
+  img#ojoIcon {
     width: 35px;
-}
+  }
 
-#passOjo {
+  #passOjo {
     background: none;
     border: none;
     cursor: pointer;
     padding: 9px;
-}
+  }
 
-// ################################################################################################ SELECTORS
-select {
+  // ################################################################################################ SELECTORS
+  select {
     border-radius: 2px;
     background: #fff;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     padding: 0.8rem 1.6rem;
     border: 0;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
 
-    &:focus {
-        outline: none;
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.32);
+      font-size: inherit;
+      font-weight: inherit;
     }
+
+    // &:focus {
+    // }
+
+    &:hover,
+    &:active {
+      box-sizing: border-box;
+      background: #e8f5fe;
+      box-shadow: 0 0 0 2px black;
+    }
+  }
+  .inputerror {
+    box-shadow: 0 0 0 1px red !important;
+  }
+
+  .inputCorreo {
+    margin: 1.5rem 0rem 0.9rem 0rem;
+  }
+  .inputPassContainer {
+    border-radius: 2px;
+    background: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: 0;
+    display: flex;
+  }
+
+  a:hover {
+    color: #2f8da1;
+  }
+
+  .inputPassContainer .inputIcon {
+    box-shadow: none;
+    width: 372px;
+  }
+}
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  outline: none;
+  box-shadow: 0 0 0 1px black;
+}
+
+.inputPassContainer .inputIcon {
+  box-shadow: none;
+  width: 372px;
+}
+input[type="radio"]:checked {
+  box-shadow: 0 0 0 1px rgba(30, 144, 255, 2);
+}
+
+input[type="radio"]:before {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 80%;
+  margin: 10% auto;
+  border-radius: 100%;
+}
+
+input[type="radio"]:checked:before {
+  background: rgba(30, 144, 255, 2);
+}
+input[type="number"]::placeholder {
+  opacity: 0.4;
+}
+
+img#ojoIcon {
+  width: 35px;
+}
+
+#passOjo {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 9px;
+}
+
+// ################################################################################################ SELECTORS
+select {
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 0.8rem 1.6rem;
+  border: 0;
+  font-family: "Poppins";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+
+  &:focus {
+    outline: none;
+  }
 }
 select,
 select option {
-    color: #000000;
+  color: #000000;
 }
 
 select:invalid,
-select option[value=''] {
-    color: #999999;
+select option[value=""] {
+  color: #999999;
 }
 /*Para compatibilidad de navegadores*/
 [hidden] {
-    display: none;
+  display: none;
 }
 // ################################################################################################ CHECKBOXES
 .checkbox {
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    -o-appearance: none;
-    outline: none;
-    content: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -o-appearance: none;
+  outline: none;
+  content: none;
 }
 .checkbox:before {
-    content: '';
-    font-size: 15px;
-    display: block;
-    width: 1.1rem;
-    height: 1rem;
-    border: 1.5px solid black;
-    border-radius: 2px;
-    font-size: 16px;
-    line-height: 1rem;
-    font-weight: 600;
+  content: "";
+  font-size: 15px;
+  display: block;
+  width: 1.1rem;
+  height: 1rem;
+  border: 1.5px solid black;
+  border-radius: 2px;
+  font-size: 16px;
+  line-height: 1rem;
+  font-weight: 600;
 }
 
 .checkbox:checked:before {
-    background-image: url('images/checkbox-active.png');
-    background-size: 95%;
-    background-repeat: no-repeat;
-    border: 1.5px solid transparent;
+  background-image: url("images/misc/checkbox-active.png");
+  background-size: 95%;
+  background-repeat: no-repeat;
+  border: 1.5px solid transparent;
 }
 
 // ################################################################################################ BUTTONS
 .button {
-    border-radius: 12px;
-    background-color: #127ec2;
-    color: #fff;
-    font-family: 'Poppins';
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    border: none;
-    padding: 12px 16px;
-    cursor: pointer;
+  border-radius: 12px;
+  background-color: #127ec2;
+  color: #fff;
+  font-family: "Poppins";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
 
-    &:hover {
-        color: black;
-    }
+  &:hover {
+    color: black;
+  }
 }
 
 .buttonGoogle {
-    font-size: 19px;
-    color: black;
-    border: 0.9px solid black;
-    background-color: transparent;
+  font-size: 19px;
+  color: black;
+  border: 0.9px solid black;
+  background-color: transparent;
 
-    &:hover {
-        color: #2f8da1;
-    }
+  &:hover {
+    color: #2f8da1;
+  }
 }
 
 img#iconGoogle {
-    height: 23px;
-    width: 23px;
+  height: 23px;
+  width: 23px;
 }
 
 .icon-container {
-    display: inline-block;
-    vertical-align: -3px;
-    margin-right: 8px;
+  display: inline-block;
+  vertical-align: -3px;
+  margin-right: 8px;
 }
 
 // ######################################### Button Class
-#border-class-button {
-    height: 400px;
-    width: 405px;
-    border-radius: 8%;
-    border: 3px solid #000000;
-    margin: 1rem;
-    background-color: #fff;
+.border-class-button {
+  height: 21rem;
+  width: 21rem;
+  border-radius: 8%;
+  border: none;
+  background-color: #fff;
+  margin: 2rem;
+  box-shadow: 11px 11px 5px -6px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 11px 11px 5px -6px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 11px 11px 5px -6px rgba(0, 0, 0, 0.5);
+
+  .title-class-button {
+    color: #3e3d3d;
+    text-align: center;
+    font-family: "Bebas Neue";
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
     position: relative;
+    top: 1.5rem;
+  }
 
-    .title-class-button {
-        width: 40%;
-        color: #fff;
-        font-family: 'Bebas Neue';
-        font-size: 3rem;
-        margin: 0.5rem;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-        text-align: left;
-        position: absolute;
-    }
+  .image-class-button {
+    height: 35%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 16px 16px 0 0;
+  }
 
-    .central-class-button {
-        height: 50%;
-        border-bottom: 0.9px solid black;
-        border-top: 0.9px solid black;
-    }
+  .central-class-button {
+    height: 20%;
+    width: 90%;
+    margin: 0 0 5% 5%;
+    border-bottom: 0.9px solid black;
+  }
 
-    .icon-class-button {
-        border-radius: 50%;
-    }
+  .icon-image-class-button {
+    position: relative;
+    top: 30%;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 
-    .teacherName-class-button {
-        color: #000;
-        font-family: 'Bebas Neue';
-        font-size: 1.4rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        text-align: justify;
-        margin-left: 1rem;
-        margin-top: 1rem;
-    }
-    .description-class-button {
-        color: #000;
-        font-family: 'Poppins';
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        text-align: left;
-        margin-left: 1rem;
-        margin-top: 1.5rem;
-    }
+  .teacherName-class-button {
+    color: #3e3d3d;
+    text-align: center;
+    font-family: "Poppins";
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 1.4rem;
+  }
 
-    .footer-class-button {
-        margin-top: 0.2rem;
-        height: 20%;
-    }
+  .footer-class-button {
+    margin-top: 0.2rem;
+    height: 40%;
+  }
 
-    .text-footer-class-button {
-        color: #127ec2;
-        font-family: 'Bebas Neue';
-        font-size: 1.2rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        text-align: justify;
-        margin-left: 1rem;
-    }
-    .icon-image-class-button {
-        position: absolute;
-        top: 5rem;
-        left: 16.5rem;
-        right: 0;
-        margin: 10px;
-    }
-    .image-class-button {
-        height: 36%;
-    }
-    .homework-footer-class-button {
-        color: #000;
-        font-family: Poppins;
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        margin-left: 1.5rem;
-        text-align: justify;
-    }
+  .text-footer-class-button {
+    color: #000;
+    font-family: "Poppins";
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 0.2rem;
+  }
 
-    //&:hover {
-    //  opacity: 80%;
-    //}
+  .progress-bar-footer-class-button {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &:hover {
+    opacity: 80%;
+    cursor: pointer;
+  }
 }
 
 // ################################################################################################ LIST
 .list {
-    width: 25%;
-    margin: 1.5rem auto;
-    background-color: #bdffb2;
-    padding: 0.75rem 2rem;
+  width: 25%;
+  margin: 1.5rem auto;
+  background-color: #bdffb2;
+  padding: 0.75rem 2rem;
 
-    div {
-        @include flex-type();
+  div {
+    @include flex-type();
 
-        input[type='checkbox'] {
-            border: 3px solid red;
-            width: 2rem;
-            height: 2rem;
-        }
-
-        button {
-            margin-left: 3rem;
-        }
-    }
-}
-
-// ################################################################################################ SIGNUP ################################################################################################ SIGN UP
-
-.signup-screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    background-image: url('images/bg-login.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.signup-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 835px;
-    width: 546px;
-    border-radius: 21px;
-    background: rgba(243, 243, 244, 0.9);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-.card-logo {
-    margin-top: 26px;
-    margin-bottom: 26px;
-    img {
-        width: 189px;
-        height: 138px;
-    }
-}
-
-.card-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-
-    .card-form-input {
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        margin-bottom: 34px;
-        input {
-            font-weight: 357px;
-        }
-        &:hover {
-            border: black solid 2px;
-        }
+    input[type="checkbox"] {
+      border: 3px solid red;
+      width: 2rem;
+      height: 2rem;
     }
 
-    input {
-        color: rgba(0, 0, 0, 0.32);
-        font-family: Poppins;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        width: 402px;
-        height: 60px;
-        flex-shrink: 0;
-        border-style: none;
-        border-radius: 2px;
-        background: #fff;
-        padding: 15px 66px 15px 33px;
+    button {
+      margin-left: 3rem;
     }
-
-    .form-pass {
-        display: flex;
-        align-items: center;
-        border-style: none;
-        border-radius: 2px;
-        background: #fff;
-        input {
-            width: 335px;
-        }
-        img {
-            margin-right: 22px;
-        }
-    }
-
-    .form-button {
-        margin-bottom: 34px;
-    }
-
-    .form-button-google {
-        margin-top: 34px;
-        color: #000;
-        font-family: Poppins;
-        font-size: 19px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-        width: 402px;
-        height: 58px;
-        border-radius: 21px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .icon-google {
-        margin-right: 17px;
-        height: 23px;
-        width: 23px;
-    }
-
-    .form-span {
-        width: 100%;
-        display: flex;
-        align-items: center;
-
-        span {
-            color: #000;
-            font-family: Poppins;
-            font-size: 17px;
-            font-weight: 700;
-            margin: 0px 4px;
-        }
-
-        .span-vector {
-            border: black solid 2px;
-            flex-grow: 1;
-        }
-    }
+  }
 }
 
 // ################################################################################################ SPINNER
 
 .spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border-left-color: #148edb;
-    animation: spin 1s ease infinite;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border-left-color: #148edb;
+  animation: spin 1s ease infinite;
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(360deg);
-    }
-    100% {
-        transform: rotate(0deg);
-    }
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .spinnerContainer {
-    display: flex;
-    margin-top: 20%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    strong {
-        color: #148edb;
-        font-size: 20px;
-    }
+  display: flex;
+  margin-top: 20%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  strong {
+    color: #148edb;
+    font-size: 20px;
+  }
 }
 
 .imgSpinner {
-    animation: spin 1s linear infinite;
-    width: 80px;
-    height: 80px;
+  animation: spin 1s linear infinite;
+  width: 80px;
+  height: 80px;
 }
 
 // ################################################################################################ PROGRESS CHART
@@ -557,349 +544,331 @@ img#iconGoogle {
 $--clr: #2f8da1;
 $--percentaje: 70;
 .container-chart {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 40px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
 }
 .container-chart .progress-chart {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    color: #ffffff;
-    background: #b4b0b0 linear-gradient(to right, transparent 50%, $--clr 0);
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  color: #ffffff;
+  background: #b4b0b0 linear-gradient(to right, transparent 50%, $--clr 0);
 }
 .container-chart h3 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2.5rem;
-    z-index: 1;
-    font-weight: 500;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  z-index: 1;
+  font-weight: 500;
 }
 .container-chart .progress-chart h3 span {
-    font-size: 1.4rem;
-    font-weight: 400;
+  font-size: 1.4rem;
+  font-weight: 400;
 }
 
 .container-chart .progress-chart::before {
-    content: '';
-    display: block;
-    height: 100%;
-    margin-left: 50%;
-    transform-origin: left;
-    border-radius: 0 100% 100% 0/50%;
+  content: "";
+  display: block;
+  height: 100%;
+  margin-left: 50%;
+  transform-origin: left;
+  border-radius: 0 100% 100% 0/50%;
 }
 
 .container-chart .progress-chart::after {
-    content: '';
-    position: absolute;
-    inset: 10px;
-    border-radius: 50%;
-    background: #ffffff;
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  background: #ffffff;
 }
 
 @if $--percentaje>50 {
-    .container-chart .progress-chart::before {
-        background: $--clr;
-        transform: rotate(calc((($--percentaje - 50) * 0.01turn)));
-    }
+  .container-chart .progress-chart::before {
+    background: $--clr;
+    transform: rotate(calc((($--percentaje - 50) * 0.01turn)));
+  }
 } @else {
-    .container-chart .progress-chart.less::before {
-        background-color: #b4b0b0;
-        transform: rotate(calc((($--percentaje - 0) * 0.01turn)));
-    }
+  .container-chart .progress-chart.less::before {
+    background-color: #b4b0b0;
+    transform: rotate(calc((($--percentaje - 0) * 0.01turn)));
+  }
 }
 
 // ################################################################################################ NAVBAR
 .navbarContainer {
-    top: 0%;
-    z-index: 100;
-    position: sticky;
-    padding: 0.4rem;
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 2px solid #127ec2;
-    img {
-        width: 3rem;
-        height: 3rem;
-    }
-    button {
-        border-radius: 50%;
-        background-size: contain;
-        background-repeat: no-repeat;
-        border-style: none;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-        width: 40px;
-        height: 37px;
-    }
-
-    .navbarContainerRight {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .navbarMenu {
-        opacity: 0;
-        display: none;
-        transition: opacity 0.5s;
-        background-color: #ffffff;
-        border: 1px solid #127ec2;
-        border-radius: 10px;
-        position: absolute;
-        width: 500%;
-        top: 100%;
-        margin-top: 1rem;
-        right: 20%;
-        ol {
-            list-style-type: none;
-        }
-        h2 {
-            margin: 0.5rem;
-            font-size: 1.5rem;
-            margin-top: 1rem;
-            text-align: left;
-            margin: 0.3rem;
-        }
-        p {
-            margin-top: 0.5rem;
-            margin-left: 0.8rem;
-            margin-right: 0.8rem;
-            margin-bottom: 0.5rem;
-            border-bottom: 3px solid #000;
-            font-family: Poppins;
-            font-size: 0.725rem;
-            font-style: normal;
-        }
-    }
-
-    .buttonClass:hover {
-        .navbarMenu {
-            opacity: 1;
-            display: block;
-        }
-    }
-}
-
-// ########################### FORGOT PASSWORD ################################################################################################
-
-.forgotpass-screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    background-image: url('images/bg-login.jpeg');
+  top: 0%;
+  z-index: 2;
+  position: sticky;
+  padding: 0.4rem;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #127ec2;
+  img {
+    width: 3rem;
+    height: 3rem;
+  }
+  button {
+    border-radius: 50%;
+    background-size: contain;
     background-repeat: no-repeat;
-    background-size: cover;
-}
+    border-style: none;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    width: 40px;
+    height: 37px;
+  }
 
-.forgotpass-card {
-    width: 546px;
-    height: 529px;
-    border-radius: 14px;
-    background: rgba(243, 243, 244, 0.9);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  .navbarContainerRight {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+  }
+
+  .navbarMenu {
+    opacity: 0;
+    display: none;
+    transition: opacity 0.5s;
+    background-color: #ffffff;
+    border: 1px solid #127ec2;
+    border-radius: 10px;
+    position: absolute;
+    width: 500%;
+    top: 100%;
+    margin-top: 1rem;
+    right: 20%;
+    ol {
+      list-style-type: none;
+    }
+    h2 {
+      margin: 0.5rem;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      text-align: left;
+      margin: 0.3rem;
+    }
+    p {
+      margin-top: 0.5rem;
+      margin-left: 0.8rem;
+      margin-right: 0.8rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 3px solid #000;
+      font-family: Poppins;
+      font-size: 0.725rem;
+      font-style: normal;
+    }
+  }
+
+  .buttonClass:hover {
+    .navbarMenu {
+      opacity: 1;
+      display: block;
+    }
+  }
 }
 
-.card-logo-forgopass {
-    margin-top: 24px;
+// ################################################################################################ HOME ################################################################################################
+.home-contenido {
+  display: grid;
+  grid-auto-rows: 28rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 27rem), 1fr));
 }
-
-.forgotpass-title {
-    color: #000;
-    font-family: Poppins;
-    font-size: 26px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    margin-bottom: 17px;
+.contenido-clases {
+  display: flex;
+  justify-content: center;
 }
-.forgotpass-message {
-    color: #000;
-    font-family: Poppins;
-    font-size: 17px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-bottom: 37px;
-}
-
-.forgotpass-form-button {
-    width: 402px;
-    height: 71px;
-    flex-shrink: 0;
-    color: #fff;
-    border-radius: 11px;
-    background: #080809;
-    font-family: Poppins;
-    font-size: 26px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-
-
 // ################################################################################################ LANDING ################################################################################################
 .landing-page {
-    height: 100%;
-    width: 80%;
-    margin: 0 auto;
+  height: 100%;
+  width: 80%;
+  margin: 0 auto;
 }
 // HEADER
 .landing-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 63px;
-    border-bottom: black solid 1px;
-    img {
-        width: 247px;
-        height: 105px;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 63px;
+  border-bottom: black solid 1px;
+  img {
+    width: 247px;
+    height: 105px;
+  }
 }
 
 .landing-header-components {
-    a {
-        color: #000;
-        font-family: Poppins;
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        margin-right: 32px;
-        padding: 0;
-    }
-    a:hover {
-        color: #1c7fc0;
-    }
+  a {
+    color: #000;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-right: 32px;
+    padding: 0;
+  }
+  a:hover {
+    color: #1c7fc0;
+  }
 
-    button {
-        width: 204px;
-        height: 63px;
-        border-style: none;
-        border-radius: 31.5px;
-        background: #127ec2;
-        color: #fff;
-        font-family: Poppins;
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-    }
+  button {
+    width: 204px;
+    height: 63px;
+    border-style: none;
+    border-radius: 31.5px;
+    background: #127ec2;
+    color: #fff;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
 }
 
 // SECTION WELCOME
 .landing-welcome {
-    margin-top: 45px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    img {
-        width: 440px;
-        height: 458px;
-    }
+  margin-top: 45px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  img {
+    width: 440px;
+    height: 458px;
+  }
 }
 
 .landing-welcome-components {
-    font-family: Poppins;
-    font-weight: 400;
-    font-style: normal;
-    line-height: normal;
-    h1 {
-        font-family: Bebas Neue;
-        color: #127ec2;
-        text-align: justify;
-        font-size: 70px;
-    }
-    p {
-        width: 659px;
-        margin-top: 25px;
-        margin-right: 80px;
-        color: #000;
-        text-align: justify;
-        font-size: 22px;
-    }
-    button {
-        margin-top: 29px;
-        color: #080809;
-        font-size: 24px;
-        width: 204px;
-        height: 63px;
-        flex-shrink: 0;
-        border-radius: 31.5px;
-        border: 3px solid #080809;
-        background: rgba(255, 255, 255, 0.87);
-    }
+  font-family: Poppins;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+  h1 {
+    font-family: Bebas Neue;
+    color: #127ec2;
+    text-align: justify;
+    font-size: 70px;
+  }
+  p {
+    width: 659px;
+    margin-top: 25px;
+    margin-right: 80px;
+    color: #000;
+    text-align: justify;
+    font-size: 22px;
+  }
+  button {
+    margin-top: 29px;
+    color: #080809;
+    font-size: 24px;
+    width: 204px;
+    height: 63px;
+    flex-shrink: 0;
+    border-radius: 31.5px;
+    border: 3px solid #080809;
+    background: rgba(255, 255, 255, 0.87);
+  }
 }
 
 // LANDING SECTION INFO
-.landing-info{
-    width: 100vw;
-    margin-top:50px;
-    margin-bottom:30px;
-    position: relative;
-    left: calc(-50vw + 49.3%);
-    background-color: #DCF0FD;
-    overflow-x: hidden;
+.landing-info {
+  width: 100vw;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  position: relative;
+  left: calc(-50vw + 49.3%);
+  background-color: #dcf0fd;
+  overflow-x: hidden;
 }
-.landing-info-content{
-    margin: 3% 6% 3% 6%;
-    display:flex;
-    align-items: center;
-    justify-content: center;
+.landing-info-content {
+  margin: 3% 6% 3% 6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.landing-info-card{
-    align-items: center;
-    margin-left: 7%;
-    margin-right: 7%;
-    p{
-        text-align: justify;
-        font-size: 22px;
-    }
+.landing-info-card {
+  align-items: center;
+  margin-left: 7%;
+  margin-right: 7%;
+  p {
+    text-align: justify;
+    font-size: 22px;
+  }
 }
-.circle{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10%;
-    border-radius: 100%;
-    background-color: #E5FFFC;
-    width: 11rem;
-    height: 11rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    img{
-        width: 60%;
-        height: 60%;
-    }
+.circle {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10%;
+  border-radius: 100%;
+  background-color: #e5fffc;
+  width: 11rem;
+  height: 11rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 60%;
+    height: 60%;
+  }
 }
 // LANDING FOOTER
 .landing-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 63px;
-    border-top: black solid 1px;
-    img {
-        width: 173px;
-        height: 71px;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 63px;
+  border-top: black solid 1px;
+  img {
+    width: 173px;
+    height: 71px;
+  }
 }
-.footer-left{
-    gap: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.footer-left {
+  gap: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// ################################################################################################ DROPDOWN ################################################################################################}
+.dropdown {
+  position: fixed;
+  width: 20%;
+  float: right;
+  top: 87%;
+  left: 78%;
+  direction: rtl;
+}
+.dropdown-items-show {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+}
+// ################################################################################################ ActivitiesExpire ################################################################################################
+.ActivitieTitle {
+  color: #a0a0a0;
+  font-family: "Poppins";
+  font-size: 0.6rem;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+}
+
+.ActivitieText {
+  color: #080809;
+  font-family: "Poppins";
+  font-size: 0.6rem;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
 }
