@@ -10,7 +10,8 @@ import NotFoundScreen from "@screens/NotFoundScreen";
 import SignupScreen from "@screens/SignupScreen";
 import StudentScreen from "@screens/StudentScreen";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
-import { _DB } from "@utils/classes";
+import { Course, _DB } from "@utils/classes";
+import { json } from "stream/consumers";
 
 // ################################################################ LOAD DB
 /**
@@ -25,8 +26,16 @@ export async function loadDB() {
   // const str = JSON.stringify(response);
   // localStorage.setItem("projectDBTest", str);
   DB = response;
+  saveDB();
   return null;
 }
+
+export async function saveDB() {
+  const str = JSON.stringify({users: DB.users, courses: DB.courses});
+  localStorage.setItem("studySyncDB",str);
+  return null;
+}
+
 
 // ################################################################ DB MODEL
 export let DB: _DB = {
