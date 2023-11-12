@@ -1,5 +1,6 @@
 // ################################ IMPORTS ################################
 import ModalComments from "@components/ModalComments";
+import { useState } from "react";
 import styled, { css } from "styled-components";
 
 // ################################ INTERFACES & PROPS ################################
@@ -9,16 +10,17 @@ type HomeworkScreenProps = {} & _Base;
 
 // ################################ RENDERING COMPONENT ################################
 const _HomeworkScreen = (props: HomeworkScreenProps) => {
+  
   // ------------------------------------------------------------------------------------ RETURN
   return (
     <div className={props.className}>
-      <ModalComments />
+      <ModalComments users={""} />
     </div>
   );
 };
 
 // ################################ STYLES ################################
-const HomeworkScreen = styled(_HomeworkScreen)<HomeworkScreenProps>`
+const HomeworkScreen = styled(_HomeworkScreen) <HomeworkScreenProps>`
   ${(props) => css``}
 `;
 
