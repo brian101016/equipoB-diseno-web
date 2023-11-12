@@ -109,3 +109,22 @@ export function stall(ms: number): Promise<void> {
     }, ms);
   });
 }
+
+// ------------------------------------------------------------------------------------ formatoFecha
+export function formatoFecha(fecha: Date, largo = false) {
+  const dia = fecha.getDate();
+  const mes = fecha.toLocaleString("es-ES", {
+    month: largo ? "long" : "short",
+  });
+  const año = fecha.getFullYear();
+
+  if (largo) {
+    return `${dia} de ${mes} del ${año}`;
+  } else {
+    // Asegurarse de que el día y el mes tengan dos dígitos
+    const diaStr = dia.toString().padStart(2, "0");
+    const mesStr = (fecha.getMonth() + 1).toString().padStart(2, "0"); // El mes es base 0
+
+    return `${diaStr}/${mesStr}/${año}`;
+  }
+}
