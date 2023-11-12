@@ -1,4 +1,7 @@
 // ------------------------------------------------------------------------------------ BOUNDARIES
+
+import { useState } from "react";
+
 /**
  * Permite limitar un número entre un máximo y un mínimo.
  * @param number De tipo number, es el número al que se le impondra los limites
@@ -108,4 +111,38 @@ export function stall(ms: number): Promise<void> {
       resolve();
     }, ms);
   });
+}
+
+// ------------------------------------------------------------------------------------ formatoFecha
+export function formatoFecha(fecha: Date, largo = false) {
+  const dia = fecha.getDate();
+  const mes = fecha.toLocaleString("es-ES", {
+    month: largo ? "long" : "short",
+  });
+  const año = fecha.getFullYear();
+
+  if (largo) {
+    return `${dia} de ${mes} del ${año}`;
+  } else {
+    // Asegurarse de que el día y el mes tengan dos dígitos
+    const diaStr = dia.toString().padStart(2, "0");
+    const mesStr = (fecha.getMonth() + 1).toString().padStart(2, "0"); // El mes es base 0
+
+    return `${diaStr}/${mesStr}/${año}`;
+  }
+}
+
+// ------------------------------------------------------------------------------------ refresh
+/**
+ * Hooks personalizados para el refresco manual de componente
+ * @returns {{refresh: Function, refreshCont: number}} 'refresh' es un objeto con una funcion y 'refreshCont' es un contador
+ */
+export function useRefresh(): { refresh: Function; refreshCont: number } {
+  const [refreshCont, setRefreshCont] = useState(0);
+
+  const refresh = () => {
+    setRefreshCont(refreshCont + 1);
+  };
+
+  return { refresh, refreshCont };
 }

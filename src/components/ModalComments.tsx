@@ -1,6 +1,15 @@
 import { useState } from "react";
+import ImageProvider from "@utils/ImageProvider";
 
-export default function ModalComments() {
+import {
+  ButtonBlue,
+  BackgroundModal,
+  Modal2,
+  CloseButton,
+} from "./StyledComponents";
+
+
+export default function ModalComments({ users }) {
   const [comment, setComment] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -11,6 +20,8 @@ export default function ModalComments() {
   const deleteComment = () => {
     setIsOpen(false);
   };
+
+  const isProfessor = users && users.rol === "professor";
 
   return (
     <>
@@ -23,18 +34,15 @@ export default function ModalComments() {
       </button>
 
       {isOpen && (
-        <div className="background_modal">
-          <div className="modal">
-            <div className="modal_content">
-              <button className="close" onClick={() => setIsOpen(false)}>
-                x
-              </button>
-            </div>
+        <BackgroundModal>
+          <Modal2>
+            <CloseButton onClick={() => setIsOpen(false)}>x</CloseButton>
             <div className="modalEstilo">
-              <h2>Comentario</h2>
-              <div className="inputComentario">
-                <h3>Comentario de:</h3>
-                <input type="text" />
+              <div className="userStyle">
+                <h2>Comentario</h2>
+                <img src={ImageProvider.icon.user_blue} />
+                <h4>Emmanuel De</h4>
+                <h5>06/11/2023 11:38am</h5>
               </div>
               <textarea
                 className="textComment"
@@ -43,16 +51,18 @@ export default function ModalComments() {
                 placeholder="Escribe tu comentario..."
               ></textarea>
               <div className="modal_buttons">
-                <button className="btnColorBlue" onClick={saveComment}>
-                  Modificar
-                </button>
-                <button className="btnColorOrange" onClick={deleteComment}>
-                  Eliminar
-                </button>
+                {isProfessor && (<>
+                  <button className="btnColorBlue" onClick={saveComment}>
+                    Modificar
+                  </button>
+                  <button className="btnColorOrange" onClick={deleteComment}>
+                    Eliminar
+                  </button>
+                </>)}
               </div>
             </div>
-          </div>
-        </div>
+          </Modal2>
+        </BackgroundModal>
       )}
     </>
   );
