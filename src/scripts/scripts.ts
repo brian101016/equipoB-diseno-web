@@ -151,7 +151,8 @@ export function useRefresh(): { refresh: Function; refreshCont: number } {
 
 // ------------------------------------------------------------------------------------ GENERATE RANCOLOR
 /**
- * 
+ * Esta función te regresa un color en código hexadecimal
+ * @param character es el rango del color
  */
 export function generateColor() {
   let character =
