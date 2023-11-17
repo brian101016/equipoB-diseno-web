@@ -6,9 +6,8 @@ import styled, { css } from "styled-components";
 type _Base = import("utils/classes").Base;
 // Navbar => Rename all instances to use
 type NavbarProps = {
-   IsLanding?: boolean;
+  IsLanding?: boolean;
 } & _Base;
-
 
 const _Navbar = (props: NavbarProps) => {
   const navigate = useNavigate();
@@ -21,7 +20,7 @@ const _Navbar = (props: NavbarProps) => {
   }, [location]);
 
   return (
-    <nav className={props.className + (inLanding ?  " landing" : " normal")}>
+    <nav className={props.className + (inLanding ? " landing" : " normal")}>
       <div className="navbarContainerLeft">
         <Link to="/">
           <img
@@ -39,7 +38,8 @@ const _Navbar = (props: NavbarProps) => {
           }}
           onClick={() => {
             navigate("home");
-          }}></button>
+          }}
+        ></button>
         <button
           className="buttonClass"
           style={{
@@ -48,7 +48,8 @@ const _Navbar = (props: NavbarProps) => {
           }}
           onClick={() => {
             navigate("class/:classid");
-          }}>
+          }}
+        >
           <div className="navbarMenu">
             <ol>
               <li>
@@ -77,25 +78,26 @@ const _Navbar = (props: NavbarProps) => {
           style={{ backgroundImage: `url(${ImageProvider.misc.navbar_user})` }}
           onClick={() => {
             navigate("/");
-          }}></button>
+          }}
+        ></button>
         <button
           className="button-landing-iniciar"
           onClick={() => {
             navigate("/login");
-          }}>
+          }}
+        >
           Iniciar Sesión
         </button>
         <button
           className="button-landing-registrar"
           onClick={() => {
             navigate("/login/signup");
-          }}>
+          }}
+        >
           Regístrate
         </button>
       </div>
-      
     </nav>
-    
   );
 };
 
@@ -195,38 +197,37 @@ const Navbar = styled(_Navbar)<NavbarProps>`
       font-style: normal;
     }
 
-          .landing .button-landing-iniciar {
-            display: block;
-          }
-          .landing .button-landing-registrar {
-            display: block;
-          }
-          .landing .buttonClass {
-            display: none;
-          }
-          .landing .buttonHome {
-            display: none;
-          }
-          .landing .buttonUser {
-            display: none;
-          }
-      
-          .normal .button-landing-iniciar {
-            display: none;
-          }
-          .normal .button-landing-registrar {
-            display: none;
-          }
-          .normal .buttonClass {
-            display: block;
-          }
-          .normal .buttonHome {
-            display: block;
-          }
-          .normal .buttonUser {
-            display: block;
-          }
-        
+    .landing .button-landing-iniciar {
+      display: block;
+    }
+    .landing .button-landing-registrar {
+      display: block;
+    }
+    .landing .buttonClass {
+      display: none;
+    }
+    .landing .buttonHome {
+      display: none;
+    }
+    .landing .buttonUser {
+      display: none;
+    }
+
+    .normal .button-landing-iniciar {
+      display: none;
+    }
+    .normal .button-landing-registrar {
+      display: none;
+    }
+    .normal .buttonClass {
+      display: block;
+    }
+    .normal .buttonHome {
+      display: block;
+    }
+    .normal .buttonUser {
+      display: block;
+    }
   `}
 `;
 
