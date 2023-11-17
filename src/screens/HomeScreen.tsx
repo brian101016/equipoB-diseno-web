@@ -3,6 +3,7 @@ import ButtonClass from "@components/ButtonClass";
 import ActivitiesExpire from "@components/ActivitiesExpire";
 import ProgressBar from "@components/ProgressBar";
 import styled, { css } from "styled-components";
+import { generateColor } from "scripts/scripts";
 
 // ################################ INTERFACES & PROPS ################################
 type _Base = import("utils/classes").Base;
@@ -17,14 +18,13 @@ const _HomeScreen = (props: HomeScreenProps) => {
       <div className="home-contenido">
         <div className="contenido-clases">
           <ButtonClass
-            bgColor="#d6d442"
+            bgColor={generateColor()}
             title="Diseño Web"
             homework={
               <ActivitiesExpire
                 actividad={4}
                 titulo="Algoritmo"
-                fecha="Hoy mero cabron apurale"
-              ></ActivitiesExpire>
+                fecha="Hoy mero cabron apurale"></ActivitiesExpire>
             }
             teacherName="JESUS ALBERTO OJEDA SAUCEDO"
             progressBar={
@@ -35,14 +35,13 @@ const _HomeScreen = (props: HomeScreenProps) => {
 
         <div className="contenido-clases">
           <ButtonClass
-            bgColor="#d6d442"
+            bgColor="#42d64e"
             title="Diseño Web"
             homework={
               <ActivitiesExpire
                 actividad={4}
                 titulo="Algoritmo"
-                fecha="Hoy mero cabron apurale"
-              ></ActivitiesExpire>
+                fecha="Hoy mero cabron apurale"></ActivitiesExpire>
             }
             teacherName="JESUS ALBERTO OJEDA SAUCEDO"
             progressBar={
@@ -52,14 +51,13 @@ const _HomeScreen = (props: HomeScreenProps) => {
         </div>
         <div className="contenido-clases">
           <ButtonClass
-            bgColor="#d6d442"
+            bgColor="#42c0d6"
             title="Diseño Web"
             homework={
               <ActivitiesExpire
                 actividad={4}
                 titulo="Algoritmo"
-                fecha="Hoy mero cabron apurale"
-              ></ActivitiesExpire>
+                fecha="Hoy mero cabron apurale"></ActivitiesExpire>
             }
             teacherName="JESUS ALBERTO OJEDA SAUCEDO"
             progressBar={
@@ -69,14 +67,13 @@ const _HomeScreen = (props: HomeScreenProps) => {
         </div>
         <div className="contenido-clases">
           <ButtonClass
-            bgColor="#d6d442"
+            bgColor="#42d64e"
             title="Programacion de dispositivos moviles"
             homework={
               <ActivitiesExpire
                 actividad={4}
                 titulo="Actividad 10 - Practica de algoritmo"
-                fecha="Hoy mero cabron apurale"
-              ></ActivitiesExpire>
+                fecha="Hoy mero cabron apurale"></ActivitiesExpire>
             }
             teacherName="Profr. Julian Flores"
             progressBar={

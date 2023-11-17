@@ -1,4 +1,5 @@
 import ImageProvider from "@utils/ImageProvider";
+import { useNavigate } from "react-router-dom";
 
 type Button_ClassProps = {
   title: string;
@@ -10,16 +11,20 @@ type Button_ClassProps = {
 
 // ################################ RENDERING COMPONENT ################################
 const Button_Class = (props: Button_ClassProps) => {
+  const navigate = useNavigate();
   // ------------------------------------------------------------------------------------ RETURN
   return (
-    <button className="border-class-button">
+    <button
+      className="border-class-button"
+      onClick={() => {
+        navigate("class/:classid?");
+      }}>
       <div
         className="image-class-button"
         style={{
           backgroundImage: `url('${ImageProvider.background.buttonClassSVG}')`,
           backgroundColor: `${props.bgColor}`,
-        }}
-      >
+        }}>
         <h1 className="title-class-button">
           {props.title || "Titulo de materia"}
         </h1>
