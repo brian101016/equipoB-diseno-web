@@ -9,7 +9,13 @@ import LoginScreen from "@screens/LoginScreen";
 import NotFoundScreen from "@screens/NotFoundScreen";
 import SignupScreen from "@screens/SignupScreen";
 import StudentScreen from "@screens/StudentScreen";
-import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  Outlet,
+  RouterProvider,
+  createBrowserRouter,
+  redirect,
+  useNavigate,
+} from "react-router-dom";
 import { Course, _DB } from "@utils/classes";
 import { json } from "stream/consumers";
 
@@ -43,6 +49,15 @@ export let DB: _DB = {
   currentUser: null,
 };
 
+async function CheckUser() {
+  if (!DB.currentUser) {
+    alert("Inicia sesión para continuar");
+    console.log(DB);
+    return redirect("/login");
+  }
+  return null;
+}
+
 // ################################################################ APP
 function App() {
   // ------------------------------------------------------------------------------------ RETURN
@@ -68,6 +83,7 @@ function App() {
             {
               path: "home",
               element: <HomeScreen />,
+              loader: CheckUser,
             },
             // ########################################## CLASS, HOMEWORK & STUDENT PATH */
             {
@@ -77,6 +93,7 @@ function App() {
                 {
                   index: true,
                   element: <ClassScreen />,
+                  loader: CheckUser,
                 },
                 // ##################### STUDENT */
                 {
