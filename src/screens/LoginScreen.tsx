@@ -15,6 +15,7 @@ const _LoginScreen = (props: LoginScreenProps) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [sesion, setSesion] = useState(false);
+  const [remember, setRemember] = useState(0);
 
   //
   const visiblePass = () => {
@@ -28,6 +29,10 @@ const _LoginScreen = (props: LoginScreenProps) => {
   const emailChange = (e) => {
     setEmail(e.target.value);
   };
+  
+  const RememberChange = () => {
+    remember==0? setRemember(1):setRemember(0)
+  }
 
   // funcion que lleva de la Login a Signup usando un boton
   const newAccount = useNavigate();
@@ -50,6 +55,7 @@ const _LoginScreen = (props: LoginScreenProps) => {
     const result = await request.json();
     result.users?.forEach((u) => {
       if (u.email === email && u.password === pass) {
+        rememberData()
         home("/home");
       } else {
         if (!sesion) {
@@ -58,6 +64,14 @@ const _LoginScreen = (props: LoginScreenProps) => {
         }
       }
     });
+  }
+
+  //funcion para guardar la información del usuario
+  async function rememberData() {
+    if (remember==1) {
+      const str = JSON.stringify({email,pass});
+      localStorage.setItem("studySyncRem",str);
+    }
   }
 
   // ################################ RETURN ################################
@@ -102,7 +116,15 @@ const _LoginScreen = (props: LoginScreenProps) => {
 
           <div className="form-container-varios">
             <div className="form-container-check">
-              <input className="checkbox" type="checkbox" id="recordarme" />
+              <input 
+                className="checkbox" 
+                type="checkbox"  
+                id="recordarme" 
+                value={remember}
+                onClick={
+                  RememberChange
+                }
+              />
               <label htmlFor="recordarme">Recordarme</label>
             </div>
             <Link
