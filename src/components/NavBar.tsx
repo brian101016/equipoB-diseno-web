@@ -23,66 +23,73 @@ const _Navbar = (props: NavbarProps) => {
         </Link>
       </div>
       <div className="navbarContainerRight">
-        <button
-          className="buttonHome"
-          style={{
-            backgroundImage: `url(${ImageProvider.misc.navbar_home})`,
-          }}
-          onClick={() => {
-            navigate("home");
-          }}></button>
-        <button
-          className="buttonClass"
-          style={{
-            backgroundImage: `url(${ImageProvider.misc.navbar_class})`,
-            position: "relative",
-          }}
-          onClick={() => {
-            navigate("class/:classid");
-          }}>
-          <div className="navbarMenu">
-            <ol>
-              <li>
-                <Link to={"class/:classid"}>
-                  <h2>Diseño Web</h2>
-                </Link>
-                <p>Jesus Alberto Ojeda Saucedo</p>
-              </li>
-              <li>
-                <Link to={"class/:classid"}>
-                  <h2>Diseño Web</h2>
-                </Link>
-                <p>Jesus Alberto Ojeda Saucedo</p>
-              </li>
-              <li>
-                <Link to={"class/:classid"}>
-                  <h2>Diseño Web</h2>
-                </Link>
-                <p>Jesus Alberto Ojeda Saucedo</p>
-              </li>
-            </ol>
-          </div>
-        </button>
-        <button
-          className="buttonUser"
-          style={{ backgroundImage: `url(${ImageProvider.misc.navbar_user})` }}
-          onClick={() => {
-            navigate("/");
-          }}></button>
-        <button
-          className="button-landing-iniciar"
-          onClick={() => {
-            navigate("/login");
-          }}>
-          Iniciar Sesión
-        </button>
-        <button
-          className="button-landing-registrar"
-          onClick={() => {
-            navigate("/login/signup");
-          }}>
-          Regístrate
-        </button>
+        <div className="logged">
+          <button
+            className="buttonHome"
+            style={{
+              backgroundImage: `url(${ImageProvider.misc.navbar_home})`,
+            }}
+            onClick={() => {
+              navigate("home");
+            }}></button>
+          <button
+            className="buttonClass"
+            style={{
+              backgroundImage: `url(${ImageProvider.misc.navbar_class})`,
+              position: "relative",
+            }}
+            onClick={() => {
+              navigate("class/:classid");
+            }}>
+            <div className="navbarMenu">
+              <ol>
+                <li>
+                  <Link to={"class/:classid"}>
+                    <h2>Diseño Web</h2>
+                  </Link>
+                  <p>Jesus Alberto Ojeda Saucedo</p>
+                </li>
+                <li>
+                  <Link to={"class/:classid"}>
+                    <h2>Diseño Web</h2>
+                  </Link>
+                  <p>Jesus Alberto Ojeda Saucedo</p>
+                </li>
+                <li>
+                  <Link to={"class/:classid"}>
+                    <h2>Diseño Web</h2>
+                  </Link>
+                  <p>Jesus Alberto Ojeda Saucedo</p>
+                </li>
+              </ol>
+            </div>
+          </button>
+          <button
+            className="buttonUser"
+            style={{
+              backgroundImage: `url(${ImageProvider.misc.navbar_user})`,
+            }}
+            onClick={() => {
+              navigate("/");
+            }}></button>
+        </div>
+
+        <div className="landing">
+          <button
+            className="button-landing-iniciar"
+            onClick={() => {
+              navigate("/login");
+            }}>
+            Iniciar Sesión
+          </button>
+          <button
+            className="button-landing-registrar"
+            onClick={() => {
+              navigate("/login/signup");
+            }}>
+            Regístrate
+          </button>
+        </div>
       </div>
     </nav>
   );
@@ -184,39 +191,15 @@ const Navbar = styled(_Navbar)<NavbarProps>`
       font-style: normal;
     }
 
-    ${props.IsLanding === false
+    ${props.IsLanding === true
       ? css`
-          .button-landing-iniciar {
-            border-radius: 50%;
-          }
-          .button-landing-registrar {
-            display: block;
-          }
-          .buttonClass {
-            display: none;
-          }
-          .buttonHome {
-            display: none;
-          }
-          .buttonUser {
+          .logged {
             display: none;
           }
         `
       : css`
-          .button-landing-iniciar {
+          .landing {
             display: none;
-          }
-          .button-landing-registrar {
-            display: none;
-          }
-          .buttonClass {
-            display: block;
-          }
-          .buttonHome {
-            display: block;
-          }
-          .buttonUser {
-            display: block;
           }
         `}
   `}

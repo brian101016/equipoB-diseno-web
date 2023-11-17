@@ -31,11 +31,10 @@ export async function loadDB() {
 }
 
 export async function saveDB() {
-  const str = JSON.stringify({users: DB.users, courses: DB.courses});
-  localStorage.setItem("studySyncDB",str);
+  const str = JSON.stringify({ users: DB.users, courses: DB.courses });
+  localStorage.setItem("studySyncDB", str);
   return null;
 }
-
 
 // ################################################################ DB MODEL
 export let DB: _DB = {
@@ -54,7 +53,7 @@ function App() {
           loader: loadDB,
           element: (
             <>
-              <Navbar />
+              <Navbar IsLanding />
               <Outlet />
             </>
           ),
