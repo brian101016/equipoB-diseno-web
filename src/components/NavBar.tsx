@@ -15,7 +15,13 @@ const _Navbar = (props: NavbarProps) => {
   const [inLanding, setInLanding] = useState(false);
 
   useEffect(() => {
-    if (location.pathname === "/") setInLanding(true);
+    if (
+      location.pathname === "/" ||
+      location.pathname === "/login" ||
+      location.pathname === "/login/signup" ||
+      location.pathname === "/login/forgot"
+    )
+      setInLanding(true);
     else setInLanding(false);
   }, [location]);
 
@@ -197,35 +203,35 @@ const Navbar = styled(_Navbar)<NavbarProps>`
       font-style: normal;
     }
 
-    .landing .button-landing-iniciar {
+    &.landing .button-landing-iniciar {
       display: block;
     }
-    .landing .button-landing-registrar {
+    &.landing .button-landing-registrar {
       display: block;
     }
-    .landing .buttonClass {
+    &.landing .buttonClass {
       display: none;
     }
-    .landing .buttonHome {
+    &.landing .buttonHome {
       display: none;
     }
-    .landing .buttonUser {
+    &.landing .buttonUser {
       display: none;
     }
 
-    .normal .button-landing-iniciar {
+    &.normal .button-landing-iniciar {
       display: none;
     }
-    .normal .button-landing-registrar {
+    &.normal .button-landing-registrar {
       display: none;
     }
-    .normal .buttonClass {
+    &.normal .buttonClass {
       display: block;
     }
-    .normal .buttonHome {
+    &.normal .buttonHome {
       display: block;
     }
-    .normal .buttonUser {
+    &.normal .buttonUser {
       display: block;
     }
   `}
