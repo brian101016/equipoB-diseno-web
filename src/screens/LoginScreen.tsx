@@ -29,10 +29,10 @@ const _LoginScreen = (props: LoginScreenProps) => {
   const emailChange = (e) => {
     setEmail(e.target.value);
   };
-  
+
   const RememberChange = () => {
-    remember==0? setRemember(1):setRemember(0)
-  }
+    remember == 0 ? setRemember(1) : setRemember(0);
+  };
 
   // funcion que lleva de la Login a Signup usando un boton
   const newAccount = useNavigate();
@@ -55,7 +55,7 @@ const _LoginScreen = (props: LoginScreenProps) => {
     const result = await request.json();
     result.users?.forEach((u) => {
       if (u.email === email && u.password === pass) {
-        rememberData()
+        rememberData();
         home("/home");
       } else {
         if (!sesion) {
@@ -68,9 +68,24 @@ const _LoginScreen = (props: LoginScreenProps) => {
 
   //funcion para guardar la información del usuario
   async function rememberData() {
-    if (remember==1) {
-      const str = JSON.stringify({email,pass});
-      localStorage.setItem("studySyncRem",str);
+    if (remember == 1) {
+      const str = JSON.stringify({ email, pass });
+      localStorage.setItem("studySyncRem", str);
+      getRemember();
+    }
+  }
+
+  //funcion para rellenar campos de usuario y contraseña si se guardaron
+  function getRemember() {
+    if (localStorage.getItem("studySyncRem")) {
+      const data = localStorage.getItem("studySyncRem")?.split(",");
+      let password = data?.pop()?.slice(8);
+      let email = data?.toString();
+      password = password?.slice(0, password?.length - 2);
+      email = email?.slice(10, email?.length - 1);
+      setEmail("" + email?.toString());
+      setPass("" + password?.toString());
+      console.log(email, password);
     }
   }
 
@@ -110,20 +125,19 @@ const _LoginScreen = (props: LoginScreenProps) => {
                     : ImageProvider.misc.ojo_off
                 }
                 alt={passInput ? "Ocultar ontraseña" : "Mostrar contraseña"}
+                onLoad={getRemember}
               />
             </button>
           </div>
 
           <div className="form-container-varios">
             <div className="form-container-check">
-              <input 
-                className="checkbox" 
-                type="checkbox"  
-                id="recordarme" 
+              <input
+                className="checkbox"
+                type="checkbox"
+                id="recordarme"
                 value={remember}
-                onClick={
-                  RememberChange
-                }
+                onClick={RememberChange}
               />
               <label htmlFor="recordarme">Recordarme</label>
             </div>
