@@ -73,6 +73,7 @@ body {
     display: flex;
     gap: 10px;
   }
+
   .input {
     flex-direction: column;
     background-color: rgba(243, 243, 244, 0.9);
@@ -98,6 +99,7 @@ body {
       display: flex;
       gap: 10px;
     }
+
     .input {
       border-radius: 2px;
       background: #fff;
@@ -183,6 +185,7 @@ body {
   input[type="radio"]:checked:before {
     background: rgba(30, 144, 255, 2);
   }
+
   input[type="number"]::placeholder {
     opacity: 0.4;
   }
@@ -226,6 +229,7 @@ body {
       box-shadow: 0 0 0 2px black;
     }
   }
+
   .inputerror {
     box-shadow: 0 0 0 1px red !important;
   }
@@ -233,6 +237,7 @@ body {
   .inputCorreo {
     margin: 1.5rem 0rem 0.9rem 0rem;
   }
+
   .inputPassContainer {
     border-radius: 2px;
     background: #fff;
@@ -250,6 +255,7 @@ body {
     width: 372px;
   }
 }
+
 input[type="radio"] {
   appearance: none;
   -webkit-appearance: none;
@@ -264,6 +270,7 @@ input[type="radio"] {
   box-shadow: none;
   width: 372px;
 }
+
 input[type="radio"]:checked {
   box-shadow: 0 0 0 1px rgba(30, 144, 255, 2);
 }
@@ -280,6 +287,7 @@ input[type="radio"]:before {
 input[type="radio"]:checked:before {
   background: rgba(30, 144, 255, 2);
 }
+
 input[type="number"]::placeholder {
   opacity: 0.4;
 }
@@ -311,6 +319,7 @@ select {
     outline: none;
   }
 }
+
 select,
 select option {
   color: #000000;
@@ -320,10 +329,12 @@ select:invalid,
 select option[value=""] {
   color: #999999;
 }
+
 /*Para compatibilidad de navegadores*/
 [hidden] {
   display: none;
 }
+
 // ################################################################################################ CHECKBOXES
 .checkbox {
   appearance: none;
@@ -333,6 +344,7 @@ select option[value=""] {
   outline: none;
   content: none;
 }
+
 .checkbox:before {
   content: "";
   font-size: 15px;
@@ -480,6 +492,34 @@ img#iconGoogle {
   }
 }
 
+// ######################################################################################## IMAGENTITLE
+.imageTitle {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .image-background {
+    border-radius: 20px;
+    position: absolute;
+    width: 95%;
+    height: 150px;
+  }
+
+  .title {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #494949;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+  }
+}
+
 // ################################################################################################ LIST
 .list {
   width: 25%;
@@ -517,6 +557,7 @@ img#iconGoogle {
   0% {
     transform: rotate(360deg);
   }
+
   100% {
     transform: rotate(0deg);
   }
@@ -528,6 +569,7 @@ img#iconGoogle {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   strong {
     color: #148edb;
     font-size: 20px;
@@ -544,6 +586,7 @@ img#iconGoogle {
 // No esta con SCSS, falta optimización
 $--clr: #2f8da1;
 $--percentaje: 70;
+
 .container-chart {
   position: relative;
   display: flex;
@@ -552,6 +595,7 @@ $--percentaje: 70;
   flex-wrap: wrap;
   gap: 40px;
 }
+
 .container-chart .progress-chart {
   position: relative;
   width: 150px;
@@ -560,6 +604,7 @@ $--percentaje: 70;
   color: #ffffff;
   background: #b4b0b0 linear-gradient(to right, transparent 50%, $--clr 0);
 }
+
 .container-chart h3 {
   position: absolute;
   top: 50%;
@@ -569,6 +614,7 @@ $--percentaje: 70;
   z-index: 1;
   font-weight: 500;
 }
+
 .container-chart .progress-chart h3 span {
   font-size: 1.4rem;
   font-weight: 400;
@@ -604,78 +650,6 @@ $--percentaje: 70;
 }
 
 // ################################################################################################ NAVBAR
-.navbarContainer {
-  top: 0%;
-  z-index: 2;
-  position: sticky;
-  padding: 0.4rem;
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 2px solid #127ec2;
-  img {
-    width: 3rem;
-    height: 3rem;
-  }
-  button {
-    border-radius: 50%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    border-style: none;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    width: 40px;
-    height: 37px;
-  }
-
-  .navbarContainerRight {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .navbarMenu {
-    opacity: 0;
-    display: none;
-    transition: opacity 0.5s;
-    background-color: #ffffff;
-    border: 1px solid #127ec2;
-    border-radius: 10px;
-    position: absolute;
-    width: 500%;
-    top: 100%;
-    margin-top: 1rem;
-    right: 20%;
-    ol {
-      list-style-type: none;
-    }
-    h2 {
-      margin: 0.5rem;
-      font-size: 1.5rem;
-      margin-top: 1rem;
-      text-align: left;
-      margin: 0.3rem;
-    }
-    p {
-      margin-top: 0.5rem;
-      margin-left: 0.8rem;
-      margin-right: 0.8rem;
-      margin-bottom: 0.5rem;
-      border-bottom: 3px solid #000;
-      font-family: Poppins;
-      font-size: 0.725rem;
-      font-style: normal;
-    }
-  }
-
-  .buttonClass:hover {
-    .navbarMenu {
-      opacity: 1;
-      display: block;
-    }
-  }
-}
 
 // ################################################################################################ HOME ################################################################################################
 .home-contenido {
@@ -683,16 +657,19 @@ $--percentaje: 70;
   grid-auto-rows: 28rem;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 27rem), 1fr));
 }
+
 .contenido-clases {
   display: flex;
   justify-content: center;
 }
+
 // ################################################################################################ LANDING ################################################################################################
 .landing-page {
   height: 100%;
   width: 80%;
   margin: 0 auto;
 }
+
 // HEADER
 .landing-header {
   display: flex;
@@ -700,6 +677,7 @@ $--percentaje: 70;
   justify-content: space-between;
   padding: 0px 63px;
   border-bottom: black solid 1px;
+
   img {
     width: 247px;
     height: 105px;
@@ -717,6 +695,7 @@ $--percentaje: 70;
     margin-right: 32px;
     padding: 0;
   }
+
   a:hover {
     color: #1c7fc0;
   }
@@ -742,6 +721,7 @@ $--percentaje: 70;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+
   img {
     width: 440px;
     height: 458px;
@@ -753,12 +733,14 @@ $--percentaje: 70;
   font-weight: 400;
   font-style: normal;
   line-height: normal;
+
   h1 {
     font-family: Bebas Neue;
     color: #127ec2;
     text-align: justify;
     font-size: 70px;
   }
+
   p {
     width: 659px;
     margin-top: 25px;
@@ -783,7 +765,7 @@ $--percentaje: 70;
     width: 12rem;
     height: auto;
     margin-top: 20px;
-  
+
     .circle {
       transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
       position: relative;
@@ -791,9 +773,9 @@ $--percentaje: 70;
       margin: 0;
       width: 3rem;
       height: 3rem;
-      background: #127EC2;
+      background: #127ec2;
       border-radius: 1.625rem;
-  
+
       .icon {
         transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
         position: absolute;
@@ -801,17 +783,17 @@ $--percentaje: 70;
         bottom: 0;
         margin: auto;
         background: #fff;
-  
+
         &.arrow {
           transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
           left: 0.625rem;
           width: 1.125rem;
           height: 0.125rem;
           background: none;
-  
+
           &::before {
             position: absolute;
-            content: '';
+            content: "";
             top: -0.25rem;
             right: 0.0625rem;
             width: 0.625rem;
@@ -823,7 +805,7 @@ $--percentaje: 70;
         }
       }
     }
-  
+
     .button-text {
       transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
       position: absolute;
@@ -833,17 +815,17 @@ $--percentaje: 70;
       bottom: 0;
       padding: 0.75rem 0;
       margin: 0 0 0 2.85rem;
-      color: #127EC2;
+      color: #127ec2;
       font-weight: 700;
       line-height: 1.6;
       text-align: center;
       text-transform: uppercase;
     }
-  
+
     &:hover {
       .circle {
         width: 100%;
-  
+
         .icon {
           &.arrow {
             background: #fff;
@@ -851,12 +833,13 @@ $--percentaje: 70;
           }
         }
       }
-  
+
       .button-text {
         color: #fff;
       }
     }
   }
+
   // button {
   //   margin-top: 29px;
   //   color: #080809;
@@ -880,21 +863,25 @@ $--percentaje: 70;
   background-color: #dcf0fd;
   overflow-x: hidden;
 }
+
 .landing-info-content {
   margin: 3% 6% 3% 6%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .landing-info-card {
   align-items: center;
   margin-left: 7%;
   margin-right: 7%;
+
   p {
     text-align: justify;
     font-size: 22px;
   }
 }
+
 .circle {
   display: block;
   margin-left: auto;
@@ -907,11 +894,13 @@ $--percentaje: 70;
   display: flex;
   align-items: center;
   justify-content: center;
+
   img {
     width: 60%;
     height: 60%;
   }
 }
+
 // LANDING FOOTER
 .landing-footer {
   display: flex;
@@ -919,11 +908,13 @@ $--percentaje: 70;
   justify-content: space-between;
   padding: 0px 63px;
   border-top: black solid 1px;
+
   img {
     width: 173px;
     height: 71px;
   }
 }
+
 .footer-left {
   gap: 30px;
   display: flex;
@@ -940,11 +931,13 @@ $--percentaje: 70;
   left: 78%;
   direction: rtl;
 }
+
 .dropdown-items-show {
   display: flex;
   flex-direction: row;
   gap: 2px;
 }
+
 // ################################################################################################ ActivitiesExpire ################################################################################################
 .ActivitieTitle {
   color: #a0a0a0;
@@ -963,6 +956,3 @@ $--percentaje: 70;
   font-weight: 200;
   line-height: normal;
 }
-
-
-

@@ -1,6 +1,8 @@
 // ------------------------------------------------------------------------------------ BOUNDARIES
 
 import { useState } from "react";
+import LoginScreen from "@screens/LoginScreen";
+import { RouterProvider } from "react-router-dom";
 
 /**
  * Permite limitar un número entre un máximo y un mínimo.
@@ -146,3 +148,22 @@ export function useRefresh(): { refresh: Function; refreshCont: number } {
 
   return { refresh, refreshCont };
 }
+
+// ------------------------------------------------------------------------------------ GENERATE RANCOLOR
+/**
+ * Esta función te regresa un color en código hexadecimal
+ * @param character es el rango del color
+ */
+export function generateColor() {
+  let character =
+    "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    const charRandom = character.charAt(
+      Math.floor(Math.random() * character.length)
+    );
+    color += charRandom;
+  }
+  return color;
+}
+
