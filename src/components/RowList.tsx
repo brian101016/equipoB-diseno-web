@@ -3,15 +3,16 @@ import IconTaskStatus from './IconStatusTask';
 import styled from 'styled-components';
 
 // ######################################################## TYPE #############################################
+type _Base = import('utils/classes').Base;
+// RowList => Rename all instances to use
 type RowListProps = {
-    svgStatus: number;
+    //svgStatus: number;
     numActivity: number;
     titulo: string;
     fecha: string;
     hora: string;
     calificacion?: number;
-    className?: string;
-};
+} & _Base;
 
 // Activa, por cerrar, cerrada
 // Normal, Hover
@@ -68,9 +69,9 @@ const _RowList = (props: RowListProps) => {
         <div className={props.className}>
             <ButtonColor className="row-list-button">
                 <div className="izquierda">
-                    <div className="estatus-task-button">
-                        <IconTaskStatus indexSvg={props.svgStatus} />
-                    </div>
+                    {/* <div className="estatus-task-button">
+            <IconTaskStatus indexSvg={props.svgStatus} />
+          </div> */}
                     <p className="numAct-task-button texto-azul">
                         Actividad {props.numActivity}
                     </p>
@@ -117,8 +118,8 @@ function color(num) {
 
 /**
  * Establece los colores del boton segun las condiciones de entrega: Activa, Por Cerrar, Cerrada
- * @param fechaLimite recibe la fecha limite en formato dd/mm/yyyy
- * @param horaCierre recibe la hora limite en formato hh:mm:ss
+ * @param fechaLimite: recibe la fecha limite en formato dd/mm/yyyy
+ * @param horaCierre: recibe la hora limite en formato hh:mm:ss
  */
 function establecerColoresBoton(fechaLimite, horaCierre) {
     let fechaActual = new Date();
@@ -208,6 +209,7 @@ const RowList = styled(_RowList)`
     }
 
     .numAct-task-button {
+        margin-left: 15px;
         margin-right: 10px;
     }
 

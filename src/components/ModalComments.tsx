@@ -1,50 +1,69 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import ImageProvider from "@utils/ImageProvider";
+
+import {
+  ButtonBlue,
+  BackgroundModal,
+  Modal2,
+  CloseButton,
+} from "./StyledComponents";
 
 
+export default function ModalComments({ users }) {
+  const [comment, setComment] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
-export default function ModalComments({ isOpen, onClose }) {
-    const [comment, setComment] = useState("");
+  const saveComment = () => {
+    setIsOpen(false);
+  };
 
-    const saveComment = () => {
+  const deleteComment = () => {
+    setIsOpen(false);
+  };
 
-        onClose();
-    }
+  const isProfessor = users && users.rol === "professor";
 
-    const deleteComment = () => {
+  return (
+    <>
+      <button
+        onClick={() => {
+          setIsOpen(true);
+        }}
+      >
+        Mostrar Modal
+      </button>
 
-        onClose();
-    }
-
-    return (
-        <>
-            {isOpen && (
-                <div className="background_modal">
-                    <div className="modal">
-                        <div className="modal_content">
-                            <button className="close" onClick={onClose}>x</button>
-                        </div>
-                        <div className="modalEstilo">
-                            <h2>Comentario</h2>
-                            <div className="inputComentario">
-                                <h3>Comentario de:</h3>
-                                <input type="text" />
-                            </div>
-                            <textarea
-                                className="textComment"
-                                value={comment}
-                                onChange={(e) => setComment(e.target.value)}
-                                placeholder="Escribe tu comentario...">
-                            </textarea>
-                            <div className="modal_buttons">
-                                <button className="btnColorBlue" onClick={saveComment}>Modificar</button>
-                                <button className="btnColorOrange" onClick={deleteComment}>Eliminar</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            )}
-        </>
-    )
+      {isOpen && (
+        <BackgroundModal>
+          <Modal2>
+            <CloseButton onClick={() => setIsOpen(false)}>x</CloseButton>
+            <div className="modalEstilo">
+              <div className="userStyle">
+                <h2>Comentario</h2>
+                <img src={ImageProvider.icon.user_blue} />
+                <h4>Emmanuel De</h4>
+                <h5>06/11/2023 11:38am</h5>
+              </div>
+              <textarea
+                className="textComment"
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+                placeholder="Escribe tu comentario..."
+              ></textarea>
+              <div className="modal_buttons">
+                {isProfessor && (<>
+                  <button className="btnColorBlue" onClick={saveComment}>
+                    Modificar
+                  </button>
+                  <button className="btnColorOrange" onClick={deleteComment}>
+                    Eliminar
+                  </button>
+                </>)}
+              </div>
+            </div>
+          </Modal2>
+        </BackgroundModal>
+      )}
+    </>
+  );
 }

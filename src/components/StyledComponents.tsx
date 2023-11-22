@@ -1,9 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from "styled-components";
+import ImageProvider from "@utils/ImageProvider";
 
 
 
 //==========================================================Button==========================================================
-export const Button_Blue = styled.button`
+export const ButtonBlue = styled.button`
     border-radius: 15px;    
     border: none;
     background-color: #127EC2;
@@ -65,46 +66,139 @@ export const Button_Editar = styled.button`
     }
 `;
 
+
+
+//====================================================Botones Flotantes====================================================
+const flotante_gen = css`
+  width: 65px;
+  height: 65px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 100%;
+  background-color: #11669b;
+  background-image: url(${ImageProvider.floating.Inicio});
+  background-size: cover;
+  background-position: center;
+  &:hover {
+    background-color: #499bcf;
+  }
+
+  &:active {
+    background-color: #99d5fc;
+  }
+`;
+export const Button_Iniciof = styled.button`
+  ${flotante_gen}
+`;
+
+export const Button_Eliminarf = styled.button`
+  ${flotante_gen}
+  background-image: url(${ImageProvider.floating.Eliminar});
+`;
+export const Button_Menosf = styled.button`
+  ${flotante_gen}
+  background-image: url(${ImageProvider.floating.Menos});
+`;
+export const Button_Editarf = styled.button`
+  ${flotante_gen}
+  background-image: url(${ImageProvider.floating.Editar});
+`;
+export const Button_Enviarf = styled.button`
+  ${flotante_gen}
+  background-image: url(${ImageProvider.floating.Enviar});
+`;
+export const Button_Alumnosf = styled.button`
+  ${flotante_gen}
+`;
+export const Button_Buscarf = styled.button`
+  ${flotante_gen}
+  background-image: url(${ImageProvider.floating.Buscar});
+`;
+export const Button_Guardarf = styled.button`
+  ${flotante_gen}
+  background-image: url(${ImageProvider.floating.Guardar});
+`;
+export const Button_Comentariof = styled.button`
+  ${flotante_gen}
+  background-image: url(${ImageProvider.floating.Comentar});
+`;
+export const Button_Agregarf = styled.button`
+  ${flotante_gen}
+  background-image: url(${ImageProvider.floating.Nuevo});
+`;
+export const Button_Masf = styled.button`
+  ${flotante_gen}
+  background-image: url(${ImageProvider.floating.Mas});
+`;
+export const Button_Calificarf = styled.button`
+  ${flotante_gen}
+  background-image: url(${ImageProvider.floating.Calificar});
+`;
+
+
 //==========================================================Modal==========================================================
 
 export const BackgroundModal = styled.div`
-  display: none;
   position: fixed;
   top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+  overflow: auto;
+  
 `;
 
 export const Modal = styled.div`
-  background: white;
-  border-radius: 4px;
-  padding: 20px;
-  width: 60%;
-  text-align: center;
-  position: relative;
+  position: absolute;
+  background-color: white;
+  border-radius: 0.5em;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  left: 50%;
+  width: 70%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 90vh;
+  padding: 2%;
+  overflow: auto;
+  z-index: 10;
 
   @media screen and (max-width: 1089px) {
     width: 90%;
   }
-
 `;
+
+export const Modal2 = styled.div`
+  position: absolute;
+  background-color: white;
+  border-radius: 0.5em;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  left: 50%;
+  width: 40%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 90vh;
+  padding: 2%;
+  overflow: auto;
+  z-index: 10;
+
+  @media screen and (max-width: 425px) {
+    width: 70%;
+  }
+`;
+
 
 export const CloseButton = styled.button`
   position: absolute;
   top: 2%;
   right: 1%;
+  cursor: pointer;
   z-index: 11;
-  background-color: white;
+  background-color: transparent;
   color: #FF0000;
   font-family: 'Poppins', sans-serif;
-  border-radius: 50px;
   width: 25px;
   border: none;
-  font-size: 23px;
-  cursor: pointer;
 `;

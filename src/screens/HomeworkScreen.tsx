@@ -1,12 +1,28 @@
+// ################################ IMPORTS ################################
+import ModalComments from "@components/ModalComments";
+import { useState } from "react";
+import styled, { css } from "styled-components";
+
 // ################################ INTERFACES & PROPS ################################
+type _Base = import("utils/classes").Base;
 // HomeworkScreen => Rename all instances to use
-type HomeworkScreenProps = {};
+type HomeworkScreenProps = {} & _Base;
 
 // ################################ RENDERING COMPONENT ################################
-const HomeworkScreen = (props: HomeworkScreenProps) => {
+const _HomeworkScreen = (props: HomeworkScreenProps) => {
+  
   // ------------------------------------------------------------------------------------ RETURN
-  return <div>Homework screen</div>;
+  return (
+    <div className={props.className}>
+      <ModalComments users={""} />
+    </div>
+  );
 };
+
+// ################################ STYLES ################################
+const HomeworkScreen = styled(_HomeworkScreen) <HomeworkScreenProps>`
+  ${(props) => css``}
+`;
 
 // ################################ EXPORTS ################################
 export default HomeworkScreen;

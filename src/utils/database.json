@@ -23,6 +23,61 @@
       "name": "federico",
       "email": "fed123@outlook.com",
       "password": "lilo23"
+    },
+    {
+      "id": "10x",
+      "name": "Oscar",
+      "email": "oscar@email.com",
+      "password": "lol24"
+    }
+  ],
+  "courses": [
+    {
+      "id": "123ab",
+      "teacherID": "10b",
+      "title": "curso de prueba",
+      "desc": "Este es un curso de prueba para verificar la BD.",
+      "subject": "Campo de prueba",
+      "color": "#00ffff",
+      "students": ["00a", "52e", "10x"],
+      "homeworks": [
+        {
+          "id": "testid",
+          "title": "nueva tarea",
+          "desc": "Tarea para ver si funciona la BD",
+          "dueDate": "2023-12-31",
+          "comments": [
+            {
+              "id": "comm12",
+              "authorID": "52e",
+              "title": "No entendi",
+              "content": "Entonces, esta tarea es de prueba, verdad?",
+              "isEdited": false,
+              "date": "2023-11-30"
+            },
+            {
+              "id": "comm423",
+              "authorID": "00a",
+              "title": "Asi es",
+              "content": "Si, estos comentarios tambien son test",
+              "isEdited": true,
+              "date": "2023-12-01"
+            }
+          ],
+          "submissions": [
+            {
+              "id": "send123",
+              "authorID": "52e",
+              "title": "unused",
+              "content": "Yo opino que esta DB esta bastante bien hecha.",
+              "isEdited": true,
+              "date": "2023-11-30",
+              "comment": "Hola soy el profe, ya esta evaluado :)",
+              "score": 95
+            }
+          ]
+        }
+      ]
     }
   ]
 }

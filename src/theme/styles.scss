@@ -73,6 +73,7 @@ body {
     display: flex;
     gap: 10px;
   }
+
   .input {
     flex-direction: column;
     background-color: rgba(243, 243, 244, 0.9);
@@ -98,6 +99,7 @@ body {
       display: flex;
       gap: 10px;
     }
+
     .input {
       border-radius: 2px;
       background: #fff;
@@ -183,6 +185,7 @@ body {
   input[type="radio"]:checked:before {
     background: rgba(30, 144, 255, 2);
   }
+
   input[type="number"]::placeholder {
     opacity: 0.4;
   }
@@ -226,6 +229,7 @@ body {
       box-shadow: 0 0 0 2px black;
     }
   }
+
   .inputerror {
     box-shadow: 0 0 0 1px red !important;
   }
@@ -233,6 +237,7 @@ body {
   .inputCorreo {
     margin: 1.5rem 0rem 0.9rem 0rem;
   }
+
   .inputPassContainer {
     border-radius: 2px;
     background: #fff;
@@ -250,6 +255,7 @@ body {
     width: 372px;
   }
 }
+
 input[type="radio"] {
   appearance: none;
   -webkit-appearance: none;
@@ -264,6 +270,7 @@ input[type="radio"] {
   box-shadow: none;
   width: 372px;
 }
+
 input[type="radio"]:checked {
   box-shadow: 0 0 0 1px rgba(30, 144, 255, 2);
 }
@@ -280,6 +287,7 @@ input[type="radio"]:before {
 input[type="radio"]:checked:before {
   background: rgba(30, 144, 255, 2);
 }
+
 input[type="number"]::placeholder {
   opacity: 0.4;
 }
@@ -311,6 +319,7 @@ select {
     outline: none;
   }
 }
+
 select,
 select option {
   color: #000000;
@@ -320,10 +329,12 @@ select:invalid,
 select option[value=""] {
   color: #999999;
 }
+
 /*Para compatibilidad de navegadores*/
 [hidden] {
   display: none;
 }
+
 // ################################################################################################ CHECKBOXES
 .checkbox {
   appearance: none;
@@ -333,6 +344,7 @@ select option[value=""] {
   outline: none;
   content: none;
 }
+
 .checkbox:before {
   content: "";
   font-size: 15px;
@@ -347,7 +359,7 @@ select option[value=""] {
 }
 
 .checkbox:checked:before {
-  background-image: url("images/checkbox-active.png");
+  background-image: url("images/misc/checkbox-active.png");
   background-size: 95%;
   background-repeat: no-repeat;
   border: 1.5px solid transparent;
@@ -395,100 +407,116 @@ img#iconGoogle {
 }
 
 // ######################################### Button Class
-#border-class-button {
-  height: 400px;
-  width: 405px;
+.border-class-button {
+  height: 21rem;
+  width: 21rem;
   border-radius: 8%;
-  border: 3px solid #000000;
-  margin: 1rem;
+  border: none;
   background-color: #fff;
-  position: relative;
+  margin: 2rem;
+  box-shadow: 0px 5px 5px #00000040;
+  // box-shadow: 1 1px 11px 5px -6px rgba(0, 0, 0, 0.5);
+  // -webkit-box-shadow: 11px 11px 5px -6px rgba(0, 0, 0, 0.5);
+  // -moz-box-shadow: 11px 11px 5px -6px rgba(0, 0, 0, 0.5);
 
   .title-class-button {
-    width: 40%;
-    color: #fff;
+    color: #3e3d3d;
+    text-align: center;
     font-family: "Bebas Neue";
     font-size: 3rem;
-    margin: 0.5rem;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
     line-height: normal;
-    text-align: left;
-    position: absolute;
+    position: relative;
+    top: 1.5rem;
+  }
+
+  .image-class-button {
+    height: 35%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 16px 16px 0 0;
   }
 
   .central-class-button {
-    height: 50%;
+    height: 20%;
+    width: 90%;
+    margin: 0 0 5% 5%;
     border-bottom: 0.9px solid black;
-    border-top: 0.9px solid black;
   }
 
-  .icon-class-button {
-    border-radius: 50%;
+  .icon-image-class-button {
+    position: relative;
+    top: 30%;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   .teacherName-class-button {
-    color: #000;
-    font-family: "Bebas Neue";
-    font-size: 1.4rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-align: justify;
-    margin-left: 1rem;
-    margin-top: 1rem;
-  }
-  .description-class-button {
-    color: #000;
+    color: #3e3d3d;
+    text-align: center;
     font-family: "Poppins";
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    text-align: left;
-    margin-left: 1rem;
-    margin-top: 1.5rem;
+    padding: 1.4rem;
   }
 
   .footer-class-button {
     margin-top: 0.2rem;
-    height: 20%;
+    height: 40%;
   }
 
   .text-footer-class-button {
-    color: #127ec2;
-    font-family: "Bebas Neue";
-    font-size: 1.2rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-align: justify;
-    margin-left: 1rem;
-  }
-  .icon-image-class-button {
-    position: absolute;
-    top: 5rem;
-    left: 16.5rem;
-    right: 0;
-    margin: 10px;
-  }
-  .image-class-button {
-    height: 36%;
-  }
-  .homework-footer-class-button {
     color: #000;
-    font-family: Poppins;
-    font-size: 1rem;
+    font-family: "Poppins";
+    font-size: 0.8rem;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     line-height: normal;
-    margin-left: 1.5rem;
-    text-align: justify;
+    margin-bottom: 0.2rem;
+  }
+
+  .progress-bar-footer-class-button {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   &:hover {
     opacity: 80%;
     cursor: pointer;
+  }
+}
+
+// ######################################################################################## IMAGENTITLE
+.imageTitle {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .image-background {
+    border-radius: 20px;
+    position: absolute;
+    width: 95%;
+    height: 150px;
+  }
+
+  .title {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #494949;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
   }
 }
 
@@ -514,247 +542,6 @@ img#iconGoogle {
   }
 }
 
-// ################################################################################################ SIGNUP ################################################################################################ SIGN UP
-
-.signup-screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  background-image: url("images/bg-login.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.signup-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 835px;
-  width: 546px;
-  border-radius: 21px;
-  background: rgba(243, 243, 244, 0.9);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-.card-logo {
-  margin-top: 26px;
-  margin-bottom: 26px;
-  img {
-    width: 189px;
-    height: 138px;
-  }
-}
-
-.card-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-
-  .card-form-input {
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    margin-bottom: 34px;
-    input {
-      font-weight: 357px;
-    }
-    &:hover {
-      border: black solid 2px;
-    }
-  }
-
-  input {
-    color: rgba(0, 0, 0, 0.32);
-    font-family: Poppins;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    width: 402px;
-    height: 60px;
-    flex-shrink: 0;
-    border-style: none;
-    border-radius: 2px;
-    background: #fff;
-    padding: 15px 66px 15px 33px;
-  }
-
-  .form-pass {
-    display: flex;
-    align-items: center;
-    border-style: none;
-    border-radius: 2px;
-    background: #fff;
-    input {
-      width: 335px;
-    }
-    img {
-      margin-right: 22px;
-    }
-  }
-
-  .form-button {
-    margin-bottom: 34px;
-  }
-
-  .form-button-google {
-    margin-top: 34px;
-    color: #000;
-    font-family: Poppins;
-    font-size: 19px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    width: 402px;
-    height: 58px;
-    border-radius: 21px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .icon-google {
-    margin-right: 17px;
-    height: 23px;
-    width: 23px;
-  }
-
-  .form-span {
-    width: 100%;
-    display: flex;
-    align-items: center;
-
-    span {
-      color: #000;
-      font-family: Poppins;
-      font-size: 17px;
-      font-weight: 700;
-      margin: 0px 4px;
-    }
-
-    .span-vector {
-      border: black solid 2px;
-      flex-grow: 1;
-    }
-  }
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  background-image: url("images/bg-login.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.signup-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 835px;
-  width: 546px;
-  border-radius: 21px;
-  background: rgba(243, 243, 244, 0.9);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-.card-logo {
-  margin-top: 26px;
-  margin-bottom: 26px;
-  img {
-    width: 189px;
-    height: 138px;
-  }
-}
-
-.card-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-
-  .card-form-input {
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    margin-bottom: 34px;
-    input {
-      font-weight: 357px;
-    }
-    &:hover {
-      border: black solid 2px;
-    }
-  }
-
-  input {
-    color: rgba(0, 0, 0, 0.32);
-    font-family: Poppins;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    width: 402px;
-    height: 60px;
-    flex-shrink: 0;
-    border-style: none;
-    border-radius: 2px;
-    background: #fff;
-    padding: 15px 66px 15px 33px;
-  }
-
-  .form-pass {
-    display: flex;
-    align-items: center;
-    border-style: none;
-    border-radius: 2px;
-    background: #fff;
-    input {
-      width: 335px;
-    }
-    img {
-      margin-right: 22px;
-    }
-  }
-
-  .form-button {
-    margin-bottom: 34px;
-  }
-
-  .form-button-google {
-    margin-top: 34px;
-    color: #000;
-    font-family: Poppins;
-    font-size: 19px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    width: 402px;
-    height: 58px;
-    border-radius: 21px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .icon-google {
-    margin-right: 17px;
-    height: 23px;
-    width: 23px;
-  }
-
-  .form-span {
-    width: 100%;
-    display: flex;
-    align-items: center;
-
-    span {
-      color: #000;
-      font-family: Poppins;
-      font-size: 17px;
-      font-weight: 700;
-      margin: 0px 4px;
-    }
-
-    .span-vector {
-      border: black solid 2px;
-      flex-grow: 1;
-    }
-  }
-}
-
 // ################################################################################################ SPINNER
 
 .spinner {
@@ -770,6 +557,7 @@ img#iconGoogle {
   0% {
     transform: rotate(360deg);
   }
+
   100% {
     transform: rotate(0deg);
   }
@@ -781,6 +569,7 @@ img#iconGoogle {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   strong {
     color: #148edb;
     font-size: 20px;
@@ -797,6 +586,7 @@ img#iconGoogle {
 // No esta con SCSS, falta optimización
 $--clr: #2f8da1;
 $--percentaje: 70;
+
 .container-chart {
   position: relative;
   display: flex;
@@ -805,6 +595,7 @@ $--percentaje: 70;
   flex-wrap: wrap;
   gap: 40px;
 }
+
 .container-chart .progress-chart {
   position: relative;
   width: 150px;
@@ -813,6 +604,7 @@ $--percentaje: 70;
   color: #ffffff;
   background: #b4b0b0 linear-gradient(to right, transparent 50%, $--clr 0);
 }
+
 .container-chart h3 {
   position: absolute;
   top: 50%;
@@ -822,6 +614,7 @@ $--percentaje: 70;
   z-index: 1;
   font-weight: 500;
 }
+
 .container-chart .progress-chart h3 span {
   font-size: 1.4rem;
   font-weight: 400;
@@ -857,138 +650,6 @@ $--percentaje: 70;
 }
 
 // ################################################################################################ NAVBAR
-.navbarContainer {
-  top: 0%;
-  z-index: 100;
-  position: sticky;
-  padding: 0.4rem;
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 2px solid #127ec2;
-  img {
-    width: 3rem;
-    height: 3rem;
-  }
-  button {
-    border-radius: 50%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    border-style: none;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    width: 40px;
-    height: 37px;
-  }
-
-  .navbarContainerRight {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .navbarMenu {
-    opacity: 0;
-    display: none;
-    transition: opacity 0.5s;
-    background-color: #ffffff;
-    border: 1px solid #127ec2;
-    border-radius: 10px;
-    position: absolute;
-    width: 500%;
-    top: 100%;
-    margin-top: 1rem;
-    right: 20%;
-    ol {
-      list-style-type: none;
-    }
-    h2 {
-      margin: 0.5rem;
-      font-size: 1.5rem;
-      margin-top: 1rem;
-      text-align: left;
-      margin: 0.3rem;
-    }
-    p {
-      margin-top: 0.5rem;
-      margin-left: 0.8rem;
-      margin-right: 0.8rem;
-      margin-bottom: 0.5rem;
-      border-bottom: 3px solid #000;
-      font-family: Poppins;
-      font-size: 0.725rem;
-      font-style: normal;
-    }
-  }
-
-  .buttonClass:hover {
-    .navbarMenu {
-      opacity: 1;
-      display: block;
-    }
-  }
-}
-
-// ########################### FORGOT PASSWORD ################################################################################################
-
-.forgotpass-screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  background-image: url("images/bg-login.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.forgotpass-card {
-  width: 546px;
-  height: 529px;
-  border-radius: 14px;
-  background: rgba(243, 243, 244, 0.9);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.card-logo-forgopass {
-  margin-top: 24px;
-}
-
-.forgotpass-title {
-  color: #000;
-  font-family: Poppins;
-  font-size: 26px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin-bottom: 17px;
-}
-.forgotpass-message {
-  color: #000;
-  font-family: Poppins;
-  font-size: 17px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-bottom: 37px;
-}
-
-.forgotpass-form-button {
-  width: 402px;
-  height: 71px;
-  flex-shrink: 0;
-  color: #fff;
-  border-radius: 11px;
-  background: #080809;
-  font-family: Poppins;
-  font-size: 26px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
 
 // ################################################################################################ HOME ################################################################################################
 .home-contenido {
@@ -996,16 +657,19 @@ $--percentaje: 70;
   grid-auto-rows: 28rem;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 27rem), 1fr));
 }
+
 .contenido-clases {
   display: flex;
   justify-content: center;
 }
+
 // ################################################################################################ LANDING ################################################################################################
 .landing-page {
   height: 100%;
   width: 80%;
   margin: 0 auto;
 }
+
 // HEADER
 .landing-header {
   display: flex;
@@ -1013,6 +677,7 @@ $--percentaje: 70;
   justify-content: space-between;
   padding: 0px 63px;
   border-bottom: black solid 1px;
+
   img {
     width: 247px;
     height: 105px;
@@ -1030,6 +695,7 @@ $--percentaje: 70;
     margin-right: 32px;
     padding: 0;
   }
+
   a:hover {
     color: #1c7fc0;
   }
@@ -1055,6 +721,7 @@ $--percentaje: 70;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+
   img {
     width: 440px;
     height: 458px;
@@ -1066,12 +733,14 @@ $--percentaje: 70;
   font-weight: 400;
   font-style: normal;
   line-height: normal;
+
   h1 {
     font-family: Bebas Neue;
     color: #127ec2;
     text-align: justify;
     font-size: 70px;
   }
+
   p {
     width: 659px;
     margin-top: 25px;
@@ -1080,17 +749,108 @@ $--percentaje: 70;
     text-align: justify;
     font-size: 22px;
   }
-  button {
-    margin-top: 29px;
-    color: #080809;
-    font-size: 24px;
-    width: 204px;
-    height: 63px;
-    flex-shrink: 0;
-    border-radius: 31.5px;
-    border: 3px solid #080809;
-    background: rgba(255, 255, 255, 0.87);
+
+  .btnExplora {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+    width: 12rem;
+    height: auto;
+    margin-top: 20px;
+
+    .circle {
+      transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+      position: relative;
+      display: block;
+      margin: 0;
+      width: 3rem;
+      height: 3rem;
+      background: #127ec2;
+      border-radius: 1.625rem;
+
+      .icon {
+        transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: #fff;
+
+        &.arrow {
+          transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+          left: 0.625rem;
+          width: 1.125rem;
+          height: 0.125rem;
+          background: none;
+
+          &::before {
+            position: absolute;
+            content: "";
+            top: -0.25rem;
+            right: 0.0625rem;
+            width: 0.625rem;
+            height: 0.625rem;
+            border-top: 0.125rem solid #fff;
+            border-right: 0.125rem solid #fff;
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+
+    .button-text {
+      transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.75rem 0;
+      margin: 0 0 0 2.85rem;
+      color: #127ec2;
+      font-weight: 700;
+      line-height: 1.6;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    &:hover {
+      .circle {
+        width: 100%;
+
+        .icon {
+          &.arrow {
+            background: #fff;
+            transform: translate(1rem, 0);
+          }
+        }
+      }
+
+      .button-text {
+        color: #fff;
+      }
+    }
   }
+
+  // button {
+  //   margin-top: 29px;
+  //   color: #080809;
+  //   font-size: 24px;
+  //   width: 204px;
+  //   height: 63px;
+  //   flex-shrink: 0;
+  //   border-radius: 31.5px;
+  //   border: 3px solid #080809;
+  //   background: rgba(255, 255, 255, 0.87);
+  // }
 }
 
 // LANDING SECTION INFO
@@ -1103,21 +863,25 @@ $--percentaje: 70;
   background-color: #dcf0fd;
   overflow-x: hidden;
 }
+
 .landing-info-content {
   margin: 3% 6% 3% 6%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .landing-info-card {
   align-items: center;
   margin-left: 7%;
   margin-right: 7%;
+
   p {
     text-align: justify;
     font-size: 22px;
   }
 }
+
 .circle {
   display: block;
   margin-left: auto;
@@ -1130,11 +894,13 @@ $--percentaje: 70;
   display: flex;
   align-items: center;
   justify-content: center;
+
   img {
     width: 60%;
     height: 60%;
   }
 }
+
 // LANDING FOOTER
 .landing-footer {
   display: flex;
@@ -1142,14 +908,51 @@ $--percentaje: 70;
   justify-content: space-between;
   padding: 0px 63px;
   border-top: black solid 1px;
+
   img {
     width: 173px;
     height: 71px;
   }
 }
+
 .footer-left {
   gap: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+// ################################################################################################ DROPDOWN ################################################################################################}
+.dropdown {
+  position: fixed;
+  width: 20%;
+  float: right;
+  top: 87%;
+  left: 78%;
+  direction: rtl;
+}
+
+.dropdown-items-show {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+}
+
+// ################################################################################################ ActivitiesExpire ################################################################################################
+.ActivitieTitle {
+  color: #a0a0a0;
+  font-family: "Poppins";
+  font-size: 0.6rem;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+}
+
+.ActivitieText {
+  color: #080809;
+  font-family: "Poppins";
+  font-size: 0.6rem;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
 }
