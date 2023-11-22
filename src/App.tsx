@@ -18,6 +18,7 @@ import {
 } from "react-router-dom";
 import { Course, _DB } from "@utils/classes";
 import { json } from "stream/consumers";
+import Alert from "@components/Alert";
 
 // ################################################################ LOAD DB
 /**
@@ -69,6 +70,7 @@ function App() {
           loader: loadDB,
           element: (
             <>
+            <Alert Msg="La operación ha sido exitosa"/>
               <Navbar />
               <Outlet />
             </>

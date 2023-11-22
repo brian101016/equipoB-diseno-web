@@ -55,6 +55,11 @@ import icon_correo from '@theme/images/clase/Correo.png';
 import icon_alumnos from '@theme/images/clase/Alumnos.png';
 import bg_class_title from '@theme/images/background/fondo-titulo.png';
 
+(''); // ################################ Alert ################################
+import alert_correcto from '@theme/images/alert/Correcto.svg';
+import alert_error from '@theme/images/alert/Error.svg';
+import alert_espera from '@theme/images/alert/Espera.svg';
+
 /** Contiene todas las imágenes del proyecto, basta con simplemente seleccionar alguna y listo. */
 const ImageProvider = {
     floating: {
@@ -116,6 +121,12 @@ const ImageProvider = {
         icon_correo: icon_correo,
         icon_alumnos: icon_alumnos,
         bg_class_title: bg_class_title,
+    },
+
+    alert: {
+        correcto: alert_correcto,
+        error: alert_error,
+        espera: alert_espera,
     },
 };
 
