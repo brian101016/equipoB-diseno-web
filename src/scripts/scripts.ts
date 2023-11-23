@@ -167,3 +167,15 @@ export function generateColor() {
   return color;
 }
 
+// ------------------------------------------------------------------------------------ VALIDACIÓN DE EMAIL
+  // Valida que el campo email tenga un email valido
+  export function validarEmailValido(email) {
+    // Expresión regular para validar un correo electrónico
+    return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,4})+$/.test(email);
+  }
+
+// ------------------------------------------------------------------------------------ VALIDACIÓN DE INPUTS VACIOS
+  export function validarInput(input, name: string){
+    if (input.length <= 0) window.alert(`${name} no debe de estar vacio`)
+    return;
+  };

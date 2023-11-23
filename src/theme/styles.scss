@@ -423,12 +423,16 @@ img#iconGoogle {
     color: #3e3d3d;
     text-align: center;
     font-family: "Bebas Neue";
-    font-size: 3rem;
+    margin-top: 3rem;
+    font-size: 2rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     position: relative;
-    top: 1.5rem;
+    width: 80%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   .image-class-button {
@@ -436,6 +440,10 @@ img#iconGoogle {
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 16px 16px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 
   .central-class-button {
@@ -447,7 +455,7 @@ img#iconGoogle {
 
   .icon-image-class-button {
     position: relative;
-    top: 30%;
+    top: 15%;
     align-items: center;
     width: 2.5rem;
     height: 2.5rem;
@@ -939,6 +947,12 @@ $--percentaje: 70;
 }
 
 // ################################################################################################ ActivitiesExpire ################################################################################################
+.ActivitiesExpire {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .ActivitieTitle {
   color: #a0a0a0;
   font-family: "Poppins";
@@ -946,6 +960,10 @@ $--percentaje: 70;
   font-style: normal;
   font-weight: 200;
   line-height: normal;
+  width: 36%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .ActivitieText {

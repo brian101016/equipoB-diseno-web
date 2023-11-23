@@ -1,7 +1,11 @@
 // ################################ IMPORTS ################################
 import ImageProvider from "@utils/ImageProvider";
+import { DB } from "App";
 import { useState } from "react";
+import { Navigate, redirect, useNavigate } from "react-router-dom";
+import { generateId, validarEmailValido, validarInput } from "scripts/scripts";
 import styled from "styled-components";
+import { User } from "utils/classes";
 
 // ################################ INTERFACES & PROPS ################################
 type _Base = import("utils/classes").Base;
@@ -16,6 +20,7 @@ const _SignupScreen = (props: SignupScreenProps) => {
   const [pass2, setPass2] = useState("");
   const [visiblePassInput1, setVisiblePassInput1] = useState(false);
   const [visiblePassInput2, setVisiblePassInput2] = useState(false);
+  const navigate = useNavigate();
 
   //
   const nameChange = (e) => {
@@ -42,6 +47,51 @@ const _SignupScreen = (props: SignupScreenProps) => {
     setVisiblePassInput2(!visiblePassInput2);
   };
 
+  // ------------------------------------------------------------------------------------ Validaciones
+  function validaciones() {
+    validarInput(name, "Nombre");
+    validarInput(email, "Correo");
+    validarInput(pass1, "Contraseña");
+    validarPass();
+    validarInput(pass2, "La confirmación de la contraseña");
+    validarNuevoEmailRegistrado(email);
+    validarEmailValido(email);
+    validarNuevoEmailRegistrado(email);
+    NuevoUsuario();
+    console.log(DB);
+    console.log(DB.currentUser);
+    return navigate("/login");
+  }
+
+  function validarNuevoEmailRegistrado(email) {
+    DB.users.forEach((Element) => {
+      if (email === Element.email)
+        window.alert("El email ya se encuentra registrado");
+      return;
+    });
+  }
+
+  function validarPass() {
+    if (pass2 !== pass1) window.alert("Las contraseñas deben de coincidir");
+    return;
+  }
+
+  function NuevoUsuario() {
+    const id = generateId(16);
+    DB.users.push(
+      new User({
+        id: id,
+        name: name,
+        email: email,
+        password: pass2,
+      })
+    );
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   // ------------------------------------------------------------------------------------ RETURN
   return (
     <div className={props.className}>
@@ -49,7 +99,7 @@ const _SignupScreen = (props: SignupScreenProps) => {
         <div className="card-logo">
           <img src={ImageProvider.logo.vertical} alt="logo" />
         </div>
-        <form className="card-form">
+        <form className="card-form" onSubmit={handleSubmit}>
           <input
             className="card-form-input"
             type="text"
@@ -104,7 +154,9 @@ const _SignupScreen = (props: SignupScreenProps) => {
               height={45}
             />
           </div>
-          <button className="form-button button">Regístrate</button>
+          <button className="form-button button" onClick={validaciones}>
+            Regístrate
+          </button>
 
           <div className="form-span">
             <div className="span-vector"></div>
