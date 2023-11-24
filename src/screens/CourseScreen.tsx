@@ -1,11 +1,13 @@
 // ################################ IMPORTS ################################
 import RowList from '@components/RowList';
-import Navbar from '@components/NavBar';
 import ImageProvider from '@utils/ImageProvider';
 import { Course } from 'utils/classes';
 import styled, { css } from 'styled-components';
 import ProgressChart from '@components/ProgressChart';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Navigate, useParams } from 'react-router-dom';
+import { DB } from 'App';
+
 
 // ################################ INTERFACES & PROPS ################################
 type _Base = import('utils/classes').Base;
@@ -62,6 +64,36 @@ const _CourseScreen = (props: CourseScreenProps) => {
     const descriptionSeverus =
         'Bienvenidos a la clase de Pociones. Soy el profesor Severus Snape, y no estoy aquí para complacer sus caprichos o entretener sus fantasías infantiles. En este curso, exploraremos el vasto y delicado arte de la preparación de pociones. No toleraré la mediocridad ni los intentos negligentes. Cualquier estudiante que se atreva a cuestionar mi autoridad o subestimar la importancia de esta asignatura sufrirá las consecuencias.';
     let avance = 50;
+
+    const { classid } = useParams();
+    const [, setClassData] = useState<Course | null>(null);
+    const [classNotFound, setClassNotFound] = useState(false);
+
+    useEffect(() => {
+        const fetchClassNotFound = async () => {
+            try {
+                const course = DB.courses.find((c) => c.id === classid);
+
+                if (!course) {
+                    throw new Response("No encontrado", {
+                        status: 404,
+                        statusText: "Clase no encontrada",
+                    });
+                }
+
+                setClassData(course);
+            } catch (error) {
+                console.error(error);
+                setClassNotFound(true);
+            }
+        };
+
+        fetchClassNotFound();
+    }, [classid]);
+
+    if (classNotFound) {
+        return <Navigate to="/not-found" />;
+    }
 
     // ------------------------------------------------------------------------------------ RETURN
     return (
