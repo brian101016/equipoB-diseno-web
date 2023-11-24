@@ -1,4 +1,5 @@
 import ImageProvider from "@utils/ImageProvider";
+import { DB } from "App";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import styled, { css } from "styled-components";
@@ -37,6 +38,7 @@ const _Navbar = (props: NavbarProps) => {
         </Link>
       </div>
       <div className="navbarContainerRight">
+        <button onClick={DB.showAlerts(1)}>Cambiar color</button>
         <button
           className="buttonHome"
           style={{

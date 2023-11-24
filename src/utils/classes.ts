@@ -192,6 +192,8 @@ export type _DB = {
   courses: Course[];
   /** Usuario actual iniciado sesión. Si es `null` no hay nadie. */
   currentUser: null | User;
+  /** */
+  showAlerts: (color: number)=> void; 
 };
 
 // ################################################################ MISCELLANEOUS

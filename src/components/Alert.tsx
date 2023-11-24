@@ -2,6 +2,7 @@ import { useState } from "react";
 import ImageProvider from "@utils/ImageProvider";
 import styled from "styled-components";
 import { type } from "os";
+import { DB } from "App";
 
 type _Base = import("utils/classes").Base;
 // Alert => Rename all instances to use
@@ -9,9 +10,16 @@ type AlertProps = {
   Msg?: String;
 } & _Base;
 
+
 function _Alert(props: AlertProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [Type, setType] = useState(0);
+
+  function NewAlert(NewType){
+    setType(NewType);
+  }
+
+  DB.showAlerts=NewAlert;
 
   let Color;
 
@@ -63,7 +71,9 @@ function _Alert(props: AlertProps) {
             <button className="button-alert" onClick={() => setIsOpen(false)}>
               X
             </button>
-            <img src={ImageProvider.alert.correcto} alt="icono" />
+            <img className="icono-correcto" src={ImageProvider.alert.correcto} alt="icono-correcto" />
+            <img className="icono-warning" src={ImageProvider.alert.espera} alt="icono-warning" />
+            <img className="icono-error" src={ImageProvider.alert.error} alt="icono-error" />
             <h2>{props.Msg}</h2>
           </div>
         </div>
@@ -105,14 +115,41 @@ const Alert = styled(_Alert)<AlertProps>`
 
     &.warning {
       background-color: #f0bb2b;
+      .icono-correcto{
+        display: none;
+      }
+      .icono-warning{
+        display: block;
+      }
+      .icono-error{
+        display: none;
+      }
     }
 
     &.success {
       background-color: #2bf04f;
+      .icono-correcto{
+        display: block;
+      }
+      .icono-warning{
+        display: none;
+      }
+      .icono-error{
+        display: none;
+      }
     }
 
     &.error {
       background-color: #b83a3a;
+      .icono-correcto{
+        display: none;
+      }
+      .icono-warning{
+        display: none;
+      }
+      .icono-error{
+        display: block;
+      }
     }
 
     @media screen and (max-width: 425px) {

@@ -48,6 +48,7 @@ export let DB: _DB = {
   users: [],
   courses: [],
   currentUser: null,
+  showAlerts(color){},
 };
 
 async function CheckUser() {
