@@ -192,8 +192,9 @@ export type _DB = {
   courses: Course[];
   /** Usuario actual iniciado sesión. Si es `null` no hay nadie. */
   currentUser: null | User;
-  /** */
-  showAlerts: (color: number)=> void; 
+  /** Funcion que nos muestra una alerta, cambiando el color, sea exito, warning o error.
+   * Aceptando el mensaje a mostrar */
+  showAlerts: (color: "exito" | "warning" | "error", msg: string) => void;
 };
 
 // ################################################################ MISCELLANEOUS

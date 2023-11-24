@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ImageProvider from "@utils/ImageProvider";
 import styled from "styled-components";
-import { type } from "os";
 import { DB } from "App";
 
 type _Base = import("utils/classes").Base;
@@ -10,16 +9,24 @@ type AlertProps = {
   Msg?: String;
 } & _Base;
 
-
 function _Alert(props: AlertProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [Type, setType] = useState(0);
+  const [Msg, setMsg] = useState("");
 
-  function NewAlert(NewType){
-    setType(NewType);
+  function NewAlert(NewType: "exito" | "warning" | "error", NewMsg) {
+    if (NewType === "exito") {
+      setType(0);
+    } else if (NewType === "warning") {
+      setType(1);
+    } else if (NewType === "error") {
+      setType(2);
+    }
+    setIsOpen(true);
+    setMsg(NewMsg);
   }
 
-  DB.showAlerts=NewAlert;
+  DB.showAlerts = NewAlert;
 
   let Color;
 
@@ -33,48 +40,28 @@ function _Alert(props: AlertProps) {
 
   return (
     <div className={props.className}>
-      <button
-        onClick={() => {
-          setIsOpen(true);
-        }}
-      >
-        Mostrar Modal
-      </button>
-
-      <button
-        onClick={() => {
-          setType(0);
-        }}
-      >
-        Verde
-      </button>
-
-      <button
-        onClick={() => {
-          setType(1);
-        }}
-      >
-        Amarillo
-      </button>
-
-      <button
-        onClick={() => {
-          setType(2);
-        }}
-      >
-        Rojo
-      </button>
-
       {isOpen && (
         <div className="BackgroundAlert">
           <div className={"ModalAlert " + Color}>
             <button className="button-alert" onClick={() => setIsOpen(false)}>
               X
             </button>
-            <img className="icono-correcto" src={ImageProvider.alert.correcto} alt="icono-correcto" />
-            <img className="icono-warning" src={ImageProvider.alert.espera} alt="icono-warning" />
-            <img className="icono-error" src={ImageProvider.alert.error} alt="icono-error" />
-            <h2>{props.Msg}</h2>
+            <img
+              className="icono-correcto"
+              src={ImageProvider.alert.correcto}
+              alt="icono-correcto"
+            />
+            <img
+              className="icono-warning"
+              src={ImageProvider.alert.espera}
+              alt="icono-warning"
+            />
+            <img
+              className="icono-error"
+              src={ImageProvider.alert.error}
+              alt="icono-error"
+            />
+            <h2>{Msg}</h2>
           </div>
         </div>
       )}
@@ -115,39 +102,39 @@ const Alert = styled(_Alert)<AlertProps>`
 
     &.warning {
       background-color: #f0bb2b;
-      .icono-correcto{
+      .icono-correcto {
         display: none;
       }
-      .icono-warning{
+      .icono-warning {
         display: block;
       }
-      .icono-error{
+      .icono-error {
         display: none;
       }
     }
 
     &.success {
       background-color: #2bf04f;
-      .icono-correcto{
+      .icono-correcto {
         display: block;
       }
-      .icono-warning{
+      .icono-warning {
         display: none;
       }
-      .icono-error{
+      .icono-error {
         display: none;
       }
     }
 
     &.error {
       background-color: #b83a3a;
-      .icono-correcto{
+      .icono-correcto {
         display: none;
       }
-      .icono-warning{
+      .icono-warning {
         display: none;
       }
-      .icono-error{
+      .icono-error {
         display: block;
       }
     }
