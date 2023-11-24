@@ -81,18 +81,16 @@ const _SignupScreen = (props: SignupScreenProps) => {
 
   function NuevoUsuario() {
     const id = generateId(16);
-    if (isRegistered === true) {
-      return;
-    } else {
-      DB.users.push(
-        new User({
-          id: id,
-          name: name,
-          email: email,
-          password: pass2,
-        })
-      );
-    }
+    if (isRegistered) return;
+
+    DB.users.push(
+      new User({
+        id: id,
+        name: name,
+        email: email,
+        password: pass2,
+      })
+    );
   }
 
   const handleSubmit = (e) => {
@@ -116,14 +114,14 @@ const _SignupScreen = (props: SignupScreenProps) => {
           />
           <input
             className="card-form-input"
-            type="email"
+            type="text"
             placeholder="Correo electrónico"
             value={email}
             onChange={emailChange}
           />
           <div className="form-pass card-form-input">
             <input
-              type="password"
+              type={visiblePassInput1 ? "text" : "password"}
               placeholder="Contraseña"
               value={pass1}
               onChange={passChange1}
@@ -143,7 +141,7 @@ const _SignupScreen = (props: SignupScreenProps) => {
           </div>
           <div className="form-pass card-form-input">
             <input
-              type="password"
+              type={visiblePassInput2 ? "text" : "password"}
               placeholder="Confirmar contraseña"
               value={pass2}
               onChange={passChange2}
