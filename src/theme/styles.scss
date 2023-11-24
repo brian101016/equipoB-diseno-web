@@ -642,9 +642,7 @@ $--percentaje: 70;
     background: $--clr;
     transform: rotate(calc((($--percentaje - 50) * 0.01turn)));
   }
-}
-
-@else {
+} @else {
   .container-chart .progress-chart.less::before {
     background-color: #b4b0b0;
     transform: rotate(calc((($--percentaje - 0) * 0.01turn)));
@@ -652,85 +650,6 @@ $--percentaje: 70;
 }
 
 // ################################################################################################ NAVBAR
-.navbarContainer {
-  top: 0%;
-  z-index: 2;
-  position: sticky;
-  padding: 0.4rem;
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 2px solid #127ec2;
-
-  img {
-    width: 3rem;
-    height: 3rem;
-  }
-
-  button {
-    border-radius: 50%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    border-style: none;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    width: 40px;
-    height: 37px;
-  }
-
-  .navbarContainerRight {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .navbarMenu {
-    opacity: 0;
-    display: none;
-    transition: opacity 0.5s;
-    background-color: #ffffff;
-    border: 1px solid #127ec2;
-    border-radius: 10px;
-    position: absolute;
-    width: 500%;
-    top: 100%;
-    margin-top: 1rem;
-    right: 20%;
-
-    ol {
-      list-style-type: none;
-    }
-
-    h2 {
-      margin: 0.5rem;
-      font-size: 1.5rem;
-      margin-top: 1rem;
-      text-align: left;
-      margin: 0.3rem;
-    }
-
-    p {
-      margin-top: 0.5rem;
-      margin-left: 0.8rem;
-      margin-right: 0.8rem;
-      margin-bottom: 0.5rem;
-      border-bottom: 3px solid #000;
-      font-family: Poppins;
-      font-size: 0.725rem;
-      font-style: normal;
-    }
-  }
-
-  .buttonClass:hover {
-    .navbarMenu {
-      opacity: 1;
-      display: block;
-    }
-  }
-
-
-}
 
 // ################################################################################################ HOME ################################################################################################
 .home-contenido {
@@ -854,7 +773,7 @@ $--percentaje: 70;
       margin: 0;
       width: 3rem;
       height: 3rem;
-      background: #127EC2;
+      background: #127ec2;
       border-radius: 1.625rem;
 
       .icon {
@@ -874,7 +793,7 @@ $--percentaje: 70;
 
           &::before {
             position: absolute;
-            content: '';
+            content: "";
             top: -0.25rem;
             right: 0.0625rem;
             width: 0.625rem;
@@ -896,7 +815,7 @@ $--percentaje: 70;
       bottom: 0;
       padding: 0.75rem 0;
       margin: 0 0 0 2.85rem;
-      color: #127EC2;
+      color: #127ec2;
       font-weight: 700;
       line-height: 1.6;
       text-align: center;
@@ -1037,8 +956,3 @@ $--percentaje: 70;
   font-weight: 200;
   line-height: normal;
 }
-
-
-
-
-

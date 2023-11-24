@@ -1,29 +1,6 @@
+// ------------------------------------------------------------------------------------ BOUNDARIES
+
 import { useState } from "react";
-
-function prueba(num: string, num2?: number) {
-  num.substring(1, 2);
-}
-
-prueba("sasasd", 121231);
-prueba("asas");
-
-const arreglo_de_meses_del_ano = [
-  "Enero",
-  "febrero",
-  "marzo",
-  "abril",
-  "mayo",
-  "junio",
-  "julio",
-  "agosto",
-  "septiembre",
-  "octubre",
-  "noviembre",
-  "diciembre",
-];
-
-const num = 5 + (4 - 32) * 4;
-// const asdasd = bfefr;
 
 /**
  * Permite limitar un número entre un máximo y un mínimo.
@@ -76,13 +53,91 @@ export function generateId(long) {
   return id;
 }
 
+// ------------------------------------------------------------------------------------ RANDOM NAME
+export function randomName(gender) {
+  const maleName = ["Juan", "Pedro", "Luis", "Carlos", "Manuel"];
+  const femaleName = ["María", "Ana", "Luisa", "Isabel", "Laura"];
 
-// ############################# Resfresh() #############################
+  if (gender === "Masculino") {
+    const randomName = maleName[Math.floor(Math.random() * maleName.length)];
+    return randomName;
+  } else if (gender === "Femenino") {
+    const randomName =
+      femaleName[Math.floor(Math.random() * femaleName.length)];
+    return randomName;
+  } else {
+    return "Genere no valide";
+  }
+}
+
+// ------------------------------------------------------------------------------------ NUM RANDOM
+export function numRandom(min, max) {
+  if (min > max) {
+    const temp = min;
+    min = max;
+    max = temp;
+  }
+
+  const numeroAleatorio = Math.floor(Math.random() * (max - min + 1)) + min;
+
+  return numeroAleatorio;
+}
+
+// ------------------------------------------------------------------------------------ PARSE NUMBER
 /**
- * Hooks personalizados para el refresco manual de componente 
+ * Esta función te permite sacar los números dentro de una cadena
+ * @param {string} stringtext Cadena de texto a la cual se desea validar
+ */
+export function parseNumber(stringtext: string) {
+  stringtext = stringtext.replace(/[^0-9.-]+/gim, "");
+  if (Number.isNaN(Number.parseFloat(stringtext))) {
+    return 0;
+  }
+  return parseFloat(stringtext);
+}
+
+// ------------------------------------------------------------------------------------ STALL
+/**
+ * Función para esperar una cantidad determinada de tiempo en milisegundos.
+ * @param ms - El número de milisegundos a esperar.
+ * @returns Una promesa que se resuelve después de ms milisegundos.
+ */
+export function stall(ms: number): Promise<void> {
+  // Crear una nueva promesa
+  return new Promise((resolve, reject) => {
+    //setTimeout para ejecutar una función después de ms milisegundos
+    setTimeout(() => {
+      // Resolver la promesa
+      resolve();
+    }, ms);
+  });
+}
+
+// ------------------------------------------------------------------------------------ formatoFecha
+export function formatoFecha(fecha: Date, largo = false) {
+  const dia = fecha.getDate();
+  const mes = fecha.toLocaleString("es-ES", {
+    month: largo ? "long" : "short",
+  });
+  const año = fecha.getFullYear();
+
+  if (largo) {
+    return `${dia} de ${mes} del ${año}`;
+  } else {
+    // Asegurarse de que el día y el mes tengan dos dígitos
+    const diaStr = dia.toString().padStart(2, "0");
+    const mesStr = (fecha.getMonth() + 1).toString().padStart(2, "0"); // El mes es base 0
+
+    return `${diaStr}/${mesStr}/${año}`;
+  }
+}
+
+// ------------------------------------------------------------------------------------ refresh
+/**
+ * Hooks personalizados para el refresco manual de componente
  * @returns {{refresh: Function, refreshCont: number}} 'refresh' es un objeto con una funcion y 'refreshCont' es un contador
  */
-function useRefresh() {
+export function useRefresh(): { refresh: Function; refreshCont: number } {
   const [refreshCont, setRefreshCont] = useState(0);
 
   const refresh = () => {
@@ -91,6 +146,3 @@ function useRefresh() {
 
   return { refresh, refreshCont };
 }
-
-
-export {};
