@@ -21,6 +21,7 @@ const _SignupScreen = (props: SignupScreenProps) => {
   const [visiblePassInput1, setVisiblePassInput1] = useState(false);
   const [visiblePassInput2, setVisiblePassInput2] = useState(false);
   const navigate = useNavigate();
+  let isRegistered: boolean = true;
 
   //
   const nameChange = (e) => {
@@ -56,36 +57,42 @@ const _SignupScreen = (props: SignupScreenProps) => {
     validarInput(pass2, "La confirmación de la contraseña");
     validarNuevoEmailRegistrado(email);
     validarEmailValido(email);
-    validarNuevoEmailRegistrado(email);
-    NuevoUsuario();
     console.log(DB);
     console.log(DB.currentUser);
-    return navigate("/login");
+    NuevoUsuario();
+    if (isRegistered === false) {
+      return navigate("/login");
+    }
   }
 
   function validarNuevoEmailRegistrado(email) {
     DB.users.forEach((Element) => {
-      if (email === Element.email)
+      if (email === Element.email) {
         window.alert("El email ya se encuentra registrado");
-      return;
+        return (isRegistered = true);
+      }
     });
   }
 
   function validarPass() {
     if (pass2 !== pass1) window.alert("Las contraseñas deben de coincidir");
-    return;
+    return (isRegistered = true);
   }
 
   function NuevoUsuario() {
     const id = generateId(16);
-    DB.users.push(
-      new User({
-        id: id,
-        name: name,
-        email: email,
-        password: pass2,
-      })
-    );
+    if (isRegistered === true) {
+      return;
+    } else {
+      DB.users.push(
+        new User({
+          id: id,
+          name: name,
+          email: email,
+          password: pass2,
+        })
+      );
+    }
   }
 
   const handleSubmit = (e) => {
