@@ -38,7 +38,7 @@
       "title": "curso de prueba",
       "desc": "Este es un curso de prueba para verificar la BD.",
       "subject": "Campo de prueba",
-      "color": "#00ffff",
+      "color": "#27cad0",
       "students": ["00a", "52e", "10x"],
       "homeworks": [
         {

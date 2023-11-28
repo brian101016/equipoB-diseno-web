@@ -23,7 +23,6 @@ type CourseScreenProps = {
     homeworks?: [{}];
 } & _Base;
 
-// lista de prueba
 const listaDeTareas = [
     {
         na: 1,
@@ -56,8 +55,7 @@ const listaDeTareas = [
     { na: 5, ti: 'Pocion de amor', fe: '10/11/2023', ho: '20:30:00', ca: 60 },
 ];
 
-// variable de prueba
-let color = '#551435';
+
 // ################################ RENDERING COMPONENT ################################
 const _CourseScreen = (props: CourseScreenProps) => {
     //const [lts, setLts] = useState([{}]);
@@ -66,7 +64,6 @@ const _CourseScreen = (props: CourseScreenProps) => {
     let avance = 50;
 
     const { classid } = useParams();
-    const [, setClassData] = useState<Course | null>(null);
     const [classNotFound, setClassNotFound] = useState(false);
 
     useEffect(() => {
@@ -81,7 +78,6 @@ const _CourseScreen = (props: CourseScreenProps) => {
                     });
                 }
 
-                setClassData(course);
             } catch (error) {
                 console.error(error);
                 setClassNotFound(true);
@@ -95,17 +91,19 @@ const _CourseScreen = (props: CourseScreenProps) => {
         return <Navigate to="/not-found" />;
     }
 
+    const course = DB.courses.find((c) => c.id === classid);
+
     // ------------------------------------------------------------------------------------ RETURN
     return (
         <div className={props.className}>
-            <div className="container-title">
+            <div className="container-title" style={{backgroundColor: course?.color}}>
                 <h1 className="class-title">
-                    {props.title ? props.title : 'Pociones mágicas'}
+                    {course ? course.title : 'Pociones mágicas'}
                 </h1>
                 <div className="class-author">
                     <p className="p">Por</p>
                     <p className="name">
-                        {props.author ? props.author : 'Severus Snape'}
+                        {course ? course.teacherID : 'Severus Snape'}
                     </p>
                     <img
                         src={ImageProvider.icon.user_gray}
@@ -117,7 +115,7 @@ const _CourseScreen = (props: CourseScreenProps) => {
             <div className="container-description">
                 <h2 className="d">Descripción del curso</h2>
                 <p className="p">
-                    {props.Description ? props.Description : descriptionSeverus}
+                    {course ? course.desc : descriptionSeverus}
                 </p>
             </div>
             <div className="container-icons">
@@ -171,7 +169,7 @@ const _CourseScreen = (props: CourseScreenProps) => {
 };
 
 // ################################ STYLES ################################
-const CourseScreen = styled(_CourseScreen)<CourseScreenProps>`
+const CourseScreen = styled(_CourseScreen) <CourseScreenProps>`
     ${(props) => css`
         display: flex;
         flex-direction: column;
@@ -186,7 +184,6 @@ const CourseScreen = styled(_CourseScreen)<CourseScreenProps>`
             align-items: center;
             height: 300px;
             width: 100%;
-            background-color: ${color};
             background-image: url(${ImageProvider.clase.bg_class_title});
             border-radius: 28px;
 
