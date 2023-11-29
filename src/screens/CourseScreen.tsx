@@ -1,7 +1,6 @@
 // ################################ IMPORTS ################################
 import RowList from '@components/RowList';
 import ImageProvider from '@utils/ImageProvider';
-import { Course } from 'utils/classes';
 import styled, { css } from 'styled-components';
 import ProgressChart from '@components/ProgressChart';
 import { useState, useEffect } from 'react';
@@ -22,39 +21,6 @@ type CourseScreenProps = {
     Description?: string;
     homeworks?: [{}];
 } & _Base;
-
-const listaDeTareas = [
-    {
-        na: 1,
-        ti: 'Introduccion a pociones',
-        fe: '17/12/2023',
-        ho: '20:30:00',
-        ca: 60,
-    },
-    {
-        na: 2,
-        ti: 'Ingredientes para pociones',
-        fe: '04/12/2024',
-        ho: '18:30:00',
-        ca: 60,
-    },
-    {
-        na: 3,
-        ti: 'Métodologia a creacion de pociones',
-        fe: '04/12/2023',
-        ho: '12:30:00',
-        ca: 60,
-    },
-    {
-        na: 4,
-        ti: 'Pocion cambiaformas',
-        fe: '05/12/2023',
-        ho: '14:30:00',
-        ca: 60,
-    },
-    { na: 5, ti: 'Pocion de amor', fe: '10/11/2023', ho: '20:30:00', ca: 60 },
-];
-
 
 // ################################ RENDERING COMPONENT ################################
 const _CourseScreen = (props: CourseScreenProps) => {
@@ -93,10 +59,27 @@ const _CourseScreen = (props: CourseScreenProps) => {
 
     const course = DB.courses.find((c) => c.id === classid);
 
+    const currentUserId = DB.currentUser?.id;
+
+    const fechaDate = new Date().toISOString().substr(0, 10);
+    const horaDate = new Date().toISOString().substr(11, 8);
+
+    const homeworkData = course
+        ? course.homeworks.map((homework) => ({
+            id: homework.id,
+            title: homework.title,
+            score:
+                homework.submissions.find(
+                    (submission) => submission.authorID === currentUserId
+                )?.score || 0,
+        }))
+        : [];
+
+
     // ------------------------------------------------------------------------------------ RETURN
     return (
         <div className={props.className}>
-            <div className="container-title" style={{backgroundColor: course?.color}}>
+            <div className="container-title" style={{ backgroundColor: course?.color }}>
                 <h1 className="class-title">
                     {course ? course.title : 'Pociones mágicas'}
                 </h1>
@@ -150,14 +133,15 @@ const _CourseScreen = (props: CourseScreenProps) => {
                 {
                     /* Lista de actividades  */
                     <div>
-                        {listaDeTareas.map((nel, index, g) => {
+                        {homeworkData.map((homework, index) => {
                             return (
                                 <RowList
-                                    numActivity={g[index].na}
-                                    titulo={g[index].ti}
-                                    fecha={g[index].fe}
-                                    hora={g[index].ho}
-                                    calificacion={g[index].ca}
+                                    key={index}
+                                    numActivity={parseInt(homework.id) || 0}
+                                    titulo={homework.title}
+                                    fecha={fechaDate}
+                                    hora={horaDate}
+                                    calificacion={homework.score}
                                 />
                             );
                         })}
