@@ -2,6 +2,7 @@
 import ImageProvider from "@utils/ImageProvider";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
+import CourseButtons from "@components/courseButtons";
 
 // ################################ INTERFACES & PROPS ################################
 type _Base = import("utils/classes").Base;
@@ -83,6 +84,11 @@ const _LandingScreen = (props: LandingScreenProps) => {
           </div>
         </div>
       </section>
+
+    <div>
+      <h1>My Course Screen</h1>
+      <CourseButtons />
+    </div>
 
       <footer className="landing-footer">
         <div className="footer-left">
