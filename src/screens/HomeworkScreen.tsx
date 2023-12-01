@@ -358,8 +358,9 @@ const HomeworkScreen = styled(_HomeworkScreen)<HomeworkScreenProps>`
       border: 1px solid #cbcbcb;
       background: #fff;
       width: 95%;
-      min-height: 6rem;
+      min-height: 6.7rem;
       flex-shrink: 0;
+      resize: none;
     }
     .btn-sendClassComment {
       margin-top: 1rem;
