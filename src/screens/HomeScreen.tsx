@@ -4,7 +4,7 @@ import ActivitiesExpire from "@components/ActivitiesExpire";
 import ProgressBar from "@components/ProgressBar";
 import styled, { css } from "styled-components";
 import { generateColor } from "scripts/scripts";
-
+import ModalJoinClass from "@components/ModalJoinClass"
 // ################################ INTERFACES & PROPS ################################
 type _Base = import("utils/classes").Base;
 // HomeScreen => Rename all instances to use
@@ -14,8 +14,12 @@ type HomeScreenProps = {} & _Base;
 const _HomeScreen = (props: HomeScreenProps) => {
   // ------------------------------------------------------------------------------------ RETURN
   return (
+    
     <div className={props.className}>
+      
+    <ModalJoinClass></ModalJoinClass>
       <div className="home-contenido">
+        
         <div className="contenido-clases">
           <ButtonClass
             bgColor={generateColor()}
@@ -80,6 +84,7 @@ const _HomeScreen = (props: HomeScreenProps) => {
               <ProgressBar percentage={50} isChart={false}></ProgressBar>
             }
           />
+          
         </div>
       </div>
     </div>
