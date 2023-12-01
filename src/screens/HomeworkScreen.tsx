@@ -1,5 +1,8 @@
 import styled, { css } from "styled-components";
 import ImageProvider from "@utils/ImageProvider";
+import { useState, useEffect } from "react";
+import { Navigate, useParams } from "react-router-dom";
+import { DB } from "App";
 
 // ################################ INTERFACES & PROPS ################################
 type _Base = import("utils/classes").Base;
@@ -24,6 +27,34 @@ type HomeworkScreenProps = {
 
 // ################################ RENDERING COMPONENT ################################
 const _HomeworkScreen = (props: HomeworkScreenProps) => {
+  const { workid } = useParams();
+  const [homeworkNotFound, setHomeworkNotFound] = useState(false);
+
+  useEffect(() => {
+    const fetchHomeworkNotFound = async () => {
+      try {
+        const courseWithHomework = DB.courses.find((course) => {
+          return course.homeworks.find((homework) => homework.id === workid);
+        });
+        if (!courseWithHomework) {
+          throw new Response("No encontrado", {
+            status: 404,
+            statusText: "Clase no encontrada",
+          });
+        }
+      } catch (error) {
+        console.error(error);
+        setHomeworkNotFound(true);
+      }
+    };
+
+    fetchHomeworkNotFound();
+  }, [workid]);
+
+  if (homeworkNotFound) {
+    return <Navigate to="/not-found" />;
+  };
+
   // ------------------------------------------------------------------------------------ RETURN
   return (
     <div className={props.className}>
