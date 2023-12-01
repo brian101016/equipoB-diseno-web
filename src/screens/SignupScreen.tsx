@@ -1,7 +1,11 @@
 // ################################ IMPORTS ################################
 import ImageProvider from "@utils/ImageProvider";
+import { DB } from "App";
 import { useState } from "react";
+import { Navigate, redirect, useNavigate } from "react-router-dom";
+import { generateId, validarEmailValido, validarInput } from "scripts/scripts";
 import styled from "styled-components";
+import { User } from "utils/classes";
 
 // ################################ INTERFACES & PROPS ################################
 type _Base = import("utils/classes").Base;
@@ -16,6 +20,8 @@ const _SignupScreen = (props: SignupScreenProps) => {
   const [pass2, setPass2] = useState("");
   const [visiblePassInput1, setVisiblePassInput1] = useState(false);
   const [visiblePassInput2, setVisiblePassInput2] = useState(false);
+  const navigate = useNavigate();
+  let isRegistered: boolean = true;
 
   //
   const nameChange = (e) => {
@@ -42,6 +48,55 @@ const _SignupScreen = (props: SignupScreenProps) => {
     setVisiblePassInput2(!visiblePassInput2);
   };
 
+  // ------------------------------------------------------------------------------------ Validaciones
+  function validaciones() {
+    validarInput(name, "Nombre");
+    validarInput(email, "Correo");
+    validarInput(pass1, "Contraseña");
+    validarPass();
+    validarInput(pass2, "La confirmación de la contraseña");
+    validarNuevoEmailRegistrado(email);
+    validarEmailValido(email);
+    console.log(DB);
+    console.log(DB.currentUser);
+    NuevoUsuario();
+    if (isRegistered === false) {
+      return navigate("/login");
+    }
+  }
+
+  function validarNuevoEmailRegistrado(email) {
+    DB.users.forEach((Element) => {
+      if (email === Element.email) {
+        window.alert("El email ya se encuentra registrado");
+        return (isRegistered = true);
+      }
+    });
+  }
+
+  function validarPass() {
+    if (pass2 !== pass1) window.alert("Las contraseñas deben de coincidir");
+    return (isRegistered = true);
+  }
+
+  function NuevoUsuario() {
+    const id = generateId(16);
+    if (isRegistered) return;
+
+    DB.users.push(
+      new User({
+        id: id,
+        name: name,
+        email: email,
+        password: pass2,
+      })
+    );
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   // ------------------------------------------------------------------------------------ RETURN
   return (
     <div className={props.className}>
@@ -49,7 +104,7 @@ const _SignupScreen = (props: SignupScreenProps) => {
         <div className="card-logo">
           <img src={ImageProvider.logo.vertical} alt="logo" />
         </div>
-        <form className="card-form">
+        <form className="card-form" onSubmit={handleSubmit}>
           <input
             className="card-form-input"
             type="text"
@@ -59,14 +114,14 @@ const _SignupScreen = (props: SignupScreenProps) => {
           />
           <input
             className="card-form-input"
-            type="email"
+            type="text"
             placeholder="Correo electrónico"
             value={email}
             onChange={emailChange}
           />
           <div className="form-pass card-form-input">
             <input
-              type="password"
+              type={visiblePassInput1 ? "text" : "password"}
               placeholder="Contraseña"
               value={pass1}
               onChange={passChange1}
@@ -86,7 +141,7 @@ const _SignupScreen = (props: SignupScreenProps) => {
           </div>
           <div className="form-pass card-form-input">
             <input
-              type="password"
+              type={visiblePassInput2 ? "text" : "password"}
               placeholder="Confirmar contraseña"
               value={pass2}
               onChange={passChange2}
@@ -104,7 +159,9 @@ const _SignupScreen = (props: SignupScreenProps) => {
               height={45}
             />
           </div>
-          <button className="form-button button">Regístrate</button>
+          <button className="form-button button" onClick={validaciones}>
+            Regístrate
+          </button>
 
           <div className="form-span">
             <div className="span-vector"></div>

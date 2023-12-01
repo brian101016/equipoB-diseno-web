@@ -155,8 +155,7 @@ export function useRefresh(): { refresh: Function; refreshCont: number } {
  * @param character es el rango del color
  */
 export function generateColor() {
-  let character =
-    "0123456789ABCDEF";
+  let character = "0123456789ABCDEF";
   let color = "#";
   for (let i = 0; i < 6; i++) {
     const charRandom = character.charAt(
@@ -167,3 +166,21 @@ export function generateColor() {
   return color;
 }
 
+// ------------------------------------------------------------------------------------ VALIDACIÓN DE EMAIL
+// Valida que el campo email tenga un email valido
+export function validarEmailValido(email) {
+  // Expresión regular para validar un correo electrónico
+  return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,4})+$/.test(email);
+}
+
+// ------------------------------------------------------------------------------------ VALIDACIÓN DE INPUTS VACIOS
+export function validarInput(input, name: string) {
+  let isRegistered = true;
+  if (input.length <= 0) {
+    window.alert(`${name} no debe de estar vacio`);
+    isRegistered = true;
+  } else {
+    isRegistered = false;
+  }
+  return isRegistered;
+}

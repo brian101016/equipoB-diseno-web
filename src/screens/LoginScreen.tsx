@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ImageProvider from "@utils/ImageProvider";
 import { DB } from "App";
+import { validarEmailValido } from "scripts/scripts";
 // ################################ INTERFACES & PROPS ################################
 type _Base = import("utils/classes").Base;
 // LoginScreen => Rename all instances to use
@@ -68,14 +69,14 @@ const _LoginScreen = (props: LoginScreenProps) => {
   // Funcion para validar inicio de sesion
   const home = useNavigate();
   const validarInicioSesion = () => {
-    // validar email no este vecio
+    // validar email no este vacio
     if (validarEmail()) {
       // Enviar mensaje de error
       DB.showAlerts("warning", "Campo necesario");
       return;
     }
     // validar email sea valido
-    if (!validarEmailValido()) {
+    if (!validarEmailValido(email)) {
       // Enviar mensaje de error
       DB.showAlerts("warning", "Email no valido");
       return;
@@ -123,11 +124,6 @@ const _LoginScreen = (props: LoginScreenProps) => {
     }
     return passwordValido;
   };
-  // Valida que el campo email tenga un email valido
-  function validarEmailValido() {
-    // Expresión regular para validar un correo electrónico
-    return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,4})+$/.test(email);
-  }
 
   // ################################ RETURN ################################
   return (
