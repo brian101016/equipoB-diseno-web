@@ -3,7 +3,7 @@ body.active-modal{
 }
 
 .btn-modal{
-    border-radius: 12px;
+  border-radius: 12px;
   background-color: #127ec2;
   color: #fff;
   font-family: "Poppins";
@@ -19,14 +19,21 @@ body.active-modal{
     color: black;
   }
 }
-h2 {
+.titulo2 {
+    text-align: center;
+    color: #127ec2!important;
+    font-family: "Bebas Neue", sans-serif!important;
+    font-size: 40px!important;
+    font-style: normal;
+    font-weight: 400!important;
+    line-height: normal;
+}
+.titulo3 {
     text-align: center;
     color: #127ec2;
     font-family: "Bebas Neue", sans-serif;
-    font-size: 40px;
-    font-style: normal;
+    font-size: 25px;
     font-weight: 400;
-    line-height: normal;
 }
 .modal, .overlay{
     width: 100vw;
@@ -40,10 +47,27 @@ h2 {
 .overlay{
     background: rgba(49,49,49,0.8);
 }
-.modal-content {
+.contenido-grid{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: repeat(4, 1fr);
+}
+.modal-content-izquierda {
     display: flex;
-    align-content: center;
-    justify-content: center;
+    justify-content: right;
+    align-items: center;
+}
+.modal-content-derecha {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 20px;
+    width: 100%;
+}
+.modal-content-abajo{
+    margin-top: 10px;
+    text-align: center;
+    grid-column: span 2; 
 }
 .close-modal{
     position: absolute;
@@ -63,11 +87,11 @@ h2 {
 .btnColorBlue {
     border-radius: 28px;
     color: white;
-    width: 80px;
-    height: 30px;
+    width: 90px;
+    height: 40px;
     border: none;
     font-family: "Poppins", sans-serif;
-    font-size: 15px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -88,14 +112,16 @@ h2 {
         transform: translateY(2px);
     }
 }
-.inputmin{
-    text-align: center;
+.inputCH{
+    text-align: left;
     background-color: #ebebeb;
     border-radius: 5px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     border: none;
     font-family: "Poppins", sans-serif;
     margin-right: 10px;
+    width: 300px;
+    height: 34px;
     &::placeholder {
       margin-left: 20px;
     }

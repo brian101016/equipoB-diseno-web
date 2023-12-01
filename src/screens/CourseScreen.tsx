@@ -6,6 +6,7 @@ import { Course } from 'utils/classes';
 import styled, { css } from 'styled-components';
 import ProgressChart from '@components/ProgressChart';
 import { useState } from 'react';
+import ModalCreateHomework from "@components/ModalCreateHomework"
 
 // ################################ INTERFACES & PROPS ################################
 type _Base = import('utils/classes').Base;
@@ -117,6 +118,9 @@ const _CourseScreen = (props: CourseScreenProps) => {
             </div>
             <div className="container-task">
                 <h2 className="list-title">Actividades</h2>
+                <div className='center'>
+                    <ModalCreateHomework></ModalCreateHomework>
+                </div>
                 {
                     /* Lista de actividades  */
                     <div>
