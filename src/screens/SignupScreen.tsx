@@ -184,7 +184,7 @@ const _SignupScreen = (props: SignupScreenProps) => {
 
 // ################################ STYLES ################################
 const SignupScreen = styled(_SignupScreen)<SignupScreenProps>`
-  background-image: url(${ImageProvider.background.login});
+  background-image: url(${ImageProvider.backgroundImages.all});
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;

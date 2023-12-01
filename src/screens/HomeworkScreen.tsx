@@ -1,5 +1,8 @@
 import styled, { css } from "styled-components";
 import ImageProvider from "@utils/ImageProvider";
+import { useState, useEffect } from "react";
+import { Navigate, useParams } from "react-router-dom";
+import { DB } from "App";
 
 // ################################ INTERFACES & PROPS ################################
 type _Base = import("utils/classes").Base;
@@ -24,6 +27,33 @@ type HomeworkScreenProps = {
 
 // ################################ RENDERING COMPONENT ################################
 const _HomeworkScreen = (props: HomeworkScreenProps) => {
+  const { workid } = useParams();
+  const [homeworkNotFound, setHomeworkNotFound] = useState(false);
+
+  useEffect(() => {
+    const fetchHomeworkNotFound = async () => {
+      try {
+        const courseWithHomework = DB.courses.find((course) => {
+          return course.homeworks.find((homework) => homework.id === workid);
+        });
+        if (!courseWithHomework) {
+          throw new Response("No encontrado", {
+            status: 404,
+            statusText: "Clase no encontrada",
+          });
+        }
+      } catch (error) {
+        console.error(error);
+        setHomeworkNotFound(true);
+      }
+    };
+
+    fetchHomeworkNotFound();
+  }, [workid]);
+
+  if (homeworkNotFound) {
+    return <Navigate to="/not-found" />;
+  };
 
   // ------------------------------------------------------------------------------------ RETURN
   return (
@@ -206,7 +236,7 @@ const HomeworkScreen = styled(_HomeworkScreen)<HomeworkScreenProps>`
       border-bottom: 2px solid #127ec2;
     }
     .comment-homework {
-      width: 1100px;
+      width: 100%;
       height: 256px;
       flex-shrink: 0;
       border-radius: 23px;
@@ -214,7 +244,8 @@ const HomeworkScreen = styled(_HomeworkScreen)<HomeworkScreenProps>`
       box-shadow: 2px 5px 8px 8px rgba(0, 0, 0, 0.15);
       font-size: x-large;
       padding: 1rem;
-      min-width: 100%;
+      resize: none;
+      overflow: auto;
     }
     .container-comments {
       margin-top: 1rem;
@@ -256,6 +287,14 @@ const HomeworkScreen = styled(_HomeworkScreen)<HomeworkScreenProps>`
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+    }
+    .container-aside {
+      display: flex;
+      margin: 10px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 1rem;
     }
     .container-tutarea {
       position: absolute;
@@ -317,7 +356,7 @@ const HomeworkScreen = styled(_HomeworkScreen)<HomeworkScreenProps>`
       align-items: center;
       flex-direction: column;
       position: absolute;
-      top: 45%;
+      top: 47%;
       padding: 1.5rem;
       border-radius: 23px;
       background: #fff;
@@ -350,8 +389,9 @@ const HomeworkScreen = styled(_HomeworkScreen)<HomeworkScreenProps>`
       border: 1px solid #cbcbcb;
       background: #fff;
       width: 95%;
-      min-height: 6rem;
+      min-height: 6.7rem;
       flex-shrink: 0;
+      resize: none;
     }
     .btn-sendClassComment {
       margin-top: 1rem;
@@ -404,6 +444,7 @@ const HomeworkScreen = styled(_HomeworkScreen)<HomeworkScreenProps>`
     }
     .container-menu {
       img {
+        border-radius: 100%;
         height: 4rem;
         margin: 0 0.5rem;
         cursor: pointer;

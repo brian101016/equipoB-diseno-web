@@ -2,6 +2,8 @@
 import ImageProvider from "@utils/ImageProvider";
 import { useState } from "react";
 import styled from "styled-components";
+import { DB } from "App";
+import { Link, useNavigate } from "react-router-dom";
 
 // ################################ INTERFACES & PROPS ################################
 type _Base = import("utils/classes").Base;
@@ -11,13 +13,45 @@ type ForgotPassScreenProps = {} & _Base;
 // ################################ RENDERING COMPONENT ################################
 const _ForgotPassScreen = (props: ForgotPassScreenProps) => {
   const [email, setEmail] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
   const emailChange = (e) => {
     setEmail(e.target.value);
+    setError(null);
   };
 
-  // Enviar nueva contraseña al email
-  const setNewPassword = () => {};
+  const home = useNavigate();
+
+  const setNewPassword = (e) => {
+    e.preventDefault();
+
+    // validar correo y contraseña coinsidan en la DB
+    let USER; // Variable de apoyo
+    DB.users.forEach((usr, index, arr) => {
+      if (email === usr.email) {
+        USER = structuredClone(arr[index]);
+      }
+    });
+    DB.currentUser = USER;
+
+    if (DB.currentUser != null) {
+      home("/home");
+    } else if (!email) {
+      setError("Por favor, ingresa tu correo electrónico.");
+    } else if (!isValidEmail(email)) {
+      setError("Correo electrónico inválido. Ingresa un correo válido.");
+    } else {
+      // Lógica para enviar la nueva contraseña al email o manejar la verificación
+      // En este ejemplo, simplemente establezco un mensaje de error simulado
+      setError("El correo electrónico no existe en la base de datos.");
+    }
+  };
+
+  const isValidEmail = (email: string): boolean => {
+    // Puedes usar una expresión regular u otra lógica para verificar el formato del correo electrónico
+    return /\S+@\S+\.\S+/.test(email);
+  };
+
   // ------------------------------------------------------------------------------------ RETURN
   return (
     <div className={props.className}>
@@ -35,6 +69,7 @@ const _ForgotPassScreen = (props: ForgotPassScreenProps) => {
             value={email}
             onChange={emailChange}
           />
+          {error && <p className="error-message">{error}</p>}
           <button className="forgotpass-form-button" onClick={setNewPassword}>
             Continuar
           </button>
@@ -50,7 +85,7 @@ const ForgotPassScreen = styled(_ForgotPassScreen)<ForgotPassScreenProps>`
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-image: url(${ImageProvider.background.login});
+  background-image: url(${ImageProvider.backgroundImages.all});
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -121,6 +156,7 @@ const ForgotPassScreen = styled(_ForgotPassScreen)<ForgotPassScreenProps>`
       font-style: normal;
       font-weight: 700;
       line-height: normal;
+      cursor: pointer;
     }
   }
 `;
