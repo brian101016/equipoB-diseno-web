@@ -1,13 +1,9 @@
 import schoolPattern from 'theme/images/background/School-pattern.svg';
 import userPicture from 'theme/images/icon/UserBlack-Gray-WhiteBack.png';
-import courseButtons from '@theme/courseButtons.scss';
+import StyledCourseButtons from 'styled-components'; 
 
 //###########################################INTERFAZ###########################################
-type _Base = import("utils/classes").Base;
-// HomeworkScreen => Rename all instances to use
-type CourseButtonsProps = {} & _Base;
-
-const _CourseButtons = () => {
+const CourseButtons = () => {
     return (
         <div id="course-card">
             <div className="card-header">

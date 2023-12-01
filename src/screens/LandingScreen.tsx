@@ -84,12 +84,7 @@ const _LandingScreen = (props: LandingScreenProps) => {
           </div>
         </div>
       </section>
-
-    <div>
-      <h1>My Course Screen</h1>
-      <CourseButtons />
-    </div>
-
+      
       <footer className="landing-footer">
         <div className="footer-left">
           <img src={ImageProvider.logo.horizontal} alt="logo" />
