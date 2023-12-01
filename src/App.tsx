@@ -18,6 +18,7 @@ import {
 } from "react-router-dom";
 import { Course, _DB } from "@utils/classes";
 import { json } from "stream/consumers";
+import Alert from "@components/Alert";
 
 // ################################################################ LOAD DB
 /**
@@ -37,17 +38,17 @@ export async function loadDB() {
 }
 
 export async function saveDB() {
-  const str = JSON.stringify({users: DB.users, courses: DB.courses});
-  localStorage.setItem("studySyncDB",str);
+  const str = JSON.stringify({ users: DB.users, courses: DB.courses });
+  localStorage.setItem("studySyncDB", str);
   return null;
 }
-
 
 // ################################################################ DB MODEL
 export let DB: _DB = {
   users: [],
   courses: [],
   currentUser: null,
+  showAlerts(color){},
 };
 
 async function CheckUser() {
@@ -69,6 +70,7 @@ function App() {
           loader: loadDB,
           element: (
             <>
+              <Alert Msg="La operación ha sido exitosa" />
               <Navbar />
               <Outlet />
             </>

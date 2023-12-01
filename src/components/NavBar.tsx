@@ -1,4 +1,5 @@
 import ImageProvider from "@utils/ImageProvider";
+import { DB } from "App";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import styled, { css } from "styled-components";
@@ -44,8 +45,7 @@ const _Navbar = (props: NavbarProps) => {
           }}
           onClick={() => {
             navigate("home");
-          }}
-        ></button>
+          }}></button>
         <button
           className="buttonClass"
           style={{
@@ -54,8 +54,7 @@ const _Navbar = (props: NavbarProps) => {
           }}
           onClick={() => {
             navigate("class/:classid");
-          }}
-        >
+          }}>
           <div className="navbarMenu">
             <ol>
               <li>
@@ -84,22 +83,19 @@ const _Navbar = (props: NavbarProps) => {
           style={{ backgroundImage: `url(${ImageProvider.misc.navbar_user})` }}
           onClick={() => {
             navigate("/");
-          }}
-        ></button>
+          }}></button>
         <button
           className="button-landing-iniciar"
           onClick={() => {
             navigate("/login");
-          }}
-        >
+          }}>
           Iniciar Sesión
         </button>
         <button
           className="button-landing-registrar"
           onClick={() => {
             navigate("/login/signup");
-          }}
-        >
+          }}>
           Regístrate
         </button>
       </div>

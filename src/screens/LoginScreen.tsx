@@ -71,19 +71,19 @@ const _LoginScreen = (props: LoginScreenProps) => {
     // validar email no este vecio
     if (validarEmail()) {
       // Enviar mensaje de error
-      window.alert("Campo necesario");
+      DB.showAlerts("warning", "Campo necesario");
       return;
     }
     // validar email sea valido
     if (!validarEmailValido()) {
       // Enviar mensaje de error
-      window.alert("Email no valido");
+      DB.showAlerts("warning", "Email no valido");
       return;
     }
     // // validar pass no este vacio
     if (validarPass()) {
       // Enviar mensaje de error
-      window.alert("Campo necesario");
+      DB.showAlerts("warning", "Campo necesario");
       return;
     }
 
@@ -101,7 +101,7 @@ const _LoginScreen = (props: LoginScreenProps) => {
       home("/home");
     } else {
       // Enviar mensaje informacion usuario no encontrado
-      window.alert("Usuario o contraseña incorrecto");
+      DB.showAlerts("warning", "Usuario o contraseña incorrecto");
       return;
     }
   };
@@ -182,8 +182,7 @@ const _LoginScreen = (props: LoginScreenProps) => {
             <Link
               className="form-container-link"
               to={"/login/forgot"}
-              style={{ marginLeft: "auto" }}
-            >
+              style={{ marginLeft: "auto" }}>
               Olvidaste tu contraseña?
             </Link>
           </div>
