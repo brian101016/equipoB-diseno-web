@@ -307,14 +307,14 @@ export const BackgroundModal = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 9;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
   overflow: auto;
   
 `;
 
 export const Modal = styled.div`
-  position: absolute;
+  position: fixed;
   background-color: white;
   border-radius: 0.5em;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -325,7 +325,7 @@ export const Modal = styled.div`
   max-height: 90vh;
   padding: 2%;
   overflow: auto;
-  z-index: 10;
+  z-index: 999;
 
   @media screen and (max-width: 1089px) {
     width: 90%;
@@ -344,7 +344,7 @@ export const Modal2 = styled.div`
   max-height: 90vh;
   padding: 2%;
   overflow: auto;
-  z-index: 10;
+  z-index: 999;
 
   @media screen and (max-width: 425px) {
     width: 70%;
@@ -354,10 +354,11 @@ export const Modal2 = styled.div`
 
 export const CloseButton = styled.button`
   position: absolute;
+  font-size: 35px;
   top: 2%;
-  right: 1%;
+  right: 6%;
   cursor: pointer;
-  z-index: 11;
+  z-index: 999;
   background-color: transparent;
   color: #FF0000;
   font-family: 'Poppins', sans-serif;

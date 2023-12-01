@@ -6,137 +6,127 @@ import {
     Modal,
     CloseButton,
 } from "./StyledComponents";
+import PropTypes from 'prop-types';
+import { DB } from 'App';
 
-export default function ModalCalificar() {
-    const [selectOption, setSelectOption] = useState("A_Tiempo");
+ModalCalificar.propTypes = {
+    actividadId: PropTypes.string.isRequired,
+    userName: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    comments: PropTypes.array.isRequired,
+    score: PropTypes.number,
+};
+
+export default function ModalCalificar({ actividadId, userName, title, comments, student, score: initialScore, date }) {
     const [isOpen, setIsOpen] = useState(false);
-    const [rating, setRating] = useState(0);
-    const maxRating = 5;
+    const [score, setScore] = useState(initialScore || 0);
 
-    const selectChange = (event) => {
-        const selectV = event.target.value;
-        setSelectOption(selectV);
+    const updateData = (studentId, actividadId, newScore, teacherComment) => {
+        console.log('Actualiza datos:', studentId, actividadId, newScore);
+
+        DB.courses.forEach(course => {
+            const homework = course.homeworks.find(hw => hw.id === actividadId);
+            if (homework) {
+                const submission = homework.submissions.find(sub => sub.authorID === studentId);
+                if (submission) {
+                    submission.score = newScore;
+                    submission.comment = teacherComment;
+                }
+            }
+
+        });
+        console.log('Actualiza datos:', DB);
+
     };
 
-    const selectColorStyles = () => {
-        switch (selectOption) {
-            case "A_Tiempo":
-                return {
-                    border: "3px solid #EBFF00",
-                    background: "#FFF",
-                };
-            case "Con_retardo":
-                return {
-                    border: "3px solid #2CA02C",
-                    background: "#FFF",
-                };
 
-            case "Sin_entregar":
-                return {
-                    border: "3px solid #F00",
-                    background: "#FFF",
-                };
-            default:
-                return {};
-        }
-    };
 
-    const StarMouseEnter = (hovRating) => {
-        setRating(hovRating);
-    };
-
-    const starOnClick = (selectRating) => {
-        setRating(selectRating);
-    };
-
-    const stars: JSX.Element[] = [];
-
-    for (let i = 1; i <= maxRating; i++) {
-        const starClass = i <= rating ? "star filled" : "star";
-
-        stars.push(
-            <span
-                key={i}
-                className={starClass}
-                onMouseEnter={() => StarMouseEnter(i)}
-                onClick={() => starOnClick(i)}
-            >
-                ★
-            </span>
-        );
-    }
-
-    const saveQualify = () => {
+    const saveData = () => {
+        updateData(student.id, actividadId, score, teacherComment);
         setIsOpen(false);
     };
 
+
+
+    //Comentarios del alumno
+    const studentCommentsAl = comments.filter(content => content.authorID === student.id);
+    const studentCommentContentAL = studentCommentsAl.length > 0 ? studentCommentsAl[0].content : 'Sin descripcion';
+
+    //Comentario del profe
+    const studentCommentsPF = comments.filter(comment => comment.authorID === student.id);
+    const studentCommentContentPF = studentCommentsPF.length > 0 ? studentCommentsPF[0].comment : 'Sin descripcion';
+
+    const [teacherComment, setTeacherComment] = useState(studentCommentContentPF);
+
+
     return (
         <>
-            <button onClick={() => setIsOpen(true)}>Abrir modal</button>
+            <button style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={() => setIsOpen(true)}>
+                <img src={ImageProvider.icon.calificar_mini} alt="calificar" />
+            </button>
 
             {isOpen && (
                 <BackgroundModal>
                     <Modal>
                         <CloseButton onClick={() => setIsOpen(false)}>x</CloseButton>
-                        <div className="modalEstilo">
+                        <div className="modalEstilo" style={{ padding: '30px' }}>
                             <div className="modalActity">
-                                <h2 className="textBlue">Actividad 12</h2>
+                                <h2 className="textBlue">Actividad {parseInt(actividadId) || 0}</h2>
                                 <div className="minLinea"></div>
-                                <h2 className="textGrey">Practica web</h2>
+                                <h2 className="textGrey">{title}</h2>
                             </div>
                             <div className="maxLinea"></div>
                             <div className="textNF">
                                 <div className="nameImage">
                                     <h3>
                                         <span style={{ color: '#888' }}>De </span>
-                                        <span style={{ color: '#127EC2' }}>Javier Manjarrez</span>
+                                        <span style={{ color: '#127EC2' }}>{userName}</span>
                                     </h3>
                                     <img src={ImageProvider.icon.user_blue} alt="logo" />
                                 </div>
                                 <div className="textP">
                                     <p>
                                         <span style={{ color: '#888' }}>Entregado el </span>
-                                        <span style={{ color: '#127EC2' }}>18/10/2023 </span>
-                                        <span style={{ color: '#888' }}>a las </span>
-                                        <span style={{ color: '#127EC2' }}>00:02am</span>
+                                        <span style={{ color: '#127EC2' }}>{date} </span>
                                     </p>
                                 </div>
                             </div>
-                            <div className="selectStyle">
-                                <select
-                                    name="selectEnt"
-                                    className="selectRad"
-                                    value={selectOption}
-                                    onChange={selectChange}
-                                    style={selectColorStyles()}
-                                >
-                                    <option value="A_Tiempo">A tiempo</option>
-                                    <option value="Con_retardo">Con retardo</option>
-                                    <option value="Sin_entregar">Sin entregar</option>
-                                </select>
-                            </div>
+
                             <div className="comentarioEstilo">
                                 <h3>Comentario del alumno:</h3>
-                                <textarea name="comt" className="commentArea">
-                                    Ej: Adjunto la actividad 12 correspondiente a la practica de
-                                    algoritmo. Tuve algunas dudas que me gustaría resolver en la
-                                    siguiente sesión de asesoría.
-                                </textarea>
+                                <textarea name="comt" className="commentArea" value={studentCommentContentAL}></textarea>
                                 <div className="maxLinea2"></div>
                                 <div className="califica">
-                                    <h3>Califica el trabajo de </h3>
-                                    <h3>Javer:</h3>
+                                    <h3>Califica el trabajo de {userName}:</h3>
                                 </div>
-                                <div className="star-rating">{stars}</div>
+                                {score !== null && (
+                                    <div className="score">
+                                        <input
+                                            className="inputScore"
+                                            type="text"
+                                            value={score}
+                                            onChange={(e) => {
+                                                const parsedValue = parseInt(e.target.value);
+                                                if (e.target.value.trim() === "") {
+                                                    setScore(0);
+                                                } else if (!isNaN(parsedValue)) {
+                                                    setScore(parsedValue);
+                                                }
+                                            }}
+                                            min={0}
+                                            max={100}
+                                        />
+                                    </div>
+                                )}
                                 <h3>Retroalimentacion para el alumno:</h3>
-                                <textarea className="commentArea">
-                                    Ej: En terminos generales tu trabajo cumple con lo pedido en
-                                    la indicación, aunque debo mencionar que te faltó comentar tu
-                                    código. Con gusto lo vemos en asesorías.
-                                </textarea>
+                                <textarea
+                                    className="commentArea"
+                                    value={teacherComment}
+                                    onChange={(e) => setTeacherComment(e.target.value)}
+                                ></textarea>
                             </div>
                             <div className="buttonGuardar">
-                                <ButtonBlue className="btnGuardar" onClick={saveQualify}>
+                                <ButtonBlue className="btnGuardar" onClick={saveData}>
                                     <p>Guardar</p>
                                 </ButtonBlue>
                             </div>

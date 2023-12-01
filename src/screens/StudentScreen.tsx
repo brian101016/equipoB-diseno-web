@@ -1,5 +1,5 @@
 // ################################ IMPORTS ################################
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled, { css } from "styled-components";
 import ImageProvider from "@utils/ImageProvider";
 import { Link } from "react-router-dom";
@@ -7,9 +7,6 @@ import ModalCalificar from "@components/ModalCalificar";
 import ImageTitle from "@components/ImageTitle";
 import { Navigate, useParams } from 'react-router-dom';
 import { DB } from 'App';
-
-
-
 
 
 // ################################ INTERFACES & PROPS ################################
@@ -21,7 +18,6 @@ type StudentScreenProps = {
 // ################################ RENDERING COMPONENT ################################
 const _StudentScreen = (props: StudentScreenProps) => {
 
-  // ------------------------------ Verificacion usuario -------------------------------
   const { classid } = useParams();
   const currentUser = DB.currentUser;
 
@@ -65,7 +61,7 @@ const _StudentScreen = (props: StudentScreenProps) => {
   };
 
   // ######################################### HOVER ############################################
-  const [offHover, setOffHover] = useState(false);
+  const [, setOffHover] = useState(false);
 
   const handleMouseEnterCalificar = () => {
     setOffHover(true);
@@ -75,90 +71,34 @@ const _StudentScreen = (props: StudentScreenProps) => {
     setOffHover(false);
   }
 
-
-
   // #################################### CONDITIONALSTYLE ######################################
 
-  //.......
-  //.......
-  //.......
+  const getStatus = (dueDate, submissions) => {
+    const currentDate = new Date();
+    const submission = submissions.find((sub) => sub.authorID === selectNameId);
 
-  // ########################################## TIME ############################################
+    if (!submission) {
+      if (dueDate < currentDate) {
+        return { status: 'Sin_entregar', text: 'No entregado' };
+      } else {
+        return { status: 'En_espera', text: 'En espera' };
+      }
+    } else {
+      return { status: 'Entregado', text: 'Entregado' };
+    }
+  };
 
-  //.......
-  //.......
-  //.......
+  // ######################### Función para formatear la fecha ######################################
+  const formatDate = (dueDate) => {
+    const dateObj = new Date(dueDate);
+    const day = dateObj.getDate() + 1;
+    const month = dateObj.getMonth() + 1;
+    const year = dateObj.getFullYear();
 
-  // ################################ LIST NAME AND ACTIVITY #####################################
+    const formatDay = day < 10 ? `0${day}` : day;
+    const formatMonth = month < 10 ? `0${month}` : month;
 
-  // -------------------------------- Datos de nombre del alumno y actividades ------------------------------------
-  const listData = {
-    students: [
-      {
-        id: 1,
-        name: "Luis Enriquez",
-        activities: [
-          {
-            id: 1,
-            nameActivity: "Actividad 1 mapa mental",
-            description: "Descripción de la actividad 1",
-          },
-          {
-            id: 2,
-            nameActivity: "Actividad 2 presentación",
-            description: "Descripción de la actividad 2",
-          },
-        ],
-      },
-      {
-        id: 2,
-        name: "Otro Estudiante",
-        activities: [
-          {
-            id: 1,
-            nameActivity: "Actividad 1 mapa mental",
-            description: "Descripción de la actividad 1",
-          },
-          {
-            id: 2,
-            nameActivity: "Actividad 2 presentación",
-            description: "Descripción de la actividad 2",
-          },
-        ],
-      },
-      {
-        id: 3,
-        name: "Alex",
-        activities: [
-          {
-            id: 1,
-            nameActivity: "Actividad 1 mapa mental",
-            description: "Descripción de la actividad 1",
-          },
-          {
-            id: 2,
-            nameActivity: "Actividad 2 presentación",
-            description: "Descripción de la actividad 2",
-          },
-        ],
-      },
-      {
-        id: 4,
-        name: "Juan Pablo",
-        activities: [
-          {
-            id: 1,
-            nameActivity: "Actividad 1 mapa mental",
-            description: "Descripción de la actividad 1",
-          },
-          {
-            id: 2,
-            nameActivity: "Actividad 2 presentación",
-            description: "Descripción de la actividad 2",
-          },
-        ],
-      },
-    ],
+    return `${formatDay}-${formatMonth}-${year}`;
   };
 
   // -------------------------------- boton de todas las listas ------------------------------------
@@ -171,47 +111,65 @@ const _StudentScreen = (props: StudentScreenProps) => {
   };
 
   // -------------------------------- Nombre del alumno y actividades ------------------------------------
-  const nameOptions = listData.students.map((result) => result.name);
-  const activityOptions = listData.students
-    .flatMap((student) =>
-      student.activities.map((activity) => activity.nameActivity)
-    )
-    .filter((name, index, self) => self.indexOf(name) === index);
+  const teacherIDs = DB.courses.map((course) => course.teacherID);
 
+  const nameOptions = DB.users
+    .filter((user) => !teacherIDs.includes(user.id))
+    .map((user) => user.name);
+
+  const activityOptions = DB.courses
+    .flatMap((course) =>
+      course.homeworks.map((homework) => homework.title)
+    )
+    .filter((title, index, self) => self.indexOf(title) === index);
   // ----------------------------- selección de elementos en la lista. ------------------------------------
   const [selectNameId, setSelectNameId] = useState(null);
   const [selectedActivityId, setSelectedActivityId] = useState(null);
   const [, setDisableClick] = useState(false);
 
 
+  // ----------------------------- Select Nombre y Actividad. ------------------------------------
 
   const menuDesplz = (studentId, activityId) => {
     if (studentId === selectNameId && activityId === selectedActivityId) {
       setSelectNameId(null);
       setSelectedActivityId(null);
-      setDisableClick(false);
+      setDisableClick(true);
     } else {
       setSelectNameId(studentId);
       setSelectedActivityId(activityId);
-      setDisableClick(true);
+      setDisableClick(false);
     }
   };
 
-  // ----------------------------- Filitro nombre del alumno y actividades ------------------------------------
-  const filitro = listData.students.map((student) => {
-    const filitroActivities = student.activities.filter((activity) => {
-      return (
-        selectActivity === "Actividad" ||
-        activity.nameActivity === selectActivity
-      );
-    });
+  // -------------------------------------------- El código abre un modal al hacer clic. --------------------------
+  const [, setIsModalOpen] = useState(false);
 
-    if (selectName === "Nombre" || student.name === selectName) {
-      return { ...student, activities: filitroActivities };
-    } else {
-      return { ...student, activities: [] };
-    }
-  });
+  const handleClick = (studentId, activityId) => {
+
+    setIsModalOpen(true);
+  };
+
+  // ----------------------------- Filitro nombre del alumno y actividades ------------------------------------
+  const filitro = DB.courses.flatMap((course) =>
+    course.students.flatMap((studentId) => {
+      const student = DB.users.find((user) => user.id === studentId);
+      if (student) {
+        const filitroHomeworks = course.homeworks.filter((homework) => {
+          return (
+            selectActivity === "Actividad" ||
+            homework.title === selectActivity
+          );
+        });
+
+        if (selectName === "Nombre" || student.name === selectName) {
+          return { ...student, homeworks: filitroHomeworks };
+        }
+      }
+      return null;
+    })
+  );
+
 
   // ----------------------------- Validacion de permisos de usuario  -----------------------------------------
   if (!classid || !currentUser || !DB.courses.some((course) => course.id === classid && course.teacherID === currentUser.id)) {
@@ -221,7 +179,6 @@ const _StudentScreen = (props: StudentScreenProps) => {
   // ------------------------------------------------------------------------------------ RETURN
   return (
     <>
-      <ModalCalificar />
       <div className={props.className}>
         <div className="container">
           <body>
@@ -303,9 +260,9 @@ const _StudentScreen = (props: StudentScreenProps) => {
                   </thead>
                   <tbody>
                     {filitro.map((student) =>
-                      student.activities.map((activity) => (
+                      student?.homeworks.map((activity) => (
                         <React.Fragment key={activity.id}>
-                          <tr onClick={() => menuDesplz(student.id, activity.id)}>
+                          <tr onClick={() => handleClick(student.id, activity.id)}>
                             <td className="tdArrow" onClick={() => menuDesplz(student.id, activity.id)}>
                               <div className={`arrowText ${student.id === selectNameId && activity.id === selectedActivityId ? "active" : ""}`}>
                                 <div className={`arrowIconIzq ${student.id === selectNameId && activity.id === selectedActivityId ? "active" : ""}`}></div>
@@ -317,26 +274,37 @@ const _StudentScreen = (props: StudentScreenProps) => {
                                   {student.name}
                                 </p>
                                 <div className="minLinea"></div>
-                                <p className="textG">{activity.nameActivity}</p>
+                                <p className="textG">Actividad {parseInt(activity.id) || 0} {activity.title}</p>
                               </div>
                             </td>
                             <td className="tdDate">
                               <div className="radBox">
                                 <img className="iconCalender" src={ImageProvider.icon.calendar_mini} alt="calendario" />
-                                <p>01-11-2023: 23:59</p>
+                                <p>{formatDate(activity.dueDate)}</p>
                               </div>
                             </td>
                             <td className="tdCalificar">
                               <div className="radBox">
-                                <Link className="iconCalificar" to={""} onMouseEnter={handleMouseEnterCalificar} onMouseLeave={handleMouseLeaveCalificar}>
-                                  <img src={ImageProvider.icon.calificar_mini} alt="calificar" />
+                                <Link className="iconCalificar"
+                                  to={""}
+                                  onMouseEnter={handleMouseEnterCalificar}
+                                  onMouseLeave={handleMouseLeaveCalificar}>
+                                  <ModalCalificar
+                                    actividadId={activity.id}
+                                    userName={student.name}
+                                    title={activity.title}
+                                    comments={activity.submissions}
+                                    student={student}
+                                    score={activity.submissions.find(sub => sub.authorID === student.id)?.score || 0}
+                                    date={activity.dueDate}
+                                  />
                                 </Link>
                               </div>
                             </td>
                             <td className="tdEstatus">
                               <div className="radBox">
-                                <div className="conditionStyle">
-                                  <p>Entregado</p>
+                                <div className={`conditionStyle ${getStatus(activity.dueDate, activity.submissions).status}`}>
+                                  <p>{getStatus(activity.dueDate, activity.submissions).text}</p>
                                 </div>
                               </div>
                             </td>
@@ -345,7 +313,7 @@ const _StudentScreen = (props: StudentScreenProps) => {
                             <tr>
                               <td className="menuBox" colSpan={5}>
                                 <p className={`activityDescription ${student.id === selectNameId && activity.id === selectedActivityId ? "active" : ""}`}>
-                                  <div className="positionDesc">{activity.description}</div>
+                                  <div className="positionDesc">{activity.desc}</div>
                                 </p>
                               </td>
                             </tr>
@@ -363,8 +331,6 @@ const _StudentScreen = (props: StudentScreenProps) => {
     </>
   );
 };
-
-
 
 // ################################ STYLES ################################
 const StudentScreen = styled(_StudentScreen) <StudentScreenProps>`
@@ -384,6 +350,10 @@ body {
     width: 800px;
   }
 
+}
+
+.imageTitle{
+  margin-top: 15px;
 }
 
 .image-class {
@@ -411,7 +381,6 @@ body {
 
 .wrapper {
   display: flex;
-  //padding-left: 75px;
   justify-content: center;
   margin-left: 30px;
 
@@ -747,9 +716,9 @@ body {
   }
 
   .tdEstatus {
-    width: 13%;
+  width: 13%;
 
-    .radBox {
+  .radBox {
       border-radius: 30px;
       height: 70px;
       display: flex;
@@ -757,21 +726,34 @@ body {
       align-items: center;
       font-size: 1.2rem;
 
-      .conditionStyle {
-        border: 3px solid green;
-        border-radius: 2rem;
-        padding: 0.4rem;
+    .conditionStyle {
+      border-radius: 2rem;
+        padding: 0.6rem;
 
-        p {
-          color: green;
-          font-family: "Poppins", sans-serif;
+      &.Sin_entregar {
+        border: 3px solid red;
+        p{
+          color: red;
         }
-
       }
 
-    }
+      &.Entregado {
+        border: 3px solid green;
+        p{
+          color: green;
+        }
+      }
 
+      &.En_espera {
+        border: 3px solid #d99008;
+        p{
+          color: #d99008;
+        }
+      }
+    }
   }
+}
+
 
   @media screen and (max-width: 425px) {
     .tdEstatus .radBox .conditionStyle {

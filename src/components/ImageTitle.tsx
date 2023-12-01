@@ -6,7 +6,6 @@ type Image_TitleProps = {
 };
 
 const Image_Title = (props: Image_TitleProps) => {
-    console.log("bgColor:", props.bgColor);
     return (
         <div className="imageTitle">
             <div
