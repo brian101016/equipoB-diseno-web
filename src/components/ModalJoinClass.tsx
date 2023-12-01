@@ -9,7 +9,7 @@ import {
 export default function ModalJoinClass() {
     const [modal, setModal] = useState(false);
     const [idclass, setIdclass] = useState("");
-    const [idmensaje, setIdmensaje] = useState("p");
+    const [idmensaje, setIdmensaje] = useState("");
     
 
     const idclassChange = (e) => {
@@ -85,7 +85,7 @@ export default function ModalJoinClass() {
                     <h2>INGRESA A UNA CLASE</h2>
                     <div className="modal-content">
                     <input
-                    className="c"
+                    className="inputmin"
                         value={idclass}
                         onChange={idclassChange}>
                     </input>

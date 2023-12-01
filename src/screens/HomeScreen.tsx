@@ -4,7 +4,7 @@ import ActivitiesExpire from "@components/ActivitiesExpire";
 import ProgressBar from "@components/ProgressBar";
 import styled, { css } from "styled-components";
 import { generateColor } from "scripts/scripts";
-import ModalJoinClass from "@components/ModalJoinClass"
+import ModalJoinClass from "@components/ModalJoinClass";
 // ################################ INTERFACES & PROPS ################################
 type _Base = import("utils/classes").Base;
 // HomeScreen => Rename all instances to use
@@ -16,8 +16,9 @@ const _HomeScreen = (props: HomeScreenProps) => {
   return (
     
     <div className={props.className}>
-      
+    <div className="center">
     <ModalJoinClass></ModalJoinClass>
+    </div>  
       <div className="home-contenido">
         
         <div className="contenido-clases">
