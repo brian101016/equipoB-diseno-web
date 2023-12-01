@@ -4,7 +4,9 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ImageProvider from "@utils/ImageProvider";
 import { DB } from "App";
+import ModalNewClass from "@components/ModalNewClass";
 import { validarEmailValido } from "scripts/scripts";
+
 // ################################ INTERFACES & PROPS ################################
 type _Base = import("utils/classes").Base;
 // LoginScreen => Rename all instances to use
@@ -12,6 +14,7 @@ type LoginScreenProps = {} & _Base;
 
 // ################################ RENDERING COMPONENT ################################
 const _LoginScreen = (props: LoginScreenProps) => {
+  const [estadoModal, cambiarEstadoModal] = useState(false);
   const [passInput, setPassInput] = useState(false);
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
@@ -30,6 +33,14 @@ const _LoginScreen = (props: LoginScreenProps) => {
 
   const RememberChange = () => {
     remember === 0 ? setRemember(1) : setRemember(0);
+  };
+
+  const cambiarEstadoModalNC = () => {
+    if (estadoModal) {
+      cambiarEstadoModal(false);
+    } else {
+      cambiarEstadoModal(true);
+    }
   };
 
   // funcion que lleva de Login a Signup usando un boton
@@ -69,7 +80,7 @@ const _LoginScreen = (props: LoginScreenProps) => {
   // Funcion para validar inicio de sesion
   const home = useNavigate();
   const validarInicioSesion = () => {
-    // validar email no este vacio
+    // validar email no este vecio
     if (validarEmail()) {
       // Enviar mensaje de error
       DB.showAlerts("warning", "Campo necesario");
@@ -106,6 +117,12 @@ const _LoginScreen = (props: LoginScreenProps) => {
       return;
     }
   };
+
+  const pruebaModal = () => {
+    //<ModalNewClass></ModalNewClass>;
+    console.log("Entro");
+  };
+
   // Valida que el campo email no esta vacio
   const validarEmail = () => {
     if (email.length === 0) {
@@ -178,7 +195,8 @@ const _LoginScreen = (props: LoginScreenProps) => {
             <Link
               className="form-container-link"
               to={"/login/forgot"}
-              style={{ marginLeft: "auto" }}>
+              style={{ marginLeft: "auto" }}
+            >
               Olvidaste tu contraseña?
             </Link>
           </div>
@@ -197,7 +215,10 @@ const _LoginScreen = (props: LoginScreenProps) => {
             <div className="span-vector"></div>
           </div>
 
-          <button className="button buttonGoogle">
+          <button
+            className="button buttonGoogle"
+            onClick={cambiarEstadoModalNC}
+          >
             <div className="icon-container">
               <img
                 src={ImageProvider.logo.google_mini}
@@ -212,6 +233,14 @@ const _LoginScreen = (props: LoginScreenProps) => {
     </div>
   ); // End return
 }; // End fuction
+
+/**
+ 
+<ModalNewClass
+                estado={estadoModal}
+                setEstado={cambiarEstadoModal}
+            ></ModalNewClass>
+ */
 
 // ################################ STYLES ################################
 const LoginScreen = styled(_LoginScreen)<LoginScreenProps>`
