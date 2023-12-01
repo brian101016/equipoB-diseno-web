@@ -5,6 +5,9 @@ import ImageProvider from "@utils/ImageProvider";
 import { Link } from "react-router-dom";
 import ModalCalificar from "@components/ModalCalificar";
 import ImageTitle from "@components/ImageTitle";
+import { Navigate, useParams } from 'react-router-dom';
+import { DB } from 'App';
+
 
 
 
@@ -17,6 +20,11 @@ type StudentScreenProps = {
 
 // ################################ RENDERING COMPONENT ################################
 const _StudentScreen = (props: StudentScreenProps) => {
+
+  // ------------------------------ Verificacion usuario -------------------------------
+  const { classid } = useParams();
+  const currentUser = DB.currentUser;
+
   // ################################ SELECT NAME #####################################
   // -------------Controla menú desplegable y  cambia nombre seleccionada. -------------
   const [openName, setOpenName] = useState(false);
@@ -204,6 +212,11 @@ const _StudentScreen = (props: StudentScreenProps) => {
       return { ...student, activities: [] };
     }
   });
+
+  // ----------------------------- Validacion de permisos de usuario  -----------------------------------------
+  if (!classid || !currentUser || !DB.courses.some((course) => course.id === classid && course.teacherID === currentUser.id)) {
+    return <Navigate to={`/class/${classid}`} />;
+  }
 
   // ------------------------------------------------------------------------------------ RETURN
   return (
