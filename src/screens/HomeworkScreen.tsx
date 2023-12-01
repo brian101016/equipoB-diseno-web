@@ -206,7 +206,7 @@ const HomeworkScreen = styled(_HomeworkScreen)<HomeworkScreenProps>`
       border-bottom: 2px solid #127ec2;
     }
     .comment-homework {
-      width: 1100px;
+      width: 100px;
       height: 256px;
       flex-shrink: 0;
       border-radius: 23px;
@@ -256,6 +256,14 @@ const HomeworkScreen = styled(_HomeworkScreen)<HomeworkScreenProps>`
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+    }
+    .container-aside{
+      display: flex;
+      margin: 10px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 1rem;
     }
     .container-tutarea {
       position: absolute;
@@ -317,7 +325,7 @@ const HomeworkScreen = styled(_HomeworkScreen)<HomeworkScreenProps>`
       align-items: center;
       flex-direction: column;
       position: absolute;
-      top: 45%;
+      top: 47%;
       padding: 1.5rem;
       border-radius: 23px;
       background: #fff;
@@ -404,6 +412,7 @@ const HomeworkScreen = styled(_HomeworkScreen)<HomeworkScreenProps>`
     }
     .container-menu {
       img {
+        border-radius: 100%;
         height: 4rem;
         margin: 0 0.5rem;
         cursor: pointer;
