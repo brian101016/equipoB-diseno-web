@@ -2,6 +2,7 @@
 import ImageProvider from "@utils/ImageProvider";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
+import CourseButtons from "@components/courseButtons";
 
 // ################################ INTERFACES & PROPS ################################
 type _Base = import("utils/classes").Base;
@@ -83,7 +84,7 @@ const _LandingScreen = (props: LandingScreenProps) => {
           </div>
         </div>
       </section>
-
+      
       <footer className="landing-footer">
         <div className="footer-left">
           <img src={ImageProvider.logo.horizontal} alt="logo" />

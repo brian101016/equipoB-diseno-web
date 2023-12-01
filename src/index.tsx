@@ -4,6 +4,7 @@ import App from "./App";
 import "@theme/styles.scss";
 import "@theme/ModalCalificar.scss";
 import "@theme/ModalComments.scss";
+import "@theme/courseButtons.scss";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
