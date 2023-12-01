@@ -92,6 +92,7 @@ const HomeScreen = styled(_HomeScreen)<HomeScreenProps>`
   ${(props) => css``}
   .home-contenido{
     background-image: url(${ImageProvider.backgroundImages.all});
+    background-size: 110%;
   }
 `;
 
