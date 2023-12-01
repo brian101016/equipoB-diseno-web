@@ -9,7 +9,9 @@ $color-gris-oscuro: #6C6B6B;
 
 }
 
+
 .modalEstilo {
+    padding: 30px;
 
     .modalActity {
 
@@ -102,7 +104,7 @@ $color-gris-oscuro: #6C6B6B;
     .selectStyle {
         display: flex;
         justify-content: flex-end;
-        
+
         .selectRad {
             border-radius: 20px;
             border: none;
@@ -113,7 +115,7 @@ $color-gris-oscuro: #6C6B6B;
             text-align: center;
             padding: 0;
 
-            @media screen and (max-width:600px){
+            @media screen and (max-width:600px) {
                 font-size: 13px;
             }
 
@@ -129,8 +131,9 @@ $color-gris-oscuro: #6C6B6B;
 
             }
 
-            
+
         }
+
         @media screen and (max-width: 600px) {
             display: flex;
             justify-content: center;
@@ -143,7 +146,8 @@ $color-gris-oscuro: #6C6B6B;
 
     .comentarioEstilo {
         margin-top: 30px;
-
+        display: grid;
+        place-items: center;
 
         h3 {
             color: $color-gris-oscuro;
@@ -194,27 +198,38 @@ $color-gris-oscuro: #6C6B6B;
         .califica h3 {
             margin-left: 5px;
         }
+        
+        .score {
+            width: 100px;
+            height: 50px;
+            margin-top: 20px;
+            border: 2px solid black;
+            border-radius: 30px;
+            display: grid;
+            place-items: center;
 
-        .star-rating {
-            text-align: center;
 
-            .star {
-                font-size: 54px;
-                cursor: pointer;
-                color: #ccc;
-                transition: color 0.3s;
+            .inputScore {
+                background: none;
+                font-size: 30px;
+                font-family: 'Poppins', sans-serif;
+                border: none;
+                width: 90px;
+                text-align: center;
 
-                &:hover {
-                    color: #fadb14;
+                &:focus {
+                    outline: none;
                 }
+            }
 
-                &.filled {
-                    color: #fadb14;
-                }
+            input[type="number"] {
+                -moz-appearance: textfield;
+                appearance: textfield;
 
-                &.selected {
-                    color: #fadb14;
-                    color: #7a5216;
+                &::-webkit-inner-spin-button,
+                &::-webkit-outer-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
                 }
             }
         }
