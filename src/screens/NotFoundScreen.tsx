@@ -2,6 +2,7 @@
 import Spinner from "@components/Spinner";
 import { useRouteError } from "react-router-dom";
 import styled, { css } from "styled-components";
+import ImageProvider from "@utils/ImageProvider";
 
 // ################################ INTERFACES & PROPS ################################
 type _Base = import("utils/classes").Base;
@@ -23,7 +24,7 @@ const _NotFoundScreen = (props: NotFoundScreenProps) => {
 
   // ------------------------------------------------------------------------------------ RETURN
   return (
-    <div>
+    <div className="notFound">
       {err ? (
         <>
           <h1>Error {info.status}</h1>
@@ -41,7 +42,10 @@ const _NotFoundScreen = (props: NotFoundScreenProps) => {
 
 // ################################ STYLES ################################
 const NotFoundScreen = styled(_NotFoundScreen)<NotFoundScreenProps>`
-  ${(props) => css``}
+    .notFound{
+    height: 100vh;
+    background-image: url(${ImageProvider.backgroundImages.all});
+  }
 `;
 
 // ################################ EXPORTS ################################

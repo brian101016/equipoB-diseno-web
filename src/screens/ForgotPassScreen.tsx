@@ -50,7 +50,7 @@ const ForgotPassScreen = styled(_ForgotPassScreen)<ForgotPassScreenProps>`
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-image: url(${ImageProvider.background.login});
+  background-image: url(${ImageProvider.backgroundImages.all});
   background-repeat: no-repeat;
   background-size: cover;
 

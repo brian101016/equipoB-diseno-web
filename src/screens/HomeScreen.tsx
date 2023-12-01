@@ -4,6 +4,7 @@ import ActivitiesExpire from "@components/ActivitiesExpire";
 import ProgressBar from "@components/ProgressBar";
 import styled, { css } from "styled-components";
 import { generateColor } from "scripts/scripts";
+import ImageProvider from "@utils/ImageProvider";
 
 // ################################ INTERFACES & PROPS ################################
 type _Base = import("utils/classes").Base;
@@ -89,6 +90,9 @@ const _HomeScreen = (props: HomeScreenProps) => {
 // ################################ STYLES ################################
 const HomeScreen = styled(_HomeScreen)<HomeScreenProps>`
   ${(props) => css``}
+  .home-contenido{
+    background-image: url(${ImageProvider.backgroundImages.all});
+  }
 `;
 
 // ################################ EXPORTS ################################

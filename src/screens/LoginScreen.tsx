@@ -230,7 +230,7 @@ const LoginScreen = styled(_LoginScreen)<LoginScreenProps>`
   }
 
   height: 100%;
-  background-image: url(${ImageProvider.background.login});
+  background-image: url(${ImageProvider.backgroundImages.all});
   background-size: cover;
   display: flex;
   justify-content: center;

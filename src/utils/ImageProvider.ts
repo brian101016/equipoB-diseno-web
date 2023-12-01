@@ -1,6 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable import/first */
 
+(""); // ################################ BACKGROUND IMAGES ################################
+import all from "@theme/images/background-images/all.png";
+import home from "@theme/images/background-images/home.png";
+import notFound from "@theme/images/background-images/notFound.png";
+
 (""); // ################################ BACKGROUND ################################
 import background_buttonClass from "@theme/images/background/buttonClass.png";
 import background_buttonClassSVG from "@theme/images/background/buttonClass.svg";
@@ -80,6 +85,12 @@ const ImageProvider = {
     Mensaje: floating_Mensaje,
     Notificacion: floating_Notificacion,
     Nuevo: floating_Nuevo,
+  },
+  
+  backgroundImages: {
+    all: all,
+    home: home,
+    notFound: notFound,
   },
 
   background: {
