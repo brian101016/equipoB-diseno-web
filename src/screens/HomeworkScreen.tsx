@@ -24,7 +24,6 @@ type HomeworkScreenProps = {
 
 // ################################ RENDERING COMPONENT ################################
 const _HomeworkScreen = (props: HomeworkScreenProps) => {
-
   // ------------------------------------------------------------------------------------ RETURN
   return (
     <div className={props.className}>
@@ -206,7 +205,7 @@ const HomeworkScreen = styled(_HomeworkScreen)<HomeworkScreenProps>`
       border-bottom: 2px solid #127ec2;
     }
     .comment-homework {
-      width: 100px;
+      width: 100%;
       height: 256px;
       flex-shrink: 0;
       border-radius: 23px;
@@ -214,7 +213,8 @@ const HomeworkScreen = styled(_HomeworkScreen)<HomeworkScreenProps>`
       box-shadow: 2px 5px 8px 8px rgba(0, 0, 0, 0.15);
       font-size: x-large;
       padding: 1rem;
-      min-width: 100%;
+      resize: none;
+      overflow: auto;
     }
     .container-comments {
       margin-top: 1rem;
@@ -257,7 +257,7 @@ const HomeworkScreen = styled(_HomeworkScreen)<HomeworkScreenProps>`
       font-weight: 400;
       line-height: normal;
     }
-    .container-aside{
+    .container-aside {
       display: flex;
       margin: 10px;
       justify-content: center;
