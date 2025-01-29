@@ -78,7 +78,7 @@ export class Course extends _setup {
   /**
    * @param ini similar a {@link _setup.setup}
    */
-  constructor(ini?: Partial<User>) {
+  constructor(ini?: Partial<Course>) {
     super();
     this.setup(ini);
   }
@@ -111,7 +111,7 @@ export class Homework extends _setup {
   /**
    * @param ini similar a {@link _setup.setup}
    */
-  constructor(ini?: Partial<User>) {
+  constructor(ini?: Partial<Homework>) {
     super();
     this.setup(ini);
   }
@@ -144,7 +144,7 @@ export class Comment_ extends _setup {
   /**
    * @param ini similar a {@link _setup.setup}
    */
-  constructor(ini?: Partial<User>) {
+  constructor(ini?: Partial<Comment_>) {
     super();
     this.setup(ini);
   }
@@ -173,7 +173,7 @@ export class Submission extends Comment_ {
   /**
    * @param ini similar a {@link _setup.setup}
    */
-  constructor(ini?: Partial<User>) {
+  constructor(ini?: Partial<Submission>) {
     super();
     this.setup(ini);
   }

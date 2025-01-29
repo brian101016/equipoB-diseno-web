@@ -26,13 +26,24 @@ import Alert from "@components/Alert";
  * desde GitHub para poder usarla localmente dentro de `DB`.
  */
 export async function loadDB() {
-  const URL =
-    "https://raw.githubusercontent.com/brian101016/equipoB-diseno-web/main/src/utils/database.json";
-  const request = await fetch(URL);
-  const response = await request.json();
-  // const str = JSON.stringify(response);
-  // localStorage.setItem("projectDBTest", str);
-  DB = response;
+  let response: Partial<_DB>;
+  const local = localStorage.getItem("studySyncDB");
+  if (local) {
+    response = JSON.parse(local);
+  } else {
+    const URL =
+      "https://raw.githubusercontent.com/brian101016/equipoB-diseno-web/main/src/utils/database.json";
+    const request = await fetch(URL);
+    response = await request.json();
+  }
+
+  DB = {
+    users: response.users || [],
+    courses: response.courses || [],
+    currentUser: DB.currentUser,
+    showAlerts: DB.showAlerts,
+  };
+
   saveDB();
   return null;
 }
@@ -48,13 +59,13 @@ export let DB: _DB = {
   users: [],
   courses: [],
   currentUser: null,
-  showAlerts(color){},
+  showAlerts: (color, msg) => {},
 };
 
 async function CheckUser() {
   if (!DB.currentUser) {
-    alert("Inicia sesión para continuar");
     console.log(DB);
+    DB.showAlerts("warning", "Inicia sesión para continuar");
     return redirect("/login");
   }
   return null;
@@ -139,6 +150,7 @@ function App() {
           loader: loadDB,
           element: (
             <>
+              <Alert Msg="La operación ha sido exitosa" />
               <Navbar />
               <NotFoundScreen />
             </>

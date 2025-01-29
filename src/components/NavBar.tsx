@@ -45,7 +45,8 @@ const _Navbar = (props: NavbarProps) => {
           }}
           onClick={() => {
             navigate("home");
-          }}></button>
+          }}
+        ></button>
         <button
           className="buttonClass"
           style={{
@@ -53,8 +54,9 @@ const _Navbar = (props: NavbarProps) => {
             position: "relative",
           }}
           onClick={() => {
-            navigate("class/:classid");
-          }}>
+            navigate("class/123ab");
+          }}
+        >
           <div className="navbarMenu">
             <ol>
               <li>
@@ -83,19 +85,22 @@ const _Navbar = (props: NavbarProps) => {
           style={{ backgroundImage: `url(${ImageProvider.misc.navbar_user})` }}
           onClick={() => {
             navigate("/");
-          }}></button>
+          }}
+        ></button>
         <button
           className="button-landing-iniciar"
           onClick={() => {
             navigate("/login");
-          }}>
+          }}
+        >
           Iniciar Sesión
         </button>
         <button
           className="button-landing-registrar"
           onClick={() => {
             navigate("/login/signup");
-          }}>
+          }}
+        >
           Regístrate
         </button>
       </div>

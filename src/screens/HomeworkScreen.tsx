@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import ImageProvider from "@utils/ImageProvider";
 import { useState, useEffect } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { DB } from "App";
 
 // ################################ INTERFACES & PROPS ################################
@@ -27,8 +27,9 @@ type HomeworkScreenProps = {
 
 // ################################ RENDERING COMPONENT ################################
 const _HomeworkScreen = (props: HomeworkScreenProps) => {
-  const { workid } = useParams();
+  const { classid, workid } = useParams();
   const [homeworkNotFound, setHomeworkNotFound] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchHomeworkNotFound = async () => {
@@ -53,7 +54,7 @@ const _HomeworkScreen = (props: HomeworkScreenProps) => {
 
   if (homeworkNotFound) {
     return <Navigate to="/not-found" />;
-  };
+  }
 
   // ------------------------------------------------------------------------------------ RETURN
   return (
@@ -138,7 +139,7 @@ const _HomeworkScreen = (props: HomeworkScreenProps) => {
             <h3 className="title-tutarea">
               Tu tarea <span className="status-tutarea">Para realizar</span>
             </h3>
-            <button className="btn-complete" onClick={validar}>Completar tarea</button>
+            <button className="btn-complete">Completar tarea</button>
             <button className="btn-showComments">
               Ver comentarios del maestro
             </button>
@@ -170,7 +171,12 @@ const _HomeworkScreen = (props: HomeworkScreenProps) => {
           <div className="btn-edit">
             <img src={ImageProvider.homework.icon_edit} alt="Boton edit" />
           </div>
-          <div className="btn-check">
+          <div
+            className="btn-check"
+            onClick={() => {
+              navigate("/class/" + classid + "/student");
+            }}
+          >
             <img src={ImageProvider.homework.icon_check} alt="Boton check" />
           </div>
           <div className="btn-delete">
@@ -183,67 +189,67 @@ const _HomeworkScreen = (props: HomeworkScreenProps) => {
 };
 
 // -----------------------------------------------------------------------LOGICA BOTONES
-function validar(){
-  const _HomeworkScreen = (props: HomeworkScreenProps) => {
-    const [newSubmissionContent, setNewSubmissionContent] = useState("");
-  
-    const handleCompleteTask = () => {
-      const existingSubmission = DB.courses[0].homeworks[0].submissions[0].authorID.find(
-        (submission) => submission.id === props.author
-      );
-  
-      if (existingSubmission) {
-        const updatedSubmissions = props.submissions.map((submission) =>
-          submission.id === props.author
-            ? { ...submission, content: newSubmissionContent }
-            : submission
-        );
-        updateSubmissions(updatedSubmissions);
-      } else {
-        const newSubmission = {
-          id: props.author,
-          content: newSubmissionContent,
-        };
-        updateSubmissions([...props.submissions, newSubmission]);
-      }
-    };
-  
-    // currentUser es el usuario actual con id "52e"
-    const currentUser = {
-      id: "52e",
-    };
-  
-    // Función para completar la tarea
-    const completeTask = () => {
-      const homework = props.homeworks.find((hw) => hw.id === "testid");
-  
-      const existingSubmissionIndex = homework.submissions.findIndex(
-        (submission) => submission.authorID === currentUser.id
-      );
-  
-      if (existingSubmissionIndex !== -1) {
-        // Modificar el contenido de la entrega existente
-        const updatedSubmissions = [...homework.submissions];
-        updatedSubmissions[existingSubmissionIndex].content = newSubmissionContent;
-        // Actualizar el estado con las entregas modificadas
-        updateSubmissions(updatedSubmissions);
-      } else {
-        // Crear una nueva entrega si no existe
-        const newSubmission = {
-          id: "send123", // Puedes generar un nuevo ID
-          authorID: currentUser.id,
-          title: "unused",
-          content: newSubmissionContent,
-          isEdited: false,
-          date: "2023-12-01",
-          comment: "Hola soy el profe, ya esta evaluado :)",
-          score: 0 // Puedes asignar un puntaje inicial
-        };
-        // Actualizar el estado con la nueva entrega
-        updateSubmissions([...homework.submissions, newSubmission]);
-      }
-    };
-  }
+// function validar(){
+//   const _HomeworkScreen = (props: HomeworkScreenProps) => {
+//     const [newSubmissionContent, setNewSubmissionContent] = useState("");
+
+//     const handleCompleteTask = () => {
+//       const existingSubmission = DB.courses[0].homeworks[0].submissions[0].authorID.find(
+//         (submission) => submission.id === props.author
+//       );
+
+//       if (existingSubmission) {
+//         const updatedSubmissions = props.submissions.map((submission) =>
+//           submission.id === props.author
+//             ? { ...submission, content: newSubmissionContent }
+//             : submission
+//         );
+//         updateSubmissions(updatedSubmissions);
+//       } else {
+//         const newSubmission = {
+//           id: props.author,
+//           content: newSubmissionContent,
+//         };
+//         updateSubmissions([...props.submissions, newSubmission]);
+//       }
+//     };
+
+//     // currentUser es el usuario actual con id "52e"
+//     const currentUser = {
+//       id: "52e",
+//     };
+
+//     // Función para completar la tarea
+//     const completeTask = () => {
+//       const homework = props.homeworks.find((hw) => hw.id === "testid");
+
+//       const existingSubmissionIndex = homework.submissions.findIndex(
+//         (submission) => submission.authorID === currentUser.id
+//       );
+
+//       if (existingSubmissionIndex !== -1) {
+//         // Modificar el contenido de la entrega existente
+//         const updatedSubmissions = [...homework.submissions];
+//         updatedSubmissions[existingSubmissionIndex].content = newSubmissionContent;
+//         // Actualizar el estado con las entregas modificadas
+//         updateSubmissions(updatedSubmissions);
+//       } else {
+//         // Crear una nueva entrega si no existe
+//         const newSubmission = {
+//           id: "send123", // Puedes generar un nuevo ID
+//           authorID: currentUser.id,
+//           title: "unused",
+//           content: newSubmissionContent,
+//           isEdited: false,
+//           date: "2023-12-01",
+//           comment: "Hola soy el profe, ya esta evaluado :)",
+//           score: 0 // Puedes asignar un puntaje inicial
+//         };
+//         // Actualizar el estado con la nueva entrega
+//         updateSubmissions([...homework.submissions, newSubmission]);
+//       }
+//     };
+//   }
 // ################################ STYLES ################################
 const HomeworkScreen = styled(_HomeworkScreen)<HomeworkScreenProps>`
   ${(props) => css`

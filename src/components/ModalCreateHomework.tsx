@@ -1,11 +1,14 @@
-import { DB } from "App";
+import { DB, saveDB } from "App";
 import { useState } from "react";
 import "theme/ModalCreateHomework.scss";
 import { BackgroundModal, Modal2 } from "./StyledComponents";
 import { generateId } from "scripts/scripts";
 import { Homework } from "@utils/classes";
+import { useParams } from "react-router-dom";
 
 export default function ModalCreateHomework() {
+  const { classid } = useParams();
+
   const [modal, setModal] = useState(false);
   const [titulo, setTitulo] = useState("");
   const [desc, setDesc] = useState("");
@@ -27,7 +30,8 @@ export default function ModalCreateHomework() {
   };
 
   async function CreateHomework() {
-    try{/* 
+    try {
+      /* 
         const URL =
           "https://raw.githubusercontent.com/brian101016/equipoB-diseno-web/main/src/utils/database.json";
         const request = await fetch(URL);
@@ -57,7 +61,20 @@ export default function ModalCreateHomework() {
                 setmensaje("No se encontro el curso")
             }
         });*/
-        } catch(e) { setmensaje("Error al generar la tarea"); }
+      const course = DB.courses.find((c) => c.id === classid);
+      course?.homeworks.push(
+        new Homework({
+          id: generateId(5),
+          title: titulo,
+          desc: desc,
+          dueDate: new Date(fecha),
+        })
+      );
+      saveDB();
+      setModal(false);
+    } catch (e) {
+      setmensaje("Error al generar la tarea");
+    }
   }
 
   const toggleModal = () => {

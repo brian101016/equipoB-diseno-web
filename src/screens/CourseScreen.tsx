@@ -131,6 +131,7 @@ const _CourseScreen = (props: CourseScreenProps) => {
               return (
                 <RowList
                   key={index}
+                  id={homework.id}
                   numActivity={parseInt(homework.id) || 0}
                   titulo={homework.title}
                   fecha={fechaDate}
